@@ -2,3 +2,8 @@
 @use "./abstracts/variables";
 @use "./base/global";
 @use "./base/reset";
+@use "./abstracts/button";
+@use "./components/Navbar.scss";
+@use "./components/Hero.scss";
+@use "./abstracts/breakpoints";
+@use "./components/featureBlog.scss";

@@ -1,0 +1,55 @@
+@use "../../app/common-style/abstracts/mixins" as *;
+
+.blog {
+  padding: 100px 0 180px 0;
+}
+
+.container {
+  @include container;
+  position: relative;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 576px;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.hero .content {
+  position: absolute;
+  bottom: -90px;
+  top: 340px;
+  right: 20px;
+  width: 920px;
+  min-height: 360px;
+
+  background: #f8f8f8;
+  padding: 40px;
+  border-radius: 16px;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.meta {
+  font-size: 14px;
+  color: #6b6b6b;
+  margin-bottom: 12px;
+}
+
+.hero h2 {
+  font-size: 32px;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}

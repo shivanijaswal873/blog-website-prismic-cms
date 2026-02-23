@@ -1,0 +1,72 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"featured_label": {
+				"__TYPE__": "FieldContent",
+				"value": "remove",
+				"type": "Text"
+			},
+			"featured_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Do aliquip irure tempor ad ad adipisicing laborum excepteur veniam incididunt ad ullamco quis quis."
+						}
+					}
+				]
+			},
+			"featured_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Excepteur sunt id ad ullamco proident. Labore nisi amet exercitation consequat esse Lorem velit pariatur ullamco non eu ipsum incididunt ullamco."
+						}
+					}
+				]
+			},
+			"featured_button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "lungs",
+				"type": "Text"
+			},
+			"featured_button_link": {
+				"key": "6aa23b79-8984-41d7-9058-0f1c19cef82b",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "cat"
+				}
+			},
+			"featured_image": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+					"width": 6000,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+				"width": 6000,
+				"height": 4000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "anybody",
+				"thumbnails": {}
+			}
+		},
+		"items": []
+	}
+]
