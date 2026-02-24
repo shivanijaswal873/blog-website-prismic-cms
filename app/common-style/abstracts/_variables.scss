@@ -1,7 +1,10 @@
 $color-primary: #7c4ee4;
+$color-primary-hover: #693fd1;
+
 $color-dark-gray: #333333;
 $color-gray: #666666;
 $color-light-gray: #999999;
+
 $color-white: #ffffff;
 $color-light-white: #e5e5e5;
 
@@ -10,7 +13,7 @@ $font-body: "Roboto", sans-serif;
 
 $h1-size: 64px;
 $h2-size: 52px;
-$h3-size: 48;
+$h3-size: 48px;
 $h4-size: 32px;
 $h5-size: 26px;
 $h6-size: 24px;
@@ -27,3 +30,6 @@ $spacing-xl: 40px;
 $radius-sm: 4px;
 $radius-md: 8px;
 $radius-lg: 12px;
+
+$navbar-height: 98px;
+$container-width: 1200px;

@@ -1,0 +1,26 @@
+@use "../abstracts/variables" as *;
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 56px;
+  width: 180px;
+  // padding: 16px 48px;
+
+  background: linear-gradient(90deg, #7c4ee4 0%, #693fd1 100%);
+  color: $color-white;
+
+  border-radius: 8px;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+
+  transition: 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

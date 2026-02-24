@@ -1,0 +1,86 @@
+{
+  "id": "hero",
+  "type": "SharedSlice",
+  "name": "Hero",
+  "description": "Hero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "featured_label": {
+          "type": "Text",
+          "config": {
+            "label": "featured_label",
+            "placeholder": ""
+          }
+        },
+        "featured_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "featured_title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "featured_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "featured_description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "featured_button_text": {
+          "type": "Text",
+          "config": {
+            "label": "featured_button_text",
+            "placeholder": ""
+          }
+        },
+        "featured_button_link": {
+          "type": "Link",
+          "config": {
+            "label": "featured_button_link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "featured_image": {
+          "type": "Image",
+          "config": {
+            "label": "featured_image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "top_wave_image": {
+          "type": "Image",
+          "config": {
+            "label": "top_wave_image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "bottom_wave_image": {
+          "type": "Image",
+          "config": {
+            "label": "bottom_wave_image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
