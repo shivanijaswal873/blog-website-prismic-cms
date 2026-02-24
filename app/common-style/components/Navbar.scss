@@ -3,20 +3,20 @@
 .header {
   width: 100%;
   height: 98px;
-//   background: #f5f6f8;
+  //   background: #f5f6f8;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.brand{
+.brand {
   width: 157.09px;
-  height: 43.08px; 
+  height: 43.08px;
 }
-.blog-nav{
+.blog-nav {
   width: 35.04px;
   height: 24.01px;
 }
-.about-nav{
+.about-nav {
   width: 46.05px;
   height: 24.01px;
 }
@@ -63,7 +63,7 @@
   justify-content: center;
   gap: 10px;
 
-//   height: 56px;
+  //   height: 56px;
   padding: 16px 48px;
 
   border-radius: 8px;
@@ -84,19 +84,4 @@
 .btn-contact:hover {
   box-shadow: 0 6px 18px rgba(124, 78, 228, 0.3);
   transform: translateY(-1px);
-}
-.header-inner {
-  padding: 0 80px;
-
-  @include respond(lg) {
-    padding: 0 40px;
-  }
-
-  @include respond(md) {
-    padding: 0 24px;
-  }
-
-  @include respond(xs) {
-    padding: 0 16px;
-  }
 }

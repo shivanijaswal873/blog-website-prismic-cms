@@ -69,7 +69,130 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type HomepageDocumentDataSlicesSlice = FeaturedblogSlice | HeroSlice;
+/**
+ * Item in *footer_settings → footer_links*
+ */
+export interface FooterSettingsDocumentDataFooterLinksItem {
+  /**
+   * label field in *footer_settings → footer_links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_settings.footer_links[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * link field in *footer_settings → footer_links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_settings.footer_links[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Item in *footer_settings → social_links*
+ */
+export interface FooterSettingsDocumentDataSocialLinksItem {
+  /**
+   * icon field in *footer_settings → social_links*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_settings.social_links[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * link field in *footer_settings → social_links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_settings.social_links[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Content for footer_settings documents
+ */
+interface FooterSettingsDocumentData {
+  /**
+   * logo field in *footer_settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_settings.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * footer_links field in *footer_settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_settings.footer_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  footer_links: prismic.GroupField<
+    Simplify<FooterSettingsDocumentDataFooterLinksItem>
+  >;
+
+  /**
+   * social_links field in *footer_settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_settings.social_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  social_links: prismic.GroupField<
+    Simplify<FooterSettingsDocumentDataSocialLinksItem>
+  >;
+
+  /**
+   * copyright_text field in *footer_settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_settings.copyright_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  copyright_text: prismic.RichTextField;
+}
+
+/**
+ * footer_settings document from Prismic
+ *
+ * - **API ID**: `footer_settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterSettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterSettingsDocumentData>,
+    "footer_settings",
+    Lang
+  >;
+
+type HomepageDocumentDataSlicesSlice =
+  | PopularBlogSlice
+  | RecentblogSlice
+  | FeaturedblogSlice
+  | HeroSlice;
 
 /**
  * Content for homePage documents
@@ -131,6 +254,93 @@ export type HomepageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
     Simplify<HomepageDocumentData>,
     "homepage",
+    Lang
+  >;
+
+/**
+ * Content for newsletter_settings documents
+ */
+interface NewsletterSettingsDocumentData {
+  /**
+   * title field in *newsletter_settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_settings.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * placeholder field in *newsletter_settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_settings.placeholder
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  placeholder: prismic.KeyTextField;
+
+  /**
+   * button_label field in *newsletter_settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_settings.button_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * description field in *newsletter_settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_settings.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Top Wave Image field in *newsletter_settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_settings.top_wave_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  top_wave_image: prismic.ImageField<never>;
+
+  /**
+   * bottom Wave Imag field in *newsletter_settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter_settings.bottom_wave_imag
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  bottom_wave_imag: prismic.ImageField<never>;
+}
+
+/**
+ * newsletter_settings document from Prismic
+ *
+ * - **API ID**: `newsletter_settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NewsletterSettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NewsletterSettingsDocumentData>,
+    "newsletter_settings",
     Lang
   >;
 
@@ -250,7 +460,11 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomepageDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | FooterSettingsDocument
+  | HomepageDocument
+  | NewsletterSettingsDocument
+  | SettingsDocument;
 
 /**
  * Item in *Featuredblog → Default → Primary → item*
@@ -542,6 +756,330 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Item in *PopularBlog → Default → Primary → item*
+ */
+export interface PopularBlogSliceDefaultPrimaryItemItem {
+  /**
+   * image field in *PopularBlog → Default → Primary → item*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_blog.default.primary.item[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * category field in *PopularBlog → Default → Primary → item*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_blog.default.primary.item[].category
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category: prismic.KeyTextField;
+
+  /**
+   * date field in *PopularBlog → Default → Primary → item*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_blog.default.primary.item[].date
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  date: prismic.DateField;
+
+  /**
+   * title field in *PopularBlog → Default → Primary → item*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_blog.default.primary.item[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * description field in *PopularBlog → Default → Primary → item*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_blog.default.primary.item[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * button_label field in *PopularBlog → Default → Primary → item*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_blog.default.primary.item[].button_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * button_link field in *PopularBlog → Default → Primary → item*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_blog.default.primary.item[].button_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Primary content in *PopularBlog → Default → Primary*
+ */
+export interface PopularBlogSliceDefaultPrimary {
+  /**
+   * section_title field in *PopularBlog → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_blog.default.primary.section_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  section_title: prismic.KeyTextField;
+
+  /**
+   * view_all_label  field in *PopularBlog → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_blog.default.primary.view_all_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  view_all_label: prismic.KeyTextField;
+
+  /**
+   * view_all_link field in *PopularBlog → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_blog.default.primary.view_all_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  view_all_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * item field in *PopularBlog → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_blog.default.primary.item[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  item: prismic.GroupField<Simplify<PopularBlogSliceDefaultPrimaryItemItem>>;
+}
+
+/**
+ * Default variation for PopularBlog Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type PopularBlogSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PopularBlogSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PopularBlog*
+ */
+type PopularBlogSliceVariation = PopularBlogSliceDefault;
+
+/**
+ * PopularBlog Shared Slice
+ *
+ * - **API ID**: `popular_blog`
+ * - **Description**: PopularBlog
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type PopularBlogSlice = prismic.SharedSlice<
+  "popular_blog",
+  PopularBlogSliceVariation
+>;
+
+/**
+ * Item in *Recentblog → Default → Primary → item*
+ */
+export interface RecentblogSliceDefaultPrimaryItemItem {
+  /**
+   * Image field in *Recentblog → Default → Primary → item*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recentblog.default.primary.item[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Category field in *Recentblog → Default → Primary → item*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recentblog.default.primary.item[].category
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category: prismic.KeyTextField;
+
+  /**
+   * date field in *Recentblog → Default → Primary → item*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recentblog.default.primary.item[].date
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  date: prismic.DateField;
+
+  /**
+   * title field in *Recentblog → Default → Primary → item*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recentblog.default.primary.item[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Recentblog → Default → Primary → item*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recentblog.default.primary.item[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button Label field in *Recentblog → Default → Primary → item*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recentblog.default.primary.item[].button_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *Recentblog → Default → Primary → item*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recentblog.default.primary.item[].button_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Primary content in *Recentblog → Default → Primary*
+ */
+export interface RecentblogSliceDefaultPrimary {
+  /**
+   * Section Title field in *Recentblog → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recentblog.default.primary.section_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  section_title: prismic.KeyTextField;
+
+  /**
+   * View All Label field in *Recentblog → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recentblog.default.primary.view_all_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  view_all_label: prismic.KeyTextField;
+
+  /**
+   * View All link field in *Recentblog → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recentblog.default.primary.view_all_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  view_all_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * item field in *Recentblog → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recentblog.default.primary.item[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  item: prismic.GroupField<Simplify<RecentblogSliceDefaultPrimaryItemItem>>;
+}
+
+/**
+ * Default variation for Recentblog Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RecentblogSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RecentblogSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Recentblog*
+ */
+type RecentblogSliceVariation = RecentblogSliceDefault;
+
+/**
+ * Recentblog Shared Slice
+ *
+ * - **API ID**: `recentblog`
+ * - **Description**: Recentblog
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RecentblogSlice = prismic.SharedSlice<
+  "recentblog",
+  RecentblogSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -563,9 +1101,15 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      FooterSettingsDocument,
+      FooterSettingsDocumentData,
+      FooterSettingsDocumentDataFooterLinksItem,
+      FooterSettingsDocumentDataSocialLinksItem,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      NewsletterSettingsDocument,
+      NewsletterSettingsDocumentData,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
@@ -578,6 +1122,16 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      PopularBlogSlice,
+      PopularBlogSliceDefaultPrimaryItemItem,
+      PopularBlogSliceDefaultPrimary,
+      PopularBlogSliceVariation,
+      PopularBlogSliceDefault,
+      RecentblogSlice,
+      RecentblogSliceDefaultPrimaryItemItem,
+      RecentblogSliceDefaultPrimary,
+      RecentblogSliceVariation,
+      RecentblogSliceDefault,
     };
   }
 }

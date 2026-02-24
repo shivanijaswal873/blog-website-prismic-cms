@@ -32,8 +32,8 @@
     position: absolute;
     bottom: -70px;
     right: 0px;
-    width: 843px;
-    height: 241px;
+    width: 842.01px;
+    height: 280.01px;
     background: $color-white;
     padding: 40px 39px;
     border-radius: 16px;
@@ -61,6 +61,8 @@
   .hero-title{
     font-size: 28px;
     font-weight: 600;
+    width: 784px;
+    height: 86px;
     color: #222;
   }
 }
@@ -100,8 +102,13 @@
   letter-spacing: 0.5px;
 
   span:first-child {
-    font-weight: 600;
     margin-right: 12px;
+    height: 18px;
+    width: 88px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 150%;
+    color:$color-dark-gray;
   }
 }
 

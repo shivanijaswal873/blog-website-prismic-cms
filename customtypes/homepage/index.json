@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "popular_blog": {
+              "type": "SharedSlice"
+            },
+            "recentblog": {
+              "type": "SharedSlice"
+            },
             "featuredblog": {
               "type": "SharedSlice"
             },

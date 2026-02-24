@@ -3,6 +3,25 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
+			"section_title": {
+				"__TYPE__": "FieldContent",
+				"value": "hall",
+				"type": "Text"
+			},
+			"view_all_label": {
+				"__TYPE__": "FieldContent",
+				"value": "basic",
+				"type": "Text"
+			},
+			"view_all_link": {
+				"key": "7c42bc6e-b269-4824-9b96-a64be763a306",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "another"
+				}
+			},
 			"item": {
 				"__TYPE__": "GroupContentType",
 				"value": [
@@ -14,13 +33,13 @@
 								{
 									"origin": {
 										"id": "main",
-										"url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
-										"width": 3500,
-										"height": 2338
+										"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+										"width": 3456,
+										"height": 3456
 									},
-									"url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
-									"width": 3500,
-									"height": 2338,
+									"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+									"width": 3456,
+									"height": 3456,
 									"edit": {
 										"zoom": 1,
 										"crop": {
@@ -29,25 +48,17 @@
 										},
 										"background": "transparent"
 									},
-									"alt": "cent",
+									"alt": "pet",
 									"credits": null,
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							],
 							[
-								"layout_type",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "hero",
-									"type": "Select"
-								}
-							],
-							[
 								"category",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "service",
+									"value": "crew",
 									"type": "Text"
 								}
 							],
@@ -56,14 +67,14 @@
 								{
 									"__TYPE__": "FieldContent",
 									"type": "Date",
-									"value": "2023-04-23"
+									"value": "2019-12-17"
 								}
 							],
 							[
 								"title",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "finally",
+									"value": "recently",
 									"type": "Text"
 								}
 							],
@@ -75,7 +86,7 @@
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "Non labore cupidatat est amet Lorem nisi laborum sit proident ea occaecat do cillum fugiat consequat. Mollit magna ea laborum ex ex. Exercitation non proident sint incididunt laborum non sint dolore sint minim pariatur laborum occaecat."
+												"text": "Ipsum veniam occaecat est est ipsum. Elit deserunt cupidatat voluptate in qui minim eu pariatur non nostrud nulla ullamco elit. Amet aliqua ea amet."
 											}
 										}
 									]
@@ -85,44 +96,25 @@
 								"button_label",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "needle",
+									"value": "month",
 									"type": "Text"
 								}
 							],
 							[
 								"button_link",
 								{
-									"key": "07da6c58-14c1-4b53-9841-e6187310ff96",
 									"__TYPE__": "LinkContent",
+									"key": "83c0deb9-99ac-4a70-959e-8b42fb7d405d",
 									"value": {
 										"__TYPE__": "ExternalLink",
-										"url": "http://twitter.com",
-										"text": "adjective"
+										"url": "http://google.com",
+										"text": "early"
 									}
 								}
 							]
 						]
 					}
 				]
-			},
-			"section_heading": {
-				"__TYPE__": "FieldContent",
-				"value": "hold",
-				"type": "Text"
-			},
-			"view_all_label": {
-				"__TYPE__": "FieldContent",
-				"value": "printed",
-				"type": "Text"
-			},
-			"view_all_link": {
-				"key": "50980297-9225-4c88-a826-15f0613a6223",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev",
-					"text": "throughout"
-				}
 			}
 		},
 		"items": []

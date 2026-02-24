@@ -5,4 +5,6 @@ import dynamic from "next/dynamic";
 export const components = {
   featuredblog: dynamic(() => import("./Featuredblog")),
   hero: dynamic(() => import("./Hero")),
+  popular_blog: dynamic(() => import("./PopularBlog")),
+  recentblog: dynamic(() => import("./Recentblog")),
 };

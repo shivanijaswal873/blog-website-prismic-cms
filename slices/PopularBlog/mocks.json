@@ -3,6 +3,25 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
+			"section_title": {
+				"__TYPE__": "FieldContent",
+				"value": "pleasure",
+				"type": "Text"
+			},
+			"view_all_label": {
+				"__TYPE__": "FieldContent",
+				"value": "age",
+				"type": "Text"
+			},
+			"view_all_link": {
+				"key": "87b38473-6a82-4f54-b1e3-ab5aa7c5a487",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "ever"
+				}
+			},
 			"item": {
 				"__TYPE__": "GroupContentType",
 				"value": [
@@ -14,13 +33,13 @@
 								{
 									"origin": {
 										"id": "main",
-										"url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
-										"width": 3500,
-										"height": 2338
+										"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
+										"width": 4000,
+										"height": 4000
 									},
-									"url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
-									"width": 3500,
-									"height": 2338,
+									"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
+									"width": 4000,
+									"height": 4000,
 									"edit": {
 										"zoom": 1,
 										"crop": {
@@ -29,25 +48,17 @@
 										},
 										"background": "transparent"
 									},
-									"alt": "cent",
+									"alt": "milk",
 									"credits": null,
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							],
 							[
-								"layout_type",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "hero",
-									"type": "Select"
-								}
-							],
-							[
 								"category",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "service",
+									"value": "stared",
 									"type": "Text"
 								}
 							],
@@ -56,14 +67,14 @@
 								{
 									"__TYPE__": "FieldContent",
 									"type": "Date",
-									"value": "2023-04-23"
+									"value": "2022-06-09"
 								}
 							],
 							[
 								"title",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "finally",
+									"value": "key",
 									"type": "Text"
 								}
 							],
@@ -75,7 +86,7 @@
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "Non labore cupidatat est amet Lorem nisi laborum sit proident ea occaecat do cillum fugiat consequat. Mollit magna ea laborum ex ex. Exercitation non proident sint incididunt laborum non sint dolore sint minim pariatur laborum occaecat."
+												"text": "Sint esse exercitation mollit."
 											}
 										}
 									]
@@ -85,44 +96,25 @@
 								"button_label",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "needle",
+									"value": "morning",
 									"type": "Text"
 								}
 							],
 							[
 								"button_link",
 								{
-									"key": "07da6c58-14c1-4b53-9841-e6187310ff96",
 									"__TYPE__": "LinkContent",
+									"key": "7beed927-becf-4fd7-bcb5-3502783dbf0d",
 									"value": {
 										"__TYPE__": "ExternalLink",
 										"url": "http://twitter.com",
-										"text": "adjective"
+										"text": "hard"
 									}
 								}
 							]
 						]
 					}
 				]
-			},
-			"section_heading": {
-				"__TYPE__": "FieldContent",
-				"value": "hold",
-				"type": "Text"
-			},
-			"view_all_label": {
-				"__TYPE__": "FieldContent",
-				"value": "printed",
-				"type": "Text"
-			},
-			"view_all_link": {
-				"key": "50980297-9225-4c88-a826-15f0613a6223",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev",
-					"text": "throughout"
-				}
 			}
 		},
 		"items": []
