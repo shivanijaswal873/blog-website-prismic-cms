@@ -253,88 +253,139 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomepageDocument | SettingsDocument;
 
 /**
- * Primary content in *Featuredblog → Default → Primary*
+ * Item in *Featuredblog → Default → Primary → item*
  */
-export interface FeaturedblogSliceDefaultPrimary {
+export interface FeaturedblogSliceDefaultPrimaryItemItem {
   /**
-   * layout_type field in *Featuredblog → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: featuredblog.default.primary.layout_type
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  layout_type: prismic.SelectField<"hero" | "card">;
-
-  /**
-   * image field in *Featuredblog → Default → Primary*
+   * image field in *Featuredblog → Default → Primary → item*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: featuredblog.default.primary.image
+   * - **API ID Path**: featuredblog.default.primary.item[].image
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   image: prismic.ImageField<never>;
 
   /**
-   * category field in *Featuredblog → Default → Primary*
+   * layout_type field in *Featuredblog → Default → Primary → item*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featuredblog.default.primary.item[].layout_type
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  layout_type: prismic.SelectField<"hero" | "card">;
+
+  /**
+   * category field in *Featuredblog → Default → Primary → item*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: featuredblog.default.primary.category
+   * - **API ID Path**: featuredblog.default.primary.item[].category
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   category: prismic.KeyTextField;
 
   /**
-   * date field in *Featuredblog → Default → Primary*
+   * date field in *Featuredblog → Default → Primary → item*
    *
    * - **Field Type**: Date
    * - **Placeholder**: *None*
-   * - **API ID Path**: featuredblog.default.primary.date
+   * - **API ID Path**: featuredblog.default.primary.item[].date
    * - **Documentation**: https://prismic.io/docs/fields/date
    */
   date: prismic.DateField;
 
   /**
-   * title field in *Featuredblog → Default → Primary*
+   * title field in *Featuredblog → Default → Primary → item*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: featuredblog.default.primary.title
+   * - **API ID Path**: featuredblog.default.primary.item[].title
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   title: prismic.KeyTextField;
 
   /**
-   * description field in *Featuredblog → Default → Primary*
+   * description field in *Featuredblog → Default → Primary → item*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: featuredblog.default.primary.description
+   * - **API ID Path**: featuredblog.default.primary.item[].description
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
 
   /**
-   * button_label field in *Featuredblog → Default → Primary*
+   * button_label field in *Featuredblog → Default → Primary → item*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: featuredblog.default.primary.button_label
+   * - **API ID Path**: featuredblog.default.primary.item[].button_label
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   button_label: prismic.KeyTextField;
 
   /**
-   * button_link field in *Featuredblog → Default → Primary*
+   * button_link field in *Featuredblog → Default → Primary → item*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: featuredblog.default.primary.button_link
+   * - **API ID Path**: featuredblog.default.primary.item[].button_link
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
   button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Primary content in *Featuredblog → Default → Primary*
+ */
+export interface FeaturedblogSliceDefaultPrimary {
+  /**
+   * item field in *Featuredblog → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featuredblog.default.primary.item[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  item: prismic.GroupField<Simplify<FeaturedblogSliceDefaultPrimaryItemItem>>;
+
+  /**
+   * section_heading field in *Featuredblog → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featuredblog.default.primary.section_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  section_heading: prismic.KeyTextField;
+
+  /**
+   * view_all_label field in *Featuredblog → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featuredblog.default.primary.view_all_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  view_all_label: prismic.KeyTextField;
+
+  /**
+   * view_all_link field in *Featuredblog → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featuredblog.default.primary.view_all_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  view_all_link: prismic.LinkField<
     string,
     string,
     unknown,
@@ -442,6 +493,26 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   featured_image: prismic.ImageField<never>;
+
+  /**
+   * top_wave_image field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.top_wave_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  top_wave_image: prismic.ImageField<never>;
+
+  /**
+   * bottom_wave_image field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.bottom_wave_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  bottom_wave_image: prismic.ImageField<never>;
 }
 
 /**
@@ -499,6 +570,7 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       AllDocumentTypes,
       FeaturedblogSlice,
+      FeaturedblogSliceDefaultPrimaryItemItem,
       FeaturedblogSliceDefaultPrimary,
       FeaturedblogSliceVariation,
       FeaturedblogSliceDefault,

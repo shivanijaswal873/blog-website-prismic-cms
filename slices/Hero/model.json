@@ -62,6 +62,22 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "top_wave_image": {
+          "type": "Image",
+          "config": {
+            "label": "top_wave_image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "bottom_wave_image": {
+          "type": "Image",
+          "config": {
+            "label": "bottom_wave_image",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}

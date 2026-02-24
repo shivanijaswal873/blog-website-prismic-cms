@@ -1,16 +1,19 @@
-import { PrismicNextLink } from "@prismicio/next";
+import Link from "next/link";
+import clsx from "clsx";
+import styles from "./Button.module.scss";
 
-interface Props {
-  label?: string | null;
-  field: any;
-}
+type ButtonProps = {
+  label: string;
+  href: string;
+  variant?: "primary" | "outline" | "white";
+};
 
-export default function Button({ label, field }: Props) {
-  if (!label || !field) return null;
-
+const Button = ({ label, href, variant = "outline" }: ButtonProps) => {
   return (
-    <PrismicNextLink field={field} className="btn-primary">
+    <Link href={href} className={clsx(styles.button, styles[variant])}>
       {label}
-    </PrismicNextLink>
+    </Link>
   );
-}
+};
+
+export default Button;

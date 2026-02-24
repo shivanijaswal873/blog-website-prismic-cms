@@ -1,61 +1,86 @@
-import { SliceComponentProps } from "@prismicio/react";
-import { PrismicRichText } from "@prismicio/react";
+import { createClient } from "@/prismicio";
 import { asLink } from "@prismicio/client";
+import { PrismicRichText } from "@prismicio/react";
 import Image from "next/image";
 import Link from "next/link";
 
-export type HeroProps = SliceComponentProps<any>;
+export default async function Hero() {
+  const client = createClient();
+  const page = await client.getSingle("homepage");
 
-const Hero = ({ slice }: HeroProps) => {
-  const data = slice.primary;
+  const heroSlice = page.data.slices?.find(
+    (slice: any) => slice.slice_type === "hero"
+  );
+
+  if (!heroSlice) return null;
+
+  const {
+    featured_label,
+    featured_title,
+    featured_description,
+    featured_button_text,
+    featured_button_link,
+    featured_image,
+    top_wave_image,
+    bottom_wave_image,
+  } = heroSlice.primary as any;
 
   return (
     <section className="hero">
+
+      {top_wave_image?.url && (
+        <Image
+          src={top_wave_image.url}
+          alt={top_wave_image.alt || "wave"}
+          width={top_wave_image.dimensions.width}
+          height={top_wave_image.dimensions.height}
+          className="hero-wave hero-wave--top"
+        />
+      )}
+
+      {bottom_wave_image?.url && (
+        <Image
+          src={bottom_wave_image.url}
+          alt={bottom_wave_image.alt || "wave"}
+          width={bottom_wave_image.dimensions.width}
+          height={bottom_wave_image.dimensions.height}
+          className="hero-wave hero-wave--bottom"
+        />
+      )}
+
       <div className="hero-inner">
-
         <div className="hero-content">
-          {data.featured_label && (
-            <span className="hero-label">
-              {data.featured_label}
-            </span>
-          )}
+          <span className="hero-label">{featured_label}</span>
 
-          {data.featured_title && (
-            <div className="hero-title">
-              <PrismicRichText field={data.featured_title} />
-            </div>
-          )}
+          <div className="hero-title">
+            <PrismicRichText field={featured_title} />
+          </div>
 
-          {data.featured_description && (
-            <div className="hero-desc">
-              <PrismicRichText field={data.featured_description} />
-            </div>
-          )}
+          <div className="hero-desc">
+            <PrismicRichText field={featured_description} />
+          </div>
 
-          {data.featured_button_text && (
-            <Link
-              href={asLink(data.featured_button_link) || "/"}
-              className="hero-btn"
-            >
-              {data.featured_button_text}
-            </Link>
-          )}
+          <Link
+            href={asLink(featured_button_link) || "/"}
+            className="hero-btn"
+          >
+            {featured_button_text}
+          </Link>
         </div>
 
-        {data.featured_image?.url && (
-          <div className="hero-image">
+        <div className="hero-image">
+          {featured_image?.url && (
             <Image
-              src={data.featured_image.url}
-              alt={data.featured_image.alt || "Hero Image"}
-              width={560}
-              height={560}
+              src={featured_image.url}
+              alt={featured_image.alt || "Featured"}
+              width={608}
+              height={576}
+              className="hero-img"
+              priority
             />
-          </div>
-        )}
-
+          )}
+        </div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}

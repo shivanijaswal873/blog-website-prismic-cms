@@ -4,7 +4,12 @@ import { components } from "@/slices";
 
 export default async function Home() {
   const client = createClient();
-  const page = await client.getSingle("homepage");
-  console.log(page.data.slices);
-  return <SliceZone slices={page.data.slices} components={components} />;
+
+  try {
+    const page = await client.getSingle("homepage");
+
+    return <SliceZone slices={page.data.slices} components={components} />;
+  } catch (error) {
+    return <div>Homepage not found. Please publish content in Prismic.</div>;
+  }
 }
