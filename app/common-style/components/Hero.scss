@@ -22,14 +22,22 @@
 }
 
 .hero-label {
-  font-size: 14px;
+  font-size: 16px;
+  height: 24px !important;
+  font-weight: 700;
+  line-height: 150%;
+  width: 126px !important;
   letter-spacing: 2px;
   text-transform: uppercase;
   opacity: 0.8;
 }
 
 .hero-title {
-  font-size: 56px;
+  font-size: 64px;
+  height: 172px;
+  line-height: 86px;
+  width: 580px;
+
   font-weight: 700;
   line-height: 1.15;
   margin: 20px 0;
@@ -47,18 +55,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   height: 56px;
   padding: 0 32px;
   border-radius: 8px;
-
   background: #ffffff;
   color: #111827;
-
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
-
   transition: all 0.3s ease;
 }
 
