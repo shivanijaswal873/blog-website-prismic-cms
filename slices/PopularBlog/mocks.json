@@ -103,8 +103,8 @@
 							[
 								"button_link",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "7beed927-becf-4fd7-bcb5-3502783dbf0d",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "ExternalLink",
 										"url": "http://twitter.com",

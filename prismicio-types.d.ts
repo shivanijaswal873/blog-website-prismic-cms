@@ -70,6 +70,146 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 /**
+ * Content for blog documents
+ */
+interface BlogDocumentData {
+  /**
+   * title field in *blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * featured_image field in *blog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  featured_image: prismic.ImageField<never>;
+
+  /**
+   * short_description field in *blog*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.short_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  short_description: prismic.RichTextField;
+
+  /**
+   * content field in *blog*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * is_popular field in *blog*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: blog.is_popular
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  is_popular: prismic.BooleanField;
+}
+
+/**
+ * blog document from Prismic
+ *
+ * - **API ID**: `blog`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
+
+type BlogPageDocumentDataSlicesSlice = RecentblogSlice | PopularBlogSlice;
+
+/**
+ * Content for blog_page documents
+ */
+interface BlogPageDocumentData {
+  /**
+   * BLOGS field in *blog_page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_page.blogs
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  blogs: prismic.KeyTextField;
+
+  /**
+   * title field in *blog_page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_page.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * description field in *blog_page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_page.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *blog_page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<BlogPageDocumentDataSlicesSlice>;
+}
+
+/**
+ * blog_page document from Prismic
+ *
+ * - **API ID**: `blog_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BlogPageDocumentData>,
+    "blog_page",
+    Lang
+  >;
+
+/**
  * Item in *footer_settings → footer_links*
  */
 export interface FooterSettingsDocumentDataFooterLinksItem {
@@ -461,6 +601,8 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | BlogDocument
+  | BlogPageDocument
   | FooterSettingsDocument
   | HomepageDocument
   | NewsletterSettingsDocument
@@ -1101,6 +1243,11 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BlogDocument,
+      BlogDocumentData,
+      BlogPageDocument,
+      BlogPageDocumentData,
+      BlogPageDocumentDataSlicesSlice,
       FooterSettingsDocument,
       FooterSettingsDocumentData,
       FooterSettingsDocumentDataFooterLinksItem,
