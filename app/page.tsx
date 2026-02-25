@@ -7,6 +7,7 @@ export default async function Home() {
 
   try {
     const page = await client.getSingle("homepage");
+    console.log(page);
 
     return <SliceZone slices={page.data.slices} components={components} />;
   } catch (error) {

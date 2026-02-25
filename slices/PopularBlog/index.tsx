@@ -3,8 +3,7 @@ import { Content } from "@prismicio/client";
 import BlogItem from "@/app/components/blog";
 import styles from "../../app/common-style/components/Recentblog.module.scss";
 
-export type PopularBlogProps =
-  SliceComponentProps<Content.PopularBlogSlice>;
+export type PopularBlogProps = SliceComponentProps<Content.PopularBlogSlice>;
 
 const PopularBlog = ({ slice }: PopularBlogProps) => {
   const items = slice.primary.item ?? [];
@@ -14,22 +13,10 @@ const PopularBlog = ({ slice }: PopularBlogProps) => {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-     
-        <div className={styles.header}>
-          <h2 className={styles.sectionTitle}>
-            {slice.primary.section_title}
-          </h2>
-          
-            <a
-              href="#"
-              className={styles.viewAllBtn}
-            >
-              {slice.primary.view_all_label}
-            </a>
-       
-        </div>
+        {slice.primary.section_title && (
+          <h2 className={styles.sectionTitle}>{slice.primary.section_title}</h2>
+        )}
 
-       
         <div className={styles.grid}>
           {items.map((item, index) => (
             <BlogItem

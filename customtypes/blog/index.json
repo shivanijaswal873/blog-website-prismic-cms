@@ -9,13 +9,14 @@
       "uid": {
         "type": "UID",
         "config": {
-          "label": "UID"
+          "label": "Slug",
+          "placeholder": ""
         }
       },
       "title": {
         "type": "Text",
         "config": {
-          "label": "title",
+          "label": "Title",
           "placeholder": ""
         }
       },
@@ -28,12 +29,10 @@
         }
       },
       "short_description": {
-        "type": "StructuredText",
+        "type": "Text",
         "config": {
-          "label": "short_description",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "label": "Short Description",
+          "placeholder": ""
         }
       },
       "content": {
@@ -48,10 +47,55 @@
       "is_popular": {
         "type": "Boolean",
         "config": {
-          "label": "is_popular",
+          "label": "Is Popular",
           "placeholder_false": "false",
           "placeholder_true": "true",
           "default_value": false
+        }
+      },
+      "category": {
+        "type": "Text",
+        "config": {
+          "label": "Category",
+          "placeholder": ""
+        }
+      },
+      "publish_date": {
+        "type": "Date",
+        "config": {
+          "label": "Publish Date",
+          "placeholder": ""
+        }
+      },
+      "quote_text": {
+        "type": "Text",
+        "config": {
+          "label": "Quote Text",
+          "placeholder": ""
+        }
+      },
+      "quote_author": {
+        "type": "Text",
+        "config": {
+          "label": "Quote Author",
+          "placeholder": ""
+        }
+      },
+      "second_image": {
+        "type": "Image",
+        "config": {
+          "label": "second_Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       }
     }

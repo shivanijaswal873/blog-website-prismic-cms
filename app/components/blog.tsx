@@ -6,9 +6,12 @@ import {
   LinkField,
   isFilled,
 } from "@prismicio/client";
-import { PrismicImage, PrismicRichText } from "@prismicio/react";
-import Button from "@/app/components/common/Button";
-import styles from "../common-style/components/blog.module.scss";
+import {
+  PrismicImage,
+  PrismicRichText,
+  PrismicLink,
+} from "@prismicio/react";
+import styles from "../common-style/components/Blog.module.scss";
 import clsx from "clsx";
 
 export type BlogItemProps = {
@@ -18,7 +21,7 @@ export type BlogItemProps = {
   title?: KeyTextField;
   description?: RichTextField;
   button_label?: KeyTextField;
-  button_link?: LinkField;
+  button_link?: LinkField | string;
   variant?: "recentHero" | "card" | "featured";
 };
 
@@ -68,12 +71,12 @@ const BlogItem = ({
           </div>
         )}
         {button_label && (
-          <div className={styles.readMoreWrapper}>
+            <div className={styles.readMoreWrapper}>
             <a href="#" className={styles.readMore}>
-              {button_label}
+                {button_label}
             </a>
-          </div>
-        )}
+            </div>
+          )}
       </div>
     </div>
   );

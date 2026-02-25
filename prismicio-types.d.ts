@@ -74,7 +74,7 @@ type ContentRelationshipFieldWithData<
  */
 interface BlogDocumentData {
   /**
-   * title field in *blog*
+   * Title field in *blog*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -96,15 +96,15 @@ interface BlogDocumentData {
   featured_image: prismic.ImageField<never>;
 
   /**
-   * short_description field in *blog*
+   * Short Description field in *blog*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: blog.short_description
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  short_description: prismic.RichTextField;
+  short_description: prismic.KeyTextField;
 
   /**
    * content field in *blog*
@@ -118,7 +118,7 @@ interface BlogDocumentData {
   content: prismic.RichTextField;
 
   /**
-   * is_popular field in *blog*
+   * Is Popular field in *blog*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
@@ -128,6 +128,72 @@ interface BlogDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   is_popular: prismic.BooleanField;
+
+  /**
+   * Category field in *blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category: prismic.KeyTextField;
+
+  /**
+   * Publish Date field in *blog*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.publish_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  publish_date: prismic.DateField;
+
+  /**
+   * Quote Text field in *blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.quote_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  quote_text: prismic.KeyTextField;
+
+  /**
+   * Quote Author field in *blog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.quote_author
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  quote_author: prismic.KeyTextField;
+
+  /**
+   * second_Image field in *blog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.second_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  second_image: prismic.ImageField<never>;
+
+  /**
+   * description field in *blog*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
 }
 
 /**
@@ -142,70 +208,57 @@ interface BlogDocumentData {
 export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
-type BlogPageDocumentDataSlicesSlice = RecentblogSlice | PopularBlogSlice;
-
 /**
- * Content for blog_page documents
+ * Content for Blog_Pages documents
  */
-interface BlogPageDocumentData {
+interface BlogPagesDocumentData {
   /**
-   * BLOGS field in *blog_page*
+   * subheading field in *Blog_Pages*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: blog_page.blogs
+   * - **API ID Path**: blog_pages.subheading
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  blogs: prismic.KeyTextField;
+  subheading: prismic.KeyTextField;
 
   /**
-   * title field in *blog_page*
+   * heading field in *Blog_Pages*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: blog_page.title
+   * - **API ID Path**: blog_pages.heading
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  title: prismic.KeyTextField;
+  heading: prismic.KeyTextField;
 
   /**
-   * description field in *blog_page*
+   * description field in *Blog_Pages*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: blog_page.description
+   * - **API ID Path**: blog_pages.description
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
-
-  /**
-   * Slice Zone field in *blog_page*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog_page.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/slices
-   */
-  slices: prismic.SliceZone<BlogPageDocumentDataSlicesSlice>;
 }
 
 /**
- * blog_page document from Prismic
+ * Blog_Pages document from Prismic
  *
- * - **API ID**: `blog_page`
+ * - **API ID**: `blog_pages`
  * - **Repeatable**: `false`
  * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type BlogPageDocument<Lang extends string = string> =
+export type BlogPagesDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
-    Simplify<BlogPageDocumentData>,
-    "blog_page",
+    Simplify<BlogPagesDocumentData>,
+    "blog_pages",
     Lang
   >;
 
@@ -602,7 +655,7 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | BlogDocument
-  | BlogPageDocument
+  | BlogPagesDocument
   | FooterSettingsDocument
   | HomepageDocument
   | NewsletterSettingsDocument
@@ -1245,9 +1298,8 @@ declare module "@prismicio/client" {
     export type {
       BlogDocument,
       BlogDocumentData,
-      BlogPageDocument,
-      BlogPageDocumentData,
-      BlogPageDocumentDataSlicesSlice,
+      BlogPagesDocument,
+      BlogPagesDocumentData,
       FooterSettingsDocument,
       FooterSettingsDocumentData,
       FooterSettingsDocumentDataFooterLinksItem,

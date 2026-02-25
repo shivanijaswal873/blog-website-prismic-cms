@@ -1,0 +1,64 @@
+.singleBlog {
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.meta {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.mainImage {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 30px;
+}
+
+.content {
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.quoteBox {
+  background: #f5f5f5;
+  padding: 20px;
+  border-left: 4px solid purple;
+  margin-bottom: 40px;
+}
+
+.secondImage {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 60px;
+}
+
+/* ===== POPULAR SECTION ===== */
+
+.popularSection {
+  margin-top: 80px;
+}
+
+.popularHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.popularGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}

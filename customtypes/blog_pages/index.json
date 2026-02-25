@@ -1,22 +1,22 @@
 {
   "format": "custom",
-  "id": "blog_page",
-  "label": "blog_page",
+  "id": "blog_pages",
+  "label": "Blog_Pages",
   "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "blogs": {
+      "subheading": {
         "type": "Text",
         "config": {
-          "label": "BLOGS",
+          "label": "subheading",
           "placeholder": ""
         }
       },
-      "title": {
+      "heading": {
         "type": "Text",
         "config": {
-          "label": "title",
+          "label": "heading",
           "placeholder": ""
         }
       },
@@ -27,20 +27,6 @@
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-        }
-      },
-      "slices": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
-        "config": {
-          "choices": {
-            "recentblog": {
-              "type": "SharedSlice"
-            },
-            "popular_blog": {
-              "type": "SharedSlice"
-            }
-          }
         }
       }
     }

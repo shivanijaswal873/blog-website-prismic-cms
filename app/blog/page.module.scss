@@ -1,29 +1,40 @@
-.blogHero {
-  padding: 100px 20px 60px;
-  background: #f5f5f5;
+.blogPage {
+  padding: 40px;
+  background: #f3f3f3;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
   text-align: center;
 }
 
-.blogHeroBlog {
-  font-size: 14px;
-  letter-spacing: 2px;
+.subHeading {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0%;
   text-transform: uppercase;
-  color: #6c6c6c;
-  margin-bottom: 16px;
-  font-weight: 600;
+  color: #8c8c8c;
 }
 
-.blogHeroTitle {
-  font-family: "Raleway", sans-serif;
+.heading {
   font-size: 48px;
   font-weight: 700;
-  line-height: 64px;
-  color: #1a1a1a;
-  margin-bottom: 24px;
+  line-height: 63.98px;
+  color: #111;
 }
 
-.blogHeroDesc {
+.description {
+  color: #666;
   font-size: 16px;
-  line-height: 26px;
-  color: #6c6c6c;
+  font-weight: 400;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  text-align: left;
 }
