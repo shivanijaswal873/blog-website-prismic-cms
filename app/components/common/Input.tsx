@@ -28,7 +28,7 @@ export default function Input({
         <textarea
           id={name}
           name={name}
-          placeholder={placeholder}
+        
           className={styles.textareaField}
           rows={5}
         />
@@ -37,7 +37,7 @@ export default function Input({
           id={name}
           type={type}
           name={name}
-          placeholder={placeholder}
+   
           className={styles.inputField}
         />
       )}

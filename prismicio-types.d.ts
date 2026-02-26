@@ -262,50 +262,85 @@ export type BlogPagesDocument<Lang extends string = string> =
     Lang
   >;
 
-type ContactPageDocumentDataSlicesSlice =
-  | ContactFormSliceSlice
-  | ContactInfoSliceSlice;
-
 /**
- * Content for contact_page documents
+ * Content for error_page documents
  */
-interface ContactPageDocumentData {
+interface ErrorPageDocumentData {
   /**
-   * Page Title  field in *contact_page*
+   * title field in *error_page*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: contact_page.page_title
+   * - **API ID Path**: error_page.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  page_title: prismic.KeyTextField;
+  title: prismic.KeyTextField;
 
   /**
-   * Slice Zone field in *contact_page*
+   * description field in *error_page*
    *
-   * - **Field Type**: Slice Zone
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: contact_page.slices[]
+   * - **API ID Path**: error_page.description
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/slices
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  slices: prismic.SliceZone<ContactPageDocumentDataSlicesSlice>;
+  description: prismic.RichTextField;
+
+  /**
+   * button_label field in *error_page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: error_page.button_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * button_link field in *error_page*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: error_page.button_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * background_image field in *error_page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: error_page.background_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  background_image: prismic.ImageField<never>;
 }
 
 /**
- * contact_page document from Prismic
+ * error_page document from Prismic
  *
- * - **API ID**: `contact_page`
+ * - **API ID**: `error_page`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/content-modeling
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type ContactPageDocument<Lang extends string = string> =
+export type ErrorPageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
-    Simplify<ContactPageDocumentData>,
-    "contact_page",
+    Simplify<ErrorPageDocumentData>,
+    "error_page",
     Lang
   >;
 
@@ -748,7 +783,7 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | BlogDocument
   | BlogPagesDocument
-  | ContactPageDocument
+  | ErrorPageDocument
   | FooterSettingsDocument
   | HomepageDocument
   | NewsletterSettingsDocument
@@ -1758,9 +1793,8 @@ declare module "@prismicio/client" {
       BlogDocumentData,
       BlogPagesDocument,
       BlogPagesDocumentData,
-      ContactPageDocument,
-      ContactPageDocumentData,
-      ContactPageDocumentDataSlicesSlice,
+      ErrorPageDocument,
+      ErrorPageDocumentData,
       FooterSettingsDocument,
       FooterSettingsDocumentData,
       FooterSettingsDocumentDataFooterLinksItem,

@@ -1,7 +1,6 @@
 import { SliceComponentProps } from "@prismicio/react";
 import { Content } from "@prismicio/client";
-import BlogItem from "@/app/components/Blog";
-
+import BlogItem from "../../app/components/blog";
 import styles from "../../app/common-style/components/Recentblog.module.scss";
 import { PrismicNextLink } from "@prismicio/next";
 
