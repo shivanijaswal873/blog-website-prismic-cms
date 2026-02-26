@@ -1,12 +1,14 @@
-import { createClient } from "@/prismicio";
+"use client";
+
 import { asLink } from "@prismicio/client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FiSearch } from "react-icons/fi";
+import clsx from "clsx";
 
-export default async function Navbar() {
-  const client = createClient();
-  const settings = await client.getSingle("settings");
+export default function Navbar({ settings }: any) {
+  const pathname = usePathname();
 
   const {
     logo,
@@ -18,10 +20,13 @@ export default async function Navbar() {
     contact_link,
   } = settings.data;
 
+  const blogUrl = asLink(blog_link) || "/";
+  const aboutUrl = asLink(about_link) || "/";
+  const contactUrl = asLink(contact_link) || "/";
+
   return (
     <header className="header">
       <div className="header-inner">
-
         <Link href="/" className="brand">
           {logo?.url && (
             <Image
@@ -35,24 +40,35 @@ export default async function Navbar() {
         </Link>
 
         <nav className="nav">
-          <Link href={asLink(blog_link) || "/"} className="nav-item blog-nav ">
+          <Link
+            href={blogUrl}
+            className={`nav-item ${
+              pathname.startsWith(blogUrl) ? "active" : ""
+            }`}
+          >
             {blog_label}
           </Link>
 
-          <Link href={asLink(about_link) || "/"} className="nav-item about-nav">
+          <Link
+            href={aboutUrl}
+            className={`nav-item ${
+              pathname === aboutUrl ? "active" : ""
+            }`}
+          >
             {about_label}
           </Link>
 
           <FiSearch className="nav-search" />
 
           <Link
-            href={asLink(contact_link) || "/"}
-            className="btn-contact"
+            href={contactUrl}
+            className={`btn-contact ${
+              pathname === contactUrl ? "active" : ""
+            }`}
           >
             {contact_label}
           </Link>
         </nav>
-
       </div>
     </header>
   );

@@ -6,22 +6,19 @@ import {
   LinkField,
   isFilled,
 } from "@prismicio/client";
-import {
-  PrismicImage,
-  PrismicRichText,
-  PrismicLink,
-} from "@prismicio/react";
+import { PrismicImage, PrismicRichText, PrismicLink } from "@prismicio/react";
 import styles from "../common-style/components/Blog.module.scss";
 import clsx from "clsx";
+import Link from "next/link";
 
 export type BlogItemProps = {
   image?: ImageField;
   category?: KeyTextField;
   date?: DateField;
   title?: KeyTextField;
-description?: string | RichTextField | null;
+  description?: string | RichTextField | null;
   button_label?: KeyTextField;
-  button_link?: LinkField | string;
+  button_link?: string;
   variant?: "recentHero" | "card" | "featured";
 };
 
@@ -66,21 +63,21 @@ const BlogItem = ({
           ))}
 
         {description && (
-  <div className={styles.description}>
-    {typeof description === "string" ? (
-      description
-    ) : (
-      <PrismicRichText field={description} />
-    )}
-  </div>
-)}
-        {button_label && (
-            <div className={styles.readMoreWrapper}>
-            <a href="#" className={styles.readMore}>
-                {button_label}
-            </a>
-            </div>
-          )}
+          <div className={styles.description}>
+            {typeof description === "string" ? (
+              description
+            ) : (
+              <PrismicRichText field={description} />
+            )}
+          </div>
+        )}
+        {button_label && button_link && (
+          <div className={styles.readMoreWrapper}>
+            <Link href={button_link} className={styles.readMore}>
+              {button_label}
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
