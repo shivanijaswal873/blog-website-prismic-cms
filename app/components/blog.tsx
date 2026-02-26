@@ -19,7 +19,7 @@ export type BlogItemProps = {
   category?: KeyTextField;
   date?: DateField;
   title?: KeyTextField;
-  description?: RichTextField;
+description?: string | RichTextField | null;
   button_label?: KeyTextField;
   button_link?: LinkField | string;
   variant?: "recentHero" | "card" | "featured";
@@ -66,10 +66,14 @@ const BlogItem = ({
           ))}
 
         {description && (
-          <div className={styles.description}>
-            <PrismicRichText field={description} />
-          </div>
-        )}
+  <div className={styles.description}>
+    {typeof description === "string" ? (
+      description
+    ) : (
+      <PrismicRichText field={description} />
+    )}
+  </div>
+)}
         {button_label && (
             <div className={styles.readMoreWrapper}>
             <a href="#" className={styles.readMore}>

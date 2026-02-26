@@ -8,6 +8,7 @@ export type PopularBlogProps = SliceComponentProps<Content.PopularBlogSlice>;
 
 const PopularBlog = ({ slice }: PopularBlogProps) => {
   const items = slice.primary.item ?? [];
+  
 
   if (!items.length) return null;
 

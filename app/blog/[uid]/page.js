@@ -65,6 +65,9 @@ export default async function BlogDetail(props) {
             className={styles.secondImage}
           />
         )}
+        {blog.data.description && (
+          <PrismicRichText field={blog.data.description} />
+        )}
       </div>
 
       {popularBlogs.length > 0 && (
