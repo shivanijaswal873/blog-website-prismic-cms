@@ -9,8 +9,10 @@
 
   &__label {
     display: block;
-    font-size: 13px;
-    letter-spacing: 2px;
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 700;
+    letter-spacing: 10%;
     text-transform: uppercase;
     color: #8c8c8c;
     margin-bottom: 20px;
@@ -18,9 +20,10 @@
 
   &__title {
     max-width: 500px;
-    font-size: 42px;
+    font-size: 48px;
+    line-height: 63.98px;
     font-weight: 700;
-    line-height: 1.3;
+    letter-spacing: 0;
     color: #1a1a1a;
     margin-bottom: 20px;
   }
@@ -29,8 +32,8 @@
     max-width: 400px;
     margin-left: auto;
     margin-top: -80px;
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 150%;
     color: #777;
   }
 
@@ -59,11 +62,15 @@
     box-shadow: 0 15px 40px rgba(108, 99, 255, 0.3);
 
     .work__number {
-      color: rgba(255, 255, 255, 0.4);
+      color: white;
+      font-size: 72px;
+      line-height: 96px;
+      font-family: 700;
     }
 
     .work__cardDesc {
       color: rgba(255, 255, 255, 0.85);
+
     }
 
     .work__btn {
@@ -73,8 +80,9 @@
   }
 
   &__number {
-    font-size: 60px;
-    font-weight: 800;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 96px;
     color: #e5e5e5;
     display: block;
     margin-bottom: 20px;

@@ -1,0 +1,98 @@
+.contactSection {
+  background: #f7f7fb;
+  padding: 50px 20px;
+
+  .contactContainer {
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contactHeader {
+    margin-bottom: 70px;
+  }
+
+  .contactTitle {
+    font-size: 33.52px;
+    line-height: 44.68px;
+    font-weight: 700;
+    color: #1f1f1f;
+    margin-bottom: 18px;
+  }
+
+  .contactSubtitle {
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #8c8c8c;
+  }
+
+  .contactGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+  }
+
+  .contactCard {
+    background: #ffffff;
+    padding: 50px 30px;
+    width: 260.46px;
+    height: 170.38px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(108, 99, 255, 0.2);
+    }
+  }
+
+  .contactIcon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6c63ff, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .iconImg {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  .cardHeading {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #6c63ff;
+  }
+
+  .cardDescription {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #7a7a7a;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 992px) {
+  .contactSection {
+    .contactGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .contactSection {
+    .contactGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

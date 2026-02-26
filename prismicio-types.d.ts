@@ -584,7 +584,11 @@ export type NewsletterSettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = WorkProcessSlice | HeroSectionSliceSlice;
+type PageDocumentDataSlicesSlice =
+  | ContactFormSliceSlice
+  | ContactInfoSliceSlice
+  | WorkProcessSlice
+  | HeroSectionSliceSlice;
 
 /**
  * Content for Page documents
