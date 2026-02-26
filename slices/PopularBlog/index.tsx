@@ -1,7 +1,9 @@
 import { SliceComponentProps } from "@prismicio/react";
 import { Content } from "@prismicio/client";
-import BlogItem from "@/app/components/blog";
+import BlogItem from "@/app/components/Blog";
+
 import styles from "../../app/common-style/components/Recentblog.module.scss";
+import { PrismicNextLink } from "@prismicio/next";
 
 export type PopularBlogProps = SliceComponentProps<Content.PopularBlogSlice>;
 
@@ -13,9 +15,16 @@ const PopularBlog = ({ slice }: PopularBlogProps) => {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        {slice.primary.section_title && (
+        <div className={styles.header}>
           <h2 className={styles.sectionTitle}>{slice.primary.section_title}</h2>
-        )}
+
+          <PrismicNextLink
+            field={slice.primary.view_all_link}
+            className={styles.viewAllBtn}
+          >
+            {slice.primary.view_all_label}
+          </PrismicNextLink>
+        </div>
 
         <div className={styles.grid}>
           {items.map((item, index) => (

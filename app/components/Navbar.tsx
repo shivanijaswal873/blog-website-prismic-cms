@@ -35,7 +35,7 @@ export default async function Navbar() {
         </Link>
 
         <nav className="nav">
-          <Link href={asLink(blog_link) || "/"} className="nav-item blog-nav active">
+          <Link href={asLink(blog_link) || "/"} className="nav-item blog-nav ">
             {blog_label}
           </Link>
 

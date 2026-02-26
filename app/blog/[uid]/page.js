@@ -53,7 +53,7 @@ export default async function BlogDetail(props) {
 
         {blog.data.quote_text && (
           <div className={styles.quoteBox}>
-            <p>"{blog.data.quote_text}"</p>
+            <p>{blog.data.quote_text}</p>
             <span>- {blog.data.quote_author}</span>
           </div>
         )}
@@ -65,12 +65,11 @@ export default async function BlogDetail(props) {
             className={styles.secondImage}
           />
         )}
-        <div className={styles.content}>
-          <PrismicRichText field={blog.data.content} />
-        </div>
+      </div>
 
-        {popularBlogs.length > 0 && (
-          <div className={styles.popularSection}>
+      {popularBlogs.length > 0 && (
+        <div className={styles.popularWrapper}>
+          <div className={styles.popularContainer}>
             <div className={styles.popularHeader}>
               <h2>Popular Post</h2>
               <Button label="View All" href="/blog" variant="primary" />
@@ -82,8 +81,8 @@ export default async function BlogDetail(props) {
               ))}
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 }

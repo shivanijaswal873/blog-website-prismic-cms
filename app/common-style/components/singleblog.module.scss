@@ -1,60 +1,92 @@
 .singleBlog {
-  padding: 60px 0;
+  padding: 80px 0 0;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 820px;   
   margin: 0 auto;
 }
 
 .meta {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   font-size: 14px;
-  color: gray;
-  margin-bottom: 10px;
+  color: #6b7280;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .title {
-  font-size: 32px;
-  margin-bottom: 30px;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 40px;
 }
 
 .mainImage {
   width: 100%;
-  border-radius: 16px;
-  margin-bottom: 30px;
+  border-radius: 20px;
+  margin-bottom: 40px;
 }
 
 .content {
-  line-height: 1.8;
-  margin-bottom: 40px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #4b5563;
+  margin-bottom: 50px;
+}
+
+.content p {
+  margin-bottom: 20px;
 }
 
 .quoteBox {
-  background: #f5f5f5;
-  padding: 20px;
-  border-left: 4px solid purple;
-  margin-bottom: 40px;
+  background: #f3f4f6;
+  padding: 30px;
+  border-left: 4px solid #7c4dff;
+  border-radius: 12px;
+  margin-bottom: 50px;
+}
+
+.quoteBox p {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.quoteBox span {
+  font-size: 14px;
+  color: #6b7280;
 }
 
 .secondImage {
   width: 100%;
-  border-radius: 16px;
-  margin-bottom: 60px;
+
+  border-radius: 20px;
+  margin-bottom: 80px;
 }
 
-/* ===== POPULAR SECTION ===== */
 
-.popularSection {
-  margin-top: 80px;
+.popularWrapper {
+  background: #f9fafb;
+  padding: 80px 0;
+}
+
+.popularContainer {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .popularHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+.popularHeader h2 {
+  font-size: 28px;
+  font-weight: 600;
 }
 
 .popularGrid {
