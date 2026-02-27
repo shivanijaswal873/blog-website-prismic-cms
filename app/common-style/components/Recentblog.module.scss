@@ -1,3 +1,4 @@
+@use "../abstracts/variables" as *;
 .section {
   width: 100%;
   padding: 40px 0;
@@ -18,7 +19,7 @@
 }
 
 .sectionTitle {
-  font-size: 48px;
+  font-size: $h3-size;
   font-weight: 600;
 }
 
@@ -29,13 +30,13 @@
   gap: 10px;
 
   //   height: 53px;
-  padding: 16px 48px;
+  padding: 16px $h3-size;
 
   border-radius: 8px;
   border: none;
   text-decoration: none;
   background-color: #2563eb;
-  color: #ffffff;
+  color: $color-white;
   font-size: 16px;
   font-weight: 600;
 
@@ -53,3 +54,4 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
+

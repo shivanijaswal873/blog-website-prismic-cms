@@ -1,3 +1,4 @@
+@use "../abstracts/variables" as *;
 .contactFormWrapper {
   position: relative;
   background: #f5f5f7;
@@ -20,7 +21,7 @@
   position: relative;
   max-width: 750px;
   margin: -100px auto 0 auto;
-  background: #ffffff;
+  background: $color-white;
   padding: 45px 40px;
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
@@ -46,7 +47,7 @@
 .submitButton {
   background: #6c63ff;
   color: #fff;
-  padding: 12px 32px;
+  padding: 12px $h4-size;
   border-radius: 6px;
   border: none;
   cursor: pointer;

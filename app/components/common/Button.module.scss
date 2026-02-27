@@ -1,3 +1,4 @@
+@use "../../common-style/abstracts/variables" as *;
 .button {
   display: inline-block;
   padding: 10px 22px;
@@ -9,30 +10,30 @@
 }
 
 .primary {
-  background: #7c4ee4;
+  background: $color-primary;
   color: #fff;
-  border: 1px solid #7c4ee4;
+  border: 1px solid $color-primary;
 }
 
 .primary:hover {
-  background: #693fd1;
+  background:$color-primary-hover;
 }
 
 .outline {
   background: transparent;
-  color: #7c4ee4;
-  border: 1.5px solid #7c4ee4;
+  color: $color-primary;
+  border: 1.5px solid $color-primary;
 }
 
 .outline:hover {
-  background: #7c4ee4;
+  background: $color-primary;
   color: #fff;
 }
 
 .white {
-  background: #ffffff;
-  color: #7c4ee4;
-  border: 1px solid #ffffff;
+  background: $color-white;
+  color: $color-primary;
+  border: 1px solid $color-white;
 }
 
 .white:hover {

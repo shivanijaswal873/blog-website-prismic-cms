@@ -1,3 +1,4 @@
+@use "../abstracts/variables" as *;
 .container {
   min-height: 100vh;
   background: #f3f3f3;
@@ -38,7 +39,7 @@
 .card h1 {
   font-size: 120px;
   font-weight: 700;
-  color: #ffffff;
+  color: $color-white;
   margin-top: 20px;
   position: relative;
   z-index: 1;
@@ -48,14 +49,14 @@
   margin-top: 10px;
   font-size: 22px;
   font-weight: 500;
-  color: #ffffff;
+  color: $color-white;
   position: relative;
   z-index: 1;
 }
 
 .description {
   margin-top: 10px;
-  font-size: 24px;
+  font-size: $h6-size;
   font-weight: 400;
   color: #e6e6ff;
   position: relative;
@@ -67,7 +68,7 @@
   margin-top: 30px;
   padding: 12px 30px;
   border-radius: 8px;
-  background: #ffffff;
+  background: $color-white;
   color: #5f2eea;
   font-weight: 600;
   text-decoration: none;

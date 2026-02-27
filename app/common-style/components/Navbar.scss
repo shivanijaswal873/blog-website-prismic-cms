@@ -64,13 +64,13 @@
   gap: 10px;
 
   //   height: 56px;
-  padding: 16px 48px;
+  padding: 16px $h3-size;
 
   border-radius: 8px;
   border: none;
 
-  background: linear-gradient(90deg, #7c4ee4 0%, #693fd1 100%);
-  color: #ffffff;
+  background: linear-gradient(90deg, $color-primary 0%, $color-primary-hover 100%);
+  color: $color-white;
 
   font-size: 14px;
   font-weight: 500;
