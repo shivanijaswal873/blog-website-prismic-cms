@@ -31,7 +31,6 @@ const RecentBlog = async ({ slice }: RecentBlogProps) => {
             {slice.primary.view_all_label}
           </a>
         </div>
-
         {hero && (
           <BlogItem
             image={hero?.data?.featured_image}
@@ -44,7 +43,6 @@ const RecentBlog = async ({ slice }: RecentBlogProps) => {
             variant="recentHero"
           />
         )}
-
         <div className={styles.grid}>
           {cards.map((item) => (
             <BlogItem

@@ -1,3 +1,4 @@
+@use "../abstracts/variables" as *;
 .work {
   padding: 120px 20px;
   background: #f9f9fb;
@@ -20,7 +21,7 @@
 
   &__title {
     max-width: 500px;
-    font-size: 48px;
+    font-size: $h3-size;
     line-height: 63.98px;
     font-weight: 700;
     letter-spacing: 0;
@@ -83,7 +84,7 @@
     font-size: 72px;
     font-weight: 700;
     line-height: 96px;
-    color: #e5e5e5;
+    color: $color-light-white;
     display: block;
     margin-bottom: 20px;
   }

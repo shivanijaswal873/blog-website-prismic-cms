@@ -1,3 +1,4 @@
+@use "../common-style/abstracts/variables" as *;
 .blogPage {
   padding: 40px;
   background: #f3f3f3;
@@ -20,7 +21,7 @@
 }
 
 .heading {
-  font-size: 48px;
+  font-size: $h3-size;
   font-weight: 700;
   line-height: 63.98px;
   color: #111;

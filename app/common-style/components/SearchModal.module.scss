@@ -1,3 +1,4 @@
+@use "../abstracts/variables" as *;
 .overlay {
   position: fixed;
   inset: 0;
@@ -15,7 +16,7 @@
   max-width: 600px;
   background: #fff;
   border-radius: 20px;
-  padding: 32px;
+  padding: $h4-size;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
   animation: fadeIn 0.25s ease-in-out;
 }
@@ -33,7 +34,7 @@
 }
 
 .title {
-  font-size: 24px;
+  font-size: $h6-size;
   font-weight: 600;
   margin: 0;
 }
@@ -57,12 +58,12 @@
 .searchBox {
   position: relative;
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: $h6-size;
 }
 
 .searchInput {
   width: 90%;
-  height: 48px;
+  height: $h3-size;
   padding: 0 16px 0 45px;
   border-radius: 12px;
   border: 1px solid #ddd;
