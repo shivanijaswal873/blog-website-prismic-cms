@@ -5,10 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FiSearch } from "react-icons/fi";
+import { useState } from "react";
 import clsx from "clsx";
+import SearchModal from "./SearchModal";
 
-export default function Navbar({ settings }: any) {
+export default function Navbar({ settings, searchSettings }: any) {
   const pathname = usePathname();
+  const [openSearch, setOpenSearch] = useState(false);
 
   const {
     logo,
@@ -20,56 +23,54 @@ export default function Navbar({ settings }: any) {
     contact_link,
   } = settings.data;
 
-  const blogUrl = asLink(blog_link) || "/";
-  const aboutUrl = asLink(about_link) || "/";
-  const contactUrl = asLink(contact_link) || "/";
-
   return (
-    <header className="header">
-      <div className="header-inner">
-        <Link href="/" className="brand">
-          {logo?.url && (
-            <Image
-              src={logo.url}
-              alt="Logo"
-              width={150}
-              height={45}
-              priority
+    <>
+      <header className="header">
+        <div className="header-inner">
+          <Link href="/" className="brand">
+            {logo?.url && (
+              <Image
+                src={logo.url}
+                alt="Logo"
+                width={150}
+                height={45}
+                priority
+              />
+            )}
+          </Link>
+
+          <nav className="nav">
+            <Link
+              href={asLink(blog_link) || "/"}
+              className={clsx("nav-item", {
+                active: pathname.startsWith("/blog"),
+              })}
+            >
+              {blog_label}
+            </Link>
+
+            <Link href={asLink(about_link) || "/"} className="nav-item">
+              {about_label}
+            </Link>
+
+            <FiSearch
+              className="nav-search"
+              onClick={() => setOpenSearch(true)}
             />
-          )}
-        </Link>
 
-        <nav className="nav">
-          <Link
-            href={blogUrl}
-            className={`nav-item ${
-              pathname.startsWith(blogUrl) ? "active" : ""
-            }`}
-          >
-            {blog_label}
-          </Link>
+            <Link href={asLink(contact_link) || "/"} className="btn-contact">
+              {contact_label}
+            </Link>
+          </nav>
+        </div>
+      </header>
 
-          <Link
-            href={aboutUrl}
-            className={`nav-item ${
-              pathname === aboutUrl ? "active" : ""
-            }`}
-          >
-            {about_label}
-          </Link>
-
-          <FiSearch className="nav-search" />
-
-          <Link
-            href={contactUrl}
-            className={`btn-contact ${
-              pathname === contactUrl ? "active" : ""
-            }`}
-          >
-            {contact_label}
-          </Link>
-        </nav>
-      </div>
-    </header>
+      {openSearch && (
+        <SearchModal
+          searchSettings={searchSettings}
+          onClose={() => setOpenSearch(false)}
+        />
+      )}
+    </>
   );
 }

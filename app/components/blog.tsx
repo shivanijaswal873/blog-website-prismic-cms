@@ -3,10 +3,9 @@ import {
   KeyTextField,
   DateField,
   RichTextField,
-  LinkField,
   isFilled,
 } from "@prismicio/client";
-import { PrismicImage, PrismicRichText, PrismicLink } from "@prismicio/react";
+import { PrismicImage, PrismicRichText } from "@prismicio/react";
 import styles from "../common-style/components/Blog.module.scss";
 import clsx from "clsx";
 import Link from "next/link";
@@ -33,15 +32,15 @@ const BlogItem = ({
   variant = "card",
 }: BlogItemProps) => {
   return (
-    <div className={clsx(styles.blogItem, styles[variant])}>
-      {isFilled.image(image) && (
-        <div className={styles.image}>
+    <div className={clsx(styles.blogItem, variant && styles[variant])}>
+      {image && isFilled.image(image) && (
+        <div className={styles?.image}>
           <PrismicImage field={image} />
         </div>
       )}
 
-      <div className={styles.content}>
-        <div className={styles.meta}>
+      <div className={styles?.content}>
+        <div className={styles?.meta}>
           {isFilled.keyText(category) && <span>{category}</span>}
 
           {date && (
@@ -57,13 +56,13 @@ const BlogItem = ({
 
         {isFilled.keyText(title) &&
           (variant === "card" ? (
-            <h3 className={styles.cardTitle}>{title}</h3>
+            <h3 className={styles?.cardTitle}>{title}</h3>
           ) : (
-            <h2 className={styles.heroTitle}>{title}</h2>
+            <h2 className={styles?.heroTitle}>{title}</h2>
           ))}
 
         {description && (
-          <div className={styles.description}>
+          <div className={styles?.description}>
             {typeof description === "string" ? (
               description
             ) : (
@@ -71,9 +70,10 @@ const BlogItem = ({
             )}
           </div>
         )}
+
         {button_label && button_link && (
-          <div className={styles.readMoreWrapper}>
-            <Link href={button_link} className={styles.readMore}>
+          <div className={styles?.readMoreWrapper}>
+            <Link href={button_link} className={styles?.readMore}>
               {button_label}
             </Link>
           </div>

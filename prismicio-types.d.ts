@@ -665,6 +665,82 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 /**
+ * Content for search_settings documents
+ */
+interface SearchSettingsDocumentData {
+  /**
+   * title field in *search_settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search_settings.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * subtitle field in *search_settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search_settings.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * placeholder field in *search_settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search_settings.placeholder
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  placeholder: prismic.KeyTextField;
+
+  /**
+   * empty_title field in *search_settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search_settings.empty_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  empty_title: prismic.KeyTextField;
+
+  /**
+   * empty_description field in *search_settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search_settings.empty_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  empty_description: prismic.KeyTextField;
+}
+
+/**
+ * search_settings document from Prismic
+ *
+ * - **API ID**: `search_settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SearchSettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SearchSettingsDocumentData>,
+    "search_settings",
+    Lang
+  >;
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -788,6 +864,7 @@ export type AllDocumentTypes =
   | HomepageDocument
   | NewsletterSettingsDocument
   | PageDocument
+  | SearchSettingsDocument
   | SettingsDocument;
 
 /**
@@ -1313,83 +1390,36 @@ export type HeroSectionSliceSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *PopularBlog → Default → Primary → item*
+ * Item in *PopularBlog → Default → Primary → Items*
  */
-export interface PopularBlogSliceDefaultPrimaryItemItem {
+export interface PopularBlogSliceDefaultPrimaryItemsItem {
   /**
-   * image field in *PopularBlog → Default → Primary → item*
+   * blog field in *PopularBlog → Default → Primary → Items*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: popular_blog.default.primary.item[].image
-   * - **Documentation**: https://prismic.io/docs/fields/image
+   * - **API ID Path**: popular_blog.default.primary.items[].blog
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
    */
-  image: prismic.ImageField<never>;
-
-  /**
-   * category field in *PopularBlog → Default → Primary → item*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: popular_blog.default.primary.item[].category
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  category: prismic.KeyTextField;
-
-  /**
-   * date field in *PopularBlog → Default → Primary → item*
-   *
-   * - **Field Type**: Date
-   * - **Placeholder**: *None*
-   * - **API ID Path**: popular_blog.default.primary.item[].date
-   * - **Documentation**: https://prismic.io/docs/fields/date
-   */
-  date: prismic.DateField;
-
-  /**
-   * title field in *PopularBlog → Default → Primary → item*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: popular_blog.default.primary.item[].title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * description field in *PopularBlog → Default → Primary → item*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: popular_blog.default.primary.item[].description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * button_label field in *PopularBlog → Default → Primary → item*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: popular_blog.default.primary.item[].button_label
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  button_label: prismic.KeyTextField;
-
-  /**
-   * button_link field in *PopularBlog → Default → Primary → item*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: popular_blog.default.primary.item[].button_link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  button_link: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
+  blog: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "blog";
+        fields: [
+          "title",
+          "featured_image",
+          "short_description",
+          "content",
+          "category",
+          "is_popular",
+          "publish_date",
+          "quote_text",
+          "quote_author",
+          "description",
+          "second_image",
+        ];
+      },
+    ]
   >;
 }
 
@@ -1434,14 +1464,14 @@ export interface PopularBlogSliceDefaultPrimary {
   >;
 
   /**
-   * item field in *PopularBlog → Default → Primary*
+   * Items field in *PopularBlog → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: popular_blog.default.primary.item[]
+   * - **API ID Path**: popular_blog.default.primary.items[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  item: prismic.GroupField<Simplify<PopularBlogSliceDefaultPrimaryItemItem>>;
+  items: prismic.GroupField<Simplify<PopularBlogSliceDefaultPrimaryItemsItem>>;
 }
 
 /**
@@ -1807,6 +1837,8 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      SearchSettingsDocument,
+      SearchSettingsDocumentData,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
@@ -1833,7 +1865,7 @@ declare module "@prismicio/client" {
       HeroSectionSliceSliceVariation,
       HeroSectionSliceSliceDefault,
       PopularBlogSlice,
-      PopularBlogSliceDefaultPrimaryItemItem,
+      PopularBlogSliceDefaultPrimaryItemsItem,
       PopularBlogSliceDefaultPrimary,
       PopularBlogSliceVariation,
       PopularBlogSliceDefault,

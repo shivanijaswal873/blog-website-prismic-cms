@@ -1,0 +1,144 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #777;
+  margin-top: 6px;
+}
+
+.closeIcon {
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: rotate(90deg);
+  }
+}
+
+.searchBox {
+  position: relative;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.searchInput {
+  width: 90%;
+  height: 48px;
+  padding: 0 16px 0 45px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  transition: all 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.12);
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #999;
+}
+
+.results {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.resultCount {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.resultItem {
+  display: block;
+  padding: 12px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: 0.2s ease;
+
+  &:hover {
+    background: #f3f4f6;
+  }
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.emptyTitle {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.emptyText {
+  font-size: 13px;
+  color: #999;
+}
+
+.suggestion {
+  text-align: center;
+  padding: 40px 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

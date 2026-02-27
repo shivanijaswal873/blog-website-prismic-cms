@@ -3,7 +3,7 @@ import { PrismicRichText } from "@prismicio/react";
 import styles from "../../app/common-style/components/ContactInfo.module.scss";
 
 const ContactInfoSlice = ({ slice }: SliceComponentProps<any>) => {
-  const { section_title, section_description, items } = slice.primary;
+  const { section_title, section_description, items } = slice?.primary;
 
   return (
     <section className={styles.contactSection}>
@@ -24,16 +24,16 @@ const ContactInfoSlice = ({ slice }: SliceComponentProps<any>) => {
               <div className={styles.contactIcon}>
                 {item.icons?.url && (
                   <img
-                    src={item.icons.url}
-                    alt={item.icons.alt || "icon"}
+                    src={item?.icons?.url}
+                    alt={item?.icons?.alt || "icon"}
                     className={styles.iconImg}
                   />
                 )}
               </div>
 
-              <div className={styles.cardHeading}>{item.title}</div>
+              <div className={styles.cardHeading}>{item?.title}</div>
 
-              <div className={styles.cardDescription}>{item.description}</div>
+              <div className={styles.cardDescription}>{item?.description}</div>
             </div>
           ))}
         </div>

@@ -7,7 +7,7 @@ export type WorkProcessProps = SliceComponentProps<Content.WorkProcessSlice>;
 
 const WorkProcess = ({ slice }: WorkProcessProps) => {
   const { section_label, section_title, section_description, items } =
-    slice.primary;
+    slice?.primary;
 
   return (
     <section className={styles.work}>
@@ -36,15 +36,15 @@ const WorkProcess = ({ slice }: WorkProcessProps) => {
                 item.highlight_card ? styles.highlight : ""
               }`}
             >
-              <span className={styles.work__number}>{item.step_number}</span>
+              <span className={styles.work__number}>{item?.step_number}</span>
 
-              <h3 className={styles.work__cardTitle}>{item.step_title}</h3>
+              <h3 className={styles.work__cardTitle}>{item?.step_title}</h3>
 
               <div className={styles.work__cardDesc}>
-                <PrismicRichText field={item.step_description} />
+                <PrismicRichText field={item?.step_description} />
               </div>
 
-              {item.highlight_card && item.button && (
+              {item?.highlight_card && item?.button && (
                 <a href="#" className={styles.work__btn}>
                   Learn More
                 </a>

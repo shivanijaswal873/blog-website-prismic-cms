@@ -34,13 +34,13 @@ const RecentBlog = async ({ slice }: RecentBlogProps) => {
 
         {hero && (
           <BlogItem
-            image={hero.data.featured_image}
-            category={hero.data.category}
-            date={hero.data.publish_date}
-            title={hero.data.title}
-            description={hero.data.short_description}
+            image={hero?.data?.featured_image}
+            category={hero?.data?.category}
+            date={hero?.data?.publish_date}
+            title={hero?.data?.title}
+            description={hero?.data?.short_description}
             button_label="Read More"
-            button_link={`/blog/${hero.uid}`}
+            button_link={`/blog/${hero?.uid}`}
             variant="recentHero"
           />
         )}
@@ -48,14 +48,14 @@ const RecentBlog = async ({ slice }: RecentBlogProps) => {
         <div className={styles.grid}>
           {cards.map((item) => (
             <BlogItem
-              key={item.id}
-              image={item.data.featured_image}
-              category={item.data.category}
-              date={item.data.publish_date}
-              title={item.data.title}
-              description={item.data.short_description}
+              key={item?.id}
+              image={item?.data?.featured_image}
+              category={item?.data?.category}
+              date={item?.data?.publish_date}
+              title={item?.data?.title}
+              description={item?.data?.short_description}
               button_label="Read More"
-              button_link={`/blog/${item.uid}`}
+              button_link={`/blog/${item?.uid}`}
               variant="card"
             />
           ))}

@@ -22,93 +22,20 @@
 					"text": "ever"
 				}
 			},
-			"item": {
+			"items": {
 				"__TYPE__": "GroupContentType",
 				"value": [
 					{
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"image",
+								"blog",
 								{
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
-										"width": 4000,
-										"height": 4000
-									},
-									"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
-									"width": 4000,
-									"height": 4000,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 0,
-											"y": 0
-										},
-										"background": "transparent"
-									},
-									"alt": "milk",
-									"credits": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {}
-								}
-							],
-							[
-								"category",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "stared",
-									"type": "Text"
-								}
-							],
-							[
-								"date",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Date",
-									"value": "2022-06-09"
-								}
-							],
-							[
-								"title",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "key",
-									"type": "Text"
-								}
-							],
-							[
-								"description",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "paragraph",
-											"content": {
-												"text": "Sint esse exercitation mollit."
-											}
-										}
-									]
-								}
-							],
-							[
-								"button_label",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "morning",
-									"type": "Text"
-								}
-							],
-							[
-								"button_link",
-								{
-									"key": "7beed927-becf-4fd7-bcb5-3502783dbf0d",
 									"__TYPE__": "LinkContent",
+									"key": "2a13556c-0079-4059-9979-0898d78f3d8c",
 									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "http://twitter.com",
-										"text": "hard"
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
 									}
 								}
 							]

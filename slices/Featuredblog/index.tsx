@@ -30,7 +30,7 @@ const BlogSection = async ({ slice }: BlogSectionProps) => {
       <section className={clsx(styles.blog, styles.hero)}>
         <div className={styles.container}>
           <div className={styles.imageWrapper}>
-            <PrismicImage field={hero.data.featured_image} />
+            <PrismicImage field={hero?.data?.featured_image} />
           </div>
 
           <div className={styles.content}>
@@ -38,7 +38,7 @@ const BlogSection = async ({ slice }: BlogSectionProps) => {
               <span>{hero.data.category}</span>
               <span>
                 {hero.data.publish_date &&
-                  new Date(hero.data.publish_date).toLocaleDateString(
+                  new Date(hero?.data?.publish_date).toLocaleDateString(
                     "en-GB",
                     {
                       day: "numeric",
@@ -49,13 +49,13 @@ const BlogSection = async ({ slice }: BlogSectionProps) => {
               </span>
             </div>
 
-            <h2 className="hero-title">{hero.data.title}</h2>
+            <h2 className="hero-title">{hero?.data?.title}</h2>
 
-            <p>{hero.data.short_description}</p>
+            <p>{hero?.data?.short_description}</p>
 
             <Button
               label="Read More"
-              href={`/blog/${hero.uid}`}
+              href={`/blog/${hero?.uid}`}
             />
           </div>
         </div>

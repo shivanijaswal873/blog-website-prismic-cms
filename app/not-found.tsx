@@ -17,10 +17,10 @@ export default async function NotFound() {
 <div className={styles.container}>
   <div className={styles.card}>
 
-    {page.data.background_image && (
+    {page?.data?.background_image && (
       <div className={styles.waveWrapper}>
         <PrismicImage
-          field={page.data.background_image}
+          field={page?.data?.background_image}
           className={styles.waveImage}
         />
       </div>
@@ -28,18 +28,18 @@ export default async function NotFound() {
 
     <h1 className="error">404</h1>
 
-    <h2>{page.data.title}</h2>
+    <h2>{page?.data?.title}</h2>
 
     <div className={styles.description}>
-      <PrismicRichText field={page.data.description} />
+      <PrismicRichText field={page?.data?.description} />
     </div>
 
     {page.data.button_link && (
       <PrismicLink
-        field={page.data.button_link}
+        field={page?.data?.button_link}
         className={styles.button}
       >
-        {page.data.button_label}
+        {page?.data?.button_label}
       </PrismicLink>
     )}
 

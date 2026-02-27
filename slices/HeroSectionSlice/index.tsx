@@ -6,7 +6,7 @@ export type HeroSectionSliceProps =
   SliceComponentProps<Content.HeroSectionSliceSlice>;
 
 const HeroSectionSlice = ({ slice }: HeroSectionSliceProps) => {
-  const { small_heading, main_title, description, hero_image } = slice.primary;
+  const { small_heading, main_title, description, hero_image } = slice?.primary;
 
   return (
     <section className={styles.hero}>
