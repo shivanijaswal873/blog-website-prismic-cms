@@ -1,79 +1,65 @@
-import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { Content } from "@prismicio/client";
+import { createClient } from "@/prismicio";
 import { PrismicImage, PrismicRichText } from "@prismicio/react";
 import Button from "@/app/components/common/Button";
 import styles from "./FeatureBlog.module.scss";
 import clsx from "clsx";
 
-export type BlogSectionProps = SliceComponentProps<Content.FeaturedblogSlice>;
+export type BlogSectionProps =
+  SliceComponentProps<Content.FeaturedblogSlice>;
 
-const BlogSection = ({ slice }: BlogSectionProps) => {
-  const items = slice.primary.item || [];
+const BlogSection = async ({ slice }: BlogSectionProps) => {
+  const client = createClient();
 
-  if (!items.length) return null;
+  const blogs = await client.getAllByType("blog", {
+    orderings: {
+      field: "document.first_publication_date",
+      direction: "desc",
+    },
+    pageSize: 4, 
+  });
+
+  if (!blogs.length) return null;
+
+  const hero = blogs[0];
+  const cards = blogs.slice(1);
 
   return (
     <>
-      {items.map((item: any, index: number) => {
-        const isHero = index === 0;
-
-        return (
-          <div key={index}>
-            <section
-              className={clsx(styles.blog, {
-                [styles.hero]: isHero,
-                [styles.card]: !isHero,
-              })}
-            >
-              <div className={styles.container}>
-                <div className={styles.imageWrapper}>
-                  <PrismicImage field={item.image} />
-                </div>
-
-                <div className={styles.content}>
-                  <div className={styles.meta}>
-                    <span className="category">{item.category}</span>
-                    <span>
-                      {item.date &&
-                        new Date(item.date).toLocaleDateString("en-GB", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
-                        })}
-                    </span>
-                  </div>
-
-                  {isHero ? (
-                    <h2 className="hero-title">{item.title}</h2>
-                  ) : (
-                    <h3 className="hero-section-title">{item.title}</h3>
-                  )}
-
-                  <PrismicRichText field={item.description} />
-
-                  <Button
-                    label={item.button_label}
-                    href={item.button_link?.url || ""}
-                  />
-                </div>
-              </div>
-            </section>
-            {isHero && items.length > 1 && (
-              <div className={styles.sectionHeader}>
-                <div className={styles.container}>
-                  <h3 className={styles.sectionTitle}>
-                    {slice.primary.section_heading}
-                  </h3>
-
-                  {slice.primary.view_all_label && (
-                    <Button label={slice.primary.view_all_label} href="#" />
-                  )}
-                </div>
-              </div>
-            )}
+      <section className={clsx(styles.blog, styles.hero)}>
+        <div className={styles.container}>
+          <div className={styles.imageWrapper}>
+            <PrismicImage field={hero?.data?.featured_image} />
           </div>
-        );
-      })}
+
+          <div className={styles.content}>
+            <div className={styles.meta}>
+              <span>{hero.data.category}</span>
+              <span>
+                {hero.data.publish_date &&
+                  new Date(hero?.data?.publish_date).toLocaleDateString(
+                    "en-GB",
+                    {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    }
+                  )}
+              </span>
+            </div>
+
+            <h2 className="hero-title">{hero?.data?.title}</h2>
+
+            <p>{hero?.data?.short_description}</p>
+
+            <Button
+              label="Read More"
+              href={`/blog/${hero?.uid}`}
+            />
+          </div>
+        </div>
+      </section>
     </>
   );
 };

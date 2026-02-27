@@ -1,0 +1,46 @@
+{
+  "format": "custom",
+  "id": "search_settings",
+  "label": "search_settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "title",
+          "placeholder": ""
+        }
+      },
+      "subtitle": {
+        "type": "Text",
+        "config": {
+          "label": "subtitle",
+          "placeholder": ""
+        }
+      },
+      "placeholder": {
+        "type": "Text",
+        "config": {
+          "label": "placeholder",
+          "placeholder": ""
+        }
+      },
+      "empty_title": {
+        "type": "Text",
+        "config": {
+          "label": "empty_title",
+          "placeholder": ""
+        }
+      },
+      "empty_description": {
+        "type": "Text",
+        "config": {
+          "label": "empty_description",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

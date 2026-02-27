@@ -3,6 +3,12 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  contact_form_slice: dynamic(() => import("./ContactFormSlice")),
+  contact_info_slice: dynamic(() => import("./ContactInfoSlice")),
   featuredblog: dynamic(() => import("./Featuredblog")),
   hero: dynamic(() => import("./Hero")),
+  hero_section_slice: dynamic(() => import("./HeroSectionSlice")),
+  popular_blog: dynamic(() => import("./PopularBlog")),
+  recentblog: dynamic(() => import("./Recentblog")),
+  work_process: dynamic(() => import("./WorkProcess")),
 };

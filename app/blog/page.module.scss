@@ -1,0 +1,40 @@
+.blogPage {
+  padding: 40px;
+  background: #f3f3f3;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.subHeading {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #8c8c8c;
+}
+
+.heading {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 63.98px;
+  color: #111;
+}
+
+.description {
+  color: #666;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  text-align: left;
+}

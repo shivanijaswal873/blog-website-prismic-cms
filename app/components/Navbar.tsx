@@ -1,12 +1,17 @@
-import { createClient } from "@/prismicio";
+"use client";
+
 import { asLink } from "@prismicio/client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FiSearch } from "react-icons/fi";
+import { useState } from "react";
+import clsx from "clsx";
+import SearchModal from "./SearchModal";
 
-export default async function Navbar() {
-  const client = createClient();
-  const settings = await client.getSingle("settings");
+export default function Navbar({ settings, searchSettings }: any) {
+  const pathname = usePathname();
+  const [openSearch, setOpenSearch] = useState(false);
 
   const {
     logo,
@@ -19,41 +24,53 @@ export default async function Navbar() {
   } = settings.data;
 
   return (
-    <header className="header">
-      <div className="header-inner">
+    <>
+      <header className="header">
+        <div className="header-inner">
+          <Link href="/" className="brand">
+            {logo?.url && (
+              <Image
+                src={logo.url}
+                alt="Logo"
+                width={150}
+                height={45}
+                priority
+              />
+            )}
+          </Link>
 
-        <Link href="/" className="brand">
-          {logo?.url && (
-            <Image
-              src={logo.url}
-              alt="Logo"
-              width={150}
-              height={45}
-              priority
+          <nav className="nav">
+            <Link
+              href={asLink(blog_link) || "/"}
+              className={clsx("nav-item", {
+                active: pathname.startsWith("/blog"),
+              })}
+            >
+              {blog_label}
+            </Link>
+
+            <Link href={asLink(about_link) || "/"} className="nav-item">
+              {about_label}
+            </Link>
+
+            <FiSearch
+              className="nav-search"
+              onClick={() => setOpenSearch(true)}
             />
-          )}
-        </Link>
 
-        <nav className="nav">
-          <Link href={asLink(blog_link) || "/"} className="nav-item blog-nav active">
-            {blog_label}
-          </Link>
+            <Link href={asLink(contact_link) || "/"} className="btn-contact">
+              {contact_label}
+            </Link>
+          </nav>
+        </div>
+      </header>
 
-          <Link href={asLink(about_link) || "/"} className="nav-item about-nav">
-            {about_label}
-          </Link>
-
-          <FiSearch className="nav-search" />
-
-          <Link
-            href={asLink(contact_link) || "/"}
-            className="btn-contact"
-          >
-            {contact_label}
-          </Link>
-        </nav>
-
-      </div>
-    </header>
+      {openSearch && (
+        <SearchModal
+          searchSettings={searchSettings}
+          onClose={() => setOpenSearch(false)}
+        />
+      )}
+    </>
   );
 }

@@ -1,0 +1,90 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"section_label": {
+				"__TYPE__": "FieldContent",
+				"value": "listen",
+				"type": "Text"
+			},
+			"section_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Veniam tempor minim culpa dolor amet elit. Sunt labore enim Lorem consectetur do magna aute velit est Lorem laborum consectetur anim amet."
+						}
+					}
+				]
+			},
+			"section_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint reprehenderit voluptate amet nulla nisi incididunt ut duis enim proident."
+						}
+					}
+				]
+			},
+			"items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"step_number",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "freedom",
+									"type": "Text"
+								}
+							],
+							[
+								"step_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "school",
+									"type": "Text"
+								}
+							],
+							[
+								"step_description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Magna reprehenderit do excepteur ex officia dolore eiusmod quis mollit irure Lorem irure."
+											}
+										}
+									]
+								}
+							],
+							[
+								"highlight_card",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							],
+							[
+								"button",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

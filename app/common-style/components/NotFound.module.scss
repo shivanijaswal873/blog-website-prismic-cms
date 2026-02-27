@@ -1,0 +1,82 @@
+.container {
+  min-height: 100vh;
+  background: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 816px;
+  max-width: 95%;
+  height: 472px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #7b4dff, #5f2eea);
+  position: relative;
+  text-align: center;
+  padding: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.waveWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 0;
+}
+
+.waveImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.card h1 {
+  font-size: 120px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.card h2 {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #e6e6ff;
+  position: relative;
+  z-index: 1;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #5f2eea;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}

@@ -116,8 +116,8 @@
 				"type": "Text"
 			},
 			"view_all_link": {
-				"__TYPE__": "LinkContent",
 				"key": "50980297-9225-4c88-a826-15f0613a6223",
+				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "https://slicemachine.dev",

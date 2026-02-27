@@ -1,0 +1,34 @@
+{
+  "id": "contact_form_slice",
+  "type": "SharedSlice",
+  "name": "ContactFormSlice",
+  "description": "ContactFormSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "map_image": {
+          "type": "Image",
+          "config": {
+            "label": "map_image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "form_title": {
+          "type": "Text",
+          "config": {
+            "label": "form_title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
