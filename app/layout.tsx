@@ -12,12 +12,16 @@ export default async function RootLayout({
   const client = createClient();
   const settings = await client.getSingle("settings");
   const blogs = await client.getAllByType("blog");
-    const searchSettings = await client.getSingle("search_settings");
+  const searchSettings = await client.getSingle("search_settings");
 
   return (
     <html lang="en">
       <body>
-        <Navbar settings={settings}  blogs={blogs}   searchSettings={searchSettings}  />
+        <Navbar
+          settings={settings}
+          blogs={blogs}
+          searchSettings={searchSettings}
+        />
         {children}
         <Newsletter />
         <Footer />

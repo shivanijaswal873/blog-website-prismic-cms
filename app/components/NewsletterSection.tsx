@@ -18,7 +18,7 @@ export default async function Newsletter() {
     description,
     top_wave_image,
     bottom_wave_imag,
-  } = newsletter.data as any;
+  } = newsletter?.data as any;
 
   return (
     <section className={styles.newsletter}>
@@ -53,7 +53,7 @@ export default async function Newsletter() {
 
       {bottom_wave_imag?.url && (
         <img
-          src={bottom_wave_imag.url}
+          src={bottom_wave_imag?.url}
           alt="bottom wave"
           className={styles.waveBottom}
         />
