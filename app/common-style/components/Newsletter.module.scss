@@ -86,3 +86,22 @@
   width: 600px;
   opacity: 0.35;
 }
+.snackbar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #b0bb16;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  z-index: 9999;
+  animation: fadeInOut 3s ease;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(20px); }
+}

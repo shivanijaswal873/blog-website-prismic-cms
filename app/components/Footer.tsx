@@ -21,14 +21,14 @@ export default async function Footer() {
         <ul className={styles.links}>
           {footer_links?.map((item, index) => (
             <li key={index}>
-              <Link href="">{item?.label}</Link>
+              <Link href="/#">{item?.label}</Link>
             </li>
           ))}
         </ul>
 
         <div className={styles.social}>
           {social_links?.map((item, index) => (
-            <Link key={index} href="">
+            <Link key={index} href="/#">
               <PrismicImage field={item?.icon} />
             </Link>
           ))}
