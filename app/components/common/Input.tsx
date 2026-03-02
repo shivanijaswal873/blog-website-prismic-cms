@@ -13,7 +13,6 @@ export default function Input({
   label,
   type = "text",
   name,
-  placeholder,
   textarea = false,
 }: InputProps) {
   return (

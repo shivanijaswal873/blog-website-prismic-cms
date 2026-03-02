@@ -6,10 +6,9 @@ import Button from "@/app/components/common/Button";
 import styles from "./FeatureBlog.module.scss";
 import clsx from "clsx";
 
-export type BlogSectionProps =
-  SliceComponentProps<Content.FeaturedblogSlice>;
+export type BlogSectionProps = SliceComponentProps<Content.FeaturedblogSlice>;
 
-const BlogSection = async ({ slice }: BlogSectionProps) => {
+const BlogSection = async () => {
   const client = createClient();
 
   const blogs = await client.getAllByType("blog", {
@@ -17,7 +16,7 @@ const BlogSection = async ({ slice }: BlogSectionProps) => {
       field: "document.first_publication_date",
       direction: "desc",
     },
-    pageSize: 4, 
+    pageSize: 4,
   });
 
   if (!blogs.length) return null;
@@ -44,7 +43,7 @@ const BlogSection = async ({ slice }: BlogSectionProps) => {
                       day: "numeric",
                       month: "long",
                       year: "numeric",
-                    }
+                    },
                   )}
               </span>
             </div>
@@ -56,7 +55,7 @@ const BlogSection = async ({ slice }: BlogSectionProps) => {
             <Button
               label="Read More"
               href={`/blog/${hero?.uid}`}
-              className="Read-mORE "
+              className="Read-mORE"
             />
           </div>
         </div>

@@ -12,7 +12,7 @@
 }
 
 .header {
-   display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
@@ -27,25 +27,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-
-  //   height: 53px;
-  padding: 16px $h3-size;
-
-  border-radius: 8px;
-  border: none;
+  padding: 11.49px 34.47px;
+  border-radius: 5.74px;
+  width: fit-content;
+  height: auto;
   text-decoration: none;
-  background-color: #2563eb;
-  color: $color-white;
-  font-size: 16px;
-  font-weight: 600;
-
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-.viewAllBtn:hover {
-  background: #542dd6;
+  background-color: transparent;
+  &:hover {
+    background: #542dd6;
+    color: #ede5e5;
+  }
 }
 
 .grid {
@@ -54,4 +47,3 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
-

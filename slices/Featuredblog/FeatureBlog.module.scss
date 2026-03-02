@@ -130,6 +130,29 @@
   height: 50px !important;
   width: 358px !important;
 }
+.Read-mORE {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 125px;
+  height: 40px;
+  padding: 16px 48px;
+  border-radius: 8px;
+  border: 1px solid #7C4EE4;
+  background-color: transparent;
+  color: #7C4EE4;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #7C4EE4;
+    color: #fff;
+  }
+}
 
 @media (max-width: 1024px) {
   .hero .content {
