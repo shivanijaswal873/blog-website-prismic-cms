@@ -21,7 +21,7 @@ export default function Navbar({ settings, searchSettings }: any) {
     about_link,
     contact_label,
     contact_link,
-  } = settings.data;
+  } = settings?.data;
 
   return (
     <>
@@ -30,7 +30,7 @@ export default function Navbar({ settings, searchSettings }: any) {
           <Link href="/" className="brand">
             {logo?.url && (
               <Image
-                src={logo.url}
+                src={logo?.url}
                 alt="Logo"
                 width={150}
                 height={45}
@@ -43,7 +43,7 @@ export default function Navbar({ settings, searchSettings }: any) {
             <Link
               href={asLink(blog_link) || "/"}
               className={clsx("nav-item", {
-                active: pathname.startsWith("/blog"),
+                active: pathname?.startsWith("/blog"),
               })}
             >
               {blog_label}

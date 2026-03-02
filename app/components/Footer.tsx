@@ -7,7 +7,7 @@ export default async function Footer() {
   const client = createClient();
   const footer = await client.getSingle("footer_settings");
 
-  const { logo, footer_links, social_links, copyright_text } = footer.data;
+  const { logo, footer_links, social_links, copyright_text } = footer?.data;
 
   return (
     <footer className={styles.footer}>
@@ -21,7 +21,7 @@ export default async function Footer() {
         <ul className={styles.links}>
           {footer_links?.map((item, index) => (
             <li key={index}>
-              <Link href="">{item.label}</Link>
+              <Link href="">{item?.label}</Link>
             </li>
           ))}
         </ul>
@@ -29,7 +29,7 @@ export default async function Footer() {
         <div className={styles.social}>
           {social_links?.map((item, index) => (
             <Link key={index} href="">
-              <PrismicImage field={item.icon} />
+              <PrismicImage field={item?.icon} />
             </Link>
           ))}
         </div>

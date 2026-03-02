@@ -127,7 +127,7 @@ export default function SearchModal({
               {results.map((blog) => (
                 <Link
                   key={blog.id}
-                  href={`/blog/${blog.uid}`}
+                  href={`/blog/${blog?.uid}`}
                   className={styles.resultItem}
                   onClick={onClose}
                 >
@@ -139,8 +139,8 @@ export default function SearchModal({
 
           {!loading && query && results.length === 0 && (
             <div className={styles.emptyState}>
-              <h4 className={styles.emptyTitle}>{data.empty_title}</h4>
-              <p className={styles.emptyText}>{data.empty_description}</p>
+              <h4 className={styles.emptyTitle}>{data?.empty_title}</h4>
+              <p className={styles.emptyText}>{data?.empty_description}</p>
             </div>
           )}
         </div>
