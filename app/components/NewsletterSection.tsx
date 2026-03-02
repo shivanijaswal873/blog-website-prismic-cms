@@ -1,14 +1,30 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { createClient } from "@/prismicio";
 import { PrismicRichText } from "@prismicio/react";
 import styles from "../common-style/components/Newsletter.module.scss";
 import Button from "./common/Button";
 
-export default async function Newsletter() {
-  const client = createClient();
+export default function Newsletter() {
+  const [newsletter, setNewsletter] = useState<any>(null);
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [snackbar, setSnackbar] = useState("");
 
-  const newsletter = await client
-    .getSingle("newsletter_settings")
-    .catch(() => null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const client = createClient();
+        const data = await client.getSingle("newsletter_settings");
+        setNewsletter(data);
+      } catch {
+        setNewsletter(null);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   if (!newsletter) return null;
 
@@ -19,7 +35,49 @@ export default async function Newsletter() {
     description,
     top_wave_image,
     bottom_wave_imag,
-  } = newsletter?.data as any;
+  } = newsletter.data;
+
+
+  const isValidEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const sendEmail = async () => {
+    const trimmedEmail = email.trim();
+
+    if (!isValidEmail(trimmedEmail)) {
+      showSnackbar("Please enter a valid email");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: trimmedEmail }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        showSnackbar("Email Sent Successfully");
+        setEmail("");
+      } else {
+        showSnackbar(data.message || "Something went wrong");
+      }
+    } catch {
+      showSnackbar("Server error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const showSnackbar = (message: string) => {
+    setSnackbar(message);
+    setTimeout(() => setSnackbar(""), 3000);
+  };
 
   return (
     <section className={styles.newsletter}>
@@ -39,13 +97,18 @@ export default async function Newsletter() {
         <div className={styles.form}>
           <input
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && sendEmail()}
             placeholder={placeholder || "Your Email"}
             className={styles.input}
           />
+
           <Button
-            label={button_label || "Get started"}
+            label={loading ? "Sending..." : button_label || "Get started"}
             variant="primary"
             className={styles.button}
+            onClick={sendEmail}
           />
         </div>
 
@@ -56,10 +119,16 @@ export default async function Newsletter() {
 
       {bottom_wave_imag?.url && (
         <img
-          src={bottom_wave_imag?.url}
+          src={bottom_wave_imag.url}
           alt="bottom wave"
           className={styles.waveBottom}
         />
+      )}
+
+      {snackbar && (
+        <div className={styles.snackbar}>
+          {snackbar}
+        </div>
       )}
     </section>
   );
