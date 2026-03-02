@@ -313,7 +313,7 @@ interface ErrorPageDocumentData {
     string,
     unknown,
     prismic.FieldState,
-    never
+    "Primary" | "Secondary" | "text" | "outline"
   >;
 
   /**
@@ -836,7 +836,7 @@ interface SettingsDocumentData {
     string,
     unknown,
     prismic.FieldState,
-    never
+    "Primary" | "Secondary" | "text" | "outline"
   >;
 }
 
@@ -1253,7 +1253,7 @@ export interface HeroSliceDefaultPrimary {
     string,
     unknown,
     prismic.FieldState,
-    never
+    "Primary" | "Secondary" | "text" | "outline"
   >;
 
   /**
@@ -1460,7 +1460,7 @@ export interface PopularBlogSliceDefaultPrimary {
     string,
     unknown,
     prismic.FieldState,
-    never
+    "Primary" | "Secondary" | "text" | "outline"
   >;
 
   /**
@@ -1581,7 +1581,7 @@ export interface RecentblogSliceDefaultPrimaryItemItem {
     string,
     unknown,
     prismic.FieldState,
-    never
+    "Primary" | "Secondary" | "outline" | "text"
   >;
 }
 
@@ -1622,7 +1622,7 @@ export interface RecentblogSliceDefaultPrimary {
     string,
     unknown,
     prismic.FieldState,
-    never
+    "Primary" | "Secondary" | "text" | "outline"
   >;
 
   /**

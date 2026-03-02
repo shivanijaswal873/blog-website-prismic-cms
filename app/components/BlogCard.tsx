@@ -1,6 +1,6 @@
-import Link from "next/link";
 import styles from "../common-style/components/BlogCard.module.scss";
 import { PrismicRichText } from "@prismicio/react";
+import Button from "./common/Button";
 
 export default function BlogCard({ blog }: any) {
   if (!blog.data) return null;
@@ -17,7 +17,6 @@ export default function BlogCard({ blog }: any) {
     <section className={styles.cardSection}>
       <div className={styles.cardWrapper}>
         <div className={styles.card}>
-          
           <div className={styles.image}>
             <img
               src={blog?.data?.featured_image?.url ?? ""}
@@ -31,9 +30,7 @@ export default function BlogCard({ blog }: any) {
               <span>{formattedDate}</span>
             </div>
 
-            <h3 className={styles.title}>
-              {blog?.data.title}
-            </h3>
+            <h3 className={styles.title}>{blog?.data.title}</h3>
 
             {blog?.data?.description && (
               <div className={styles.description}>
@@ -41,14 +38,14 @@ export default function BlogCard({ blog }: any) {
               </div>
             )}
 
-            <Link
-              href={`/blog/${blog?.uid}`}
-              className={styles.readMore}
-            >
-              Read More...
-            </Link>
+            {blog?.uid && (
+              <Button
+                label="Read More"
+                href={`/blog/${blog.uid}`}
+                variant="text"
+              />
+            )}
           </div>
-
         </div>
       </div>
     </section>

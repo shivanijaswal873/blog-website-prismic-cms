@@ -1,3 +1,4 @@
+import Button from "@/app/components/common/Button";
 import { createClient } from "@/prismicio";
 import { asLink } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
@@ -9,7 +10,7 @@ export default async function Hero() {
   const page = await client.getSingle("homepage");
 
   const heroSlice = page.data.slices?.find(
-    (slice: any) => slice.slice_type === "hero"
+    (slice: any) => slice.slice_type === "hero",
   );
 
   if (!heroSlice) return null;
@@ -27,7 +28,6 @@ export default async function Hero() {
 
   return (
     <section className="hero">
-
       {top_wave_image?.url && (
         <Image
           src={top_wave_image.url}
@@ -60,12 +60,14 @@ export default async function Hero() {
             <PrismicRichText field={featured_description} />
           </div>
 
-          <Link
-            href={asLink(featured_button_link) || "/"}
-            className="hero-btn"
-          >
-            {featured_button_text}
-          </Link>
+          {featured_button_text && featured_button_link && (
+            <Button
+              label={featured_button_text}
+              href={asLink(featured_button_link) || "/"}
+              variant={featured_button_link?.variant}
+              className="hero-btn-extra"
+            />
+          )}
         </div>
 
         <div className="hero-image">

@@ -8,6 +8,7 @@ import { FiSearch } from "react-icons/fi";
 import { useState } from "react";
 import clsx from "clsx";
 import SearchModal from "./SearchModal";
+import Button from "./common/Button";
 
 export default function Navbar({ settings, searchSettings }: any) {
   const pathname = usePathname();
@@ -58,9 +59,13 @@ export default function Navbar({ settings, searchSettings }: any) {
               onClick={() => setOpenSearch(true)}
             />
 
-            <Link href={asLink(contact_link) || "/"} className="btn-contact">
-              {contact_label}
-            </Link>
+            {contact_label && contact_link && (
+              <Button
+                label={contact_label}
+                href={asLink(contact_link) || "/"}
+                variant={contact_link?.variant}
+              />
+            )}
           </nav>
         </div>
       </header>

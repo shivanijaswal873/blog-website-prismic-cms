@@ -14,12 +14,13 @@
 				"type": "Text"
 			},
 			"view_all_link": {
-				"key": "87b38473-6a82-4f54-b1e3-ab5aa7c5a487",
+				"key": "9729f4f8-cda3-4ef1-b878-1d25cec9b1ea",
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "http://twitter.com",
-					"text": "ever"
+					"url": "https://prismic.io",
+					"text": "pile",
+					"variant": "outline"
 				}
 			},
 			"items": {
@@ -31,8 +32,8 @@
 							[
 								"blog",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "2a13556c-0079-4059-9979-0898d78f3d8c",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "DocumentLink",
 										"id": "mock_document_id"
