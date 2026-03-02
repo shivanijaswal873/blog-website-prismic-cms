@@ -56,6 +56,7 @@ const BlogSection = async ({ slice }: BlogSectionProps) => {
             <Button
               label="Read More"
               href={`/blog/${hero?.uid}`}
+              className="Read-mORE "
             />
           </div>
         </div>

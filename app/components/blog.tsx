@@ -4,11 +4,12 @@ import {
   DateField,
   RichTextField,
   isFilled,
+  asLink,
 } from "@prismicio/client";
 import { PrismicImage, PrismicRichText } from "@prismicio/react";
-import styles from "../common-style/components/Blog.module.scss";
+import styles from "../common-style/components/blog.module.scss";
 import clsx from "clsx";
-import Link from "next/link";
+import Button from "./common/Button";
 
 export type BlogItemProps = {
   image?: ImageField;
@@ -29,6 +30,7 @@ const BlogItem = ({
   description,
   button_label,
   button_link,
+
   variant = "card",
 }: BlogItemProps) => {
   return (
@@ -72,10 +74,12 @@ const BlogItem = ({
         )}
 
         {button_label && button_link && (
-          <div className={styles?.readMoreWrapper}>
-            <Link href={button_link} className={styles?.readMore}>
-              {button_label}
-            </Link>
+          <div className={styles.readMoreWrapper}>
+            <Button
+              label={button_label}
+              href={button_link}
+              variant={variant === "recentHero" ? "outline" : "text"}
+            />
           </div>
         )}
       </div>

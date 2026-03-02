@@ -1,14 +1,15 @@
 import { SliceComponentProps } from "@prismicio/react";
-import { Content } from "@prismicio/client";
+import { asLink, Content } from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import BlogItem from "@/app/components/blog";
 import styles from "../../app/common-style/components/Recentblog.module.scss";
+import Button from "@/app/components/common/Button";
 
 export type RecentBlogProps = SliceComponentProps<Content.RecentblogSlice>;
 
 const RecentBlog = async ({ slice }: RecentBlogProps) => {
   const client = createClient();
-
+  const { view_all_label, view_all_link } = slice.primary;
   const blogs = await client.getAllByType("blog", {
     orderings: {
       field: "document.first_publication_date",
@@ -27,9 +28,14 @@ const RecentBlog = async ({ slice }: RecentBlogProps) => {
       <div className={styles.container}>
         <div className={styles.header}>
           <h2 className={styles.sectionTitle}>{slice.primary.section_title}</h2>
-          <a href="/blog" className={styles.viewAllBtn}>
-            {slice.primary.view_all_label}
-          </a>
+          {view_all_label && view_all_link && (
+            <Button
+              label={view_all_label}
+              href={asLink(view_all_link) || "/"}
+              variant={view_all_link?.variant}
+              className={styles.viewAllBtn}
+            />
+          )}
         </div>
         {hero && (
           <BlogItem

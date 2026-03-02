@@ -36,12 +36,13 @@
 				"type": "Text"
 			},
 			"featured_button_link": {
-				"key": "6aa23b79-8984-41d7-9058-0f1c19cef82b",
 				"__TYPE__": "LinkContent",
+				"key": "d9730bf3-2de3-4b0d-b473-4a62bcc8dfa6",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev",
-					"text": "cat"
+					"url": "http://twitter.com",
+					"text": "led",
+					"variant": "Primary"
 				}
 			},
 			"featured_image": {
@@ -91,7 +92,6 @@
 				"thumbnails": {}
 			},
 			"bottom_wave_image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
@@ -110,6 +110,8 @@
 					"background": "transparent"
 				},
 				"alt": "brain",
+				"credits": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			}
 		},

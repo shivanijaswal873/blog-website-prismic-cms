@@ -1,6 +1,7 @@
 import { createClient } from "@/prismicio";
 import { PrismicRichText } from "@prismicio/react";
 import styles from "../common-style/components/Newsletter.module.scss";
+import Button from "./common/Button";
 
 export default async function Newsletter() {
   const client = createClient();
@@ -41,9 +42,11 @@ export default async function Newsletter() {
             placeholder={placeholder || "Your Email"}
             className={styles.input}
           />
-          <button className={styles.button}>
-            {button_label || "Get started"}
-          </button>
+          <Button
+            label={button_label || "Get started"}
+            variant="primary"
+            className={styles.button}
+          />
         </div>
 
         <div className={styles.description}>

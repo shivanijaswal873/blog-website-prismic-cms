@@ -14,12 +14,13 @@
 				"type": "Text"
 			},
 			"view_all_link": {
-				"key": "7c42bc6e-b269-4824-9b96-a64be763a306",
+				"key": "63b50081-5601-4f6f-8256-7dd9202b264d",
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "https://prismic.io",
-					"text": "another"
+					"url": "https://slicemachine.dev",
+					"text": "very",
+					"variant": "outline"
 				}
 			},
 			"item": {
@@ -104,11 +105,12 @@
 								"button_link",
 								{
 									"__TYPE__": "LinkContent",
-									"key": "83c0deb9-99ac-4a70-959e-8b42fb7d405d",
+									"key": "dbf1bd1c-4f53-43a3-a24d-3cf7d595e93f",
 									"value": {
 										"__TYPE__": "ExternalLink",
-										"url": "http://google.com",
-										"text": "early"
+										"url": "https://slicemachine.dev",
+										"text": "branch",
+										"variant": "Primary"
 									}
 								}
 							]

@@ -52,7 +52,13 @@
             "select": null,
             "allowTargetBlank": true,
             "allowText": true,
-            "repeat": false
+            "repeat": false,
+            "variants": [
+              "Primary",
+              "Secondary",
+              "text",
+              "outline"
+            ]
           }
         },
         "featured_image": {
