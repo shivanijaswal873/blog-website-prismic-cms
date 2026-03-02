@@ -37,12 +37,18 @@ export default function Newsletter() {
     bottom_wave_imag,
   } = newsletter.data;
 
-
-  const isValidEmail = (email: string) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isValidEmail = (value: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   };
 
-  const sendEmail = async () => {
+  const showSnackbar = (message: string) => {
+    setSnackbar(message);
+    setTimeout(() => setSnackbar(""), 3000);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
     const trimmedEmail = email.trim();
 
     if (!isValidEmail(trimmedEmail)) {
@@ -56,13 +62,16 @@ export default function Newsletter() {
       const res = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: trimmedEmail }),
+        body: JSON.stringify({
+          type: "newsletter",
+          email: trimmedEmail,
+        }),
       });
 
       const data = await res.json();
 
       if (res.ok && data.success) {
-        showSnackbar("Email Sent Successfully");
+        showSnackbar("Subscribed successfully!");
         setEmail("");
       } else {
         showSnackbar(data.message || "Something went wrong");
@@ -72,11 +81,6 @@ export default function Newsletter() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const showSnackbar = (message: string) => {
-    setSnackbar(message);
-    setTimeout(() => setSnackbar(""), 3000);
   };
 
   return (
@@ -94,12 +98,11 @@ export default function Newsletter() {
           <PrismicRichText field={title} />
         </div>
 
-        <div className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && sendEmail()}
             placeholder={placeholder || "Your Email"}
             className={styles.input}
           />
@@ -108,9 +111,9 @@ export default function Newsletter() {
             label={loading ? "Sending..." : button_label || "Get started"}
             variant="primary"
             className={styles.button}
-            onClick={sendEmail}
+            type="submit"
           />
-        </div>
+        </form>
 
         <div className={styles.description}>
           <PrismicRichText field={description} />
@@ -125,11 +128,7 @@ export default function Newsletter() {
         />
       )}
 
-      {snackbar && (
-        <div className={styles.snackbar}>
-          {snackbar}
-        </div>
-      )}
+      {snackbar && <div className={styles.snackbar}>{snackbar}</div>}
     </section>
   );
 }
