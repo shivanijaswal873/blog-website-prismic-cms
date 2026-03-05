@@ -1,8 +1,9 @@
 @use "../abstracts/variables" as *;
+
 .contactFormWrapper {
   position: relative;
   background: #f5f5f7;
-  padding-bottom: 120px;
+  padding-bottom: 100px;
 }
 
 .mapWrapper {
@@ -20,11 +21,16 @@
 .formCard {
   position: relative;
   max-width: 750px;
-  margin: -100px auto 0 auto;
+  margin: -120px auto 0;
   background: $color-white;
-  padding: 45px 40px;
+  padding: 40px;
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.formTitle {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .formGrid {
@@ -47,7 +53,7 @@
 .submitButton {
   background: #6c63ff;
   color: #fff;
-  padding: 12px $h4-size;
+  padding: 12px 28px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -58,20 +64,6 @@
   background: #574bdf;
 }
 
-@media (max-width: 768px) {
-  .formGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .fullWidth,
-  .buttonWrapper {
-    grid-column: span 1;
-  }
-
-  .formCard {
-    margin: -80px 20px 0 20px;
-  }
-}
 .snackbar {
   position: fixed;
   bottom: 20px;
@@ -90,4 +82,37 @@
   10% { opacity: 1; transform: translateY(0); }
   90% { opacity: 1; }
   100% { opacity: 0; transform: translateY(20px); }
+}
+
+@media (max-width: 992px) {
+  .formCard {
+    margin: -100px 40px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .mapWrapper {
+    height: 260px;
+  }
+
+  .formCard {
+    margin: -80px 20px 0;
+    padding: 30px 20px;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .fullWidth {
+    grid-column: span 1;
+  }
+
+  .buttonWrapper {
+    grid-column: span 1;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
 }
