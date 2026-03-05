@@ -4,7 +4,7 @@ import { asLink } from "@prismicio/client";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
 import clsx from "clsx";
 import SearchModal from "./SearchModal";
@@ -13,6 +13,7 @@ import Button from "./common/Button";
 export default function Navbar({ settings, searchSettings }: any) {
   const pathname = usePathname();
   const [openSearch, setOpenSearch] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   const {
     logo,
@@ -27,14 +28,14 @@ export default function Navbar({ settings, searchSettings }: any) {
   return (
     <>
       <header className="header">
-        <div className="header-inner">
+        <div className="container header-inner">
           <Link href="/" className="brand">
             {logo?.url && (
               <Image
                 src={logo?.url}
                 alt="Logo"
-                width={150}
-                height={45}
+                width={156.97}
+                height={43.1}
                 priority
               />
             )}
@@ -43,14 +44,16 @@ export default function Navbar({ settings, searchSettings }: any) {
           <nav className="nav">
             <Link
               href={asLink(blog_link) || "/"}
-              className={clsx("nav-item", {
+              className={clsx("nav-item blog", {
                 active: pathname?.startsWith("/blog"),
               })}
             >
               {blog_label}
             </Link>
 
-            <Link href={asLink(about_link) || "/"} className="nav-item">
+            <Link href={asLink(about_link) || "/"}   className={clsx("nav-item about", {
+                active: pathname?.startsWith("/about"),
+              })}>
               {about_label}
             </Link>
 
@@ -63,12 +66,53 @@ export default function Navbar({ settings, searchSettings }: any) {
               <Button
                 label={contact_label}
                 href={asLink(contact_link) || "/"}
-                variant={contact_link?.variant}
               />
             )}
           </nav>
+
+          <div className="hamburger" onClick={() => setOpenDrawer(true)}>
+            <FiMenu />
+          </div>
         </div>
       </header>
+
+      <div className={clsx("drawer-overlay", { show: openDrawer })}>
+        <div className="drawer">
+          <div className="drawer-header">
+             <Link href="/" className="brand">
+            {logo?.url && (
+              <Image
+                src={logo?.url}
+                alt="Logo"
+                width={100}
+                height={25}
+                priority
+              />
+            )}
+          </Link>
+            <FiX onClick={() => setOpenDrawer(false)} />
+          </div>
+
+          <Link href={asLink(blog_link) || "/"} className="drawer-item">
+            {blog_label}
+          </Link>
+
+          <Link href={asLink(about_link) || "/"} className="drawer-item">
+            {about_label}
+          </Link>
+
+          <div className="drawer-search" onClick={() => setOpenSearch(true)}>
+            Search
+          </div>
+
+          {contact_label && contact_link && (
+            <Button
+              label={contact_label}
+              href={asLink(contact_link) || "/"}
+            />
+          )}
+        </div>
+      </div>
 
       {openSearch && (
         <SearchModal

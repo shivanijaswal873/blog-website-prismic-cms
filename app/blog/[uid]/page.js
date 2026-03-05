@@ -32,41 +32,41 @@ export default async function BlogDetail(props) {
   return (
     <section className={styles.singleBlog}>
       <div className={styles.container}>
-        <div className={styles.meta}>
+          <div className={styles.meta}>
           <span className={styles.category}>{blog.data.category}</span>
           <span className={styles.date}>{formattedDate}</span>
-        </div>
-
-        <h1 className={styles.title}>{blog.data.title}</h1>
-
-        {blog.data.featured_image?.url && (
-          <img
-            src={blog.data.featured_image.url}
-            alt={blog.data.featured_image.alt || ""}
-            className={styles.mainImage}
-          />
-        )}
-
-        <div className={styles.content}>
-          <PrismicRichText field={blog.data.content} />
-        </div>
-
-        {blog.data.quote_text && (
-          <div className={styles.quoteBox}>
-            <p>{blog.data.quote_text}</p>
-            <span>- {blog.data.quote_author}</span>
           </div>
-        )}
 
-        {blog.data.second_image?.url && (
-          <img
-            src={blog.data.second_image.url}
-            alt=""
-            className={styles.secondImage}
-          />
-        )}
-        {blog.data.description && (
-          <PrismicRichText field={blog.data.description} />
+          <h1 className={styles.title}>{blog.data.title}</h1>
+
+          {blog.data.featured_image?.url && (
+            <img
+              src={blog.data.featured_image.url}
+              alt={blog.data.featured_image.alt || ""}
+              className={styles.mainImage}
+            />
+          )}
+
+          <div className={styles.content}>
+            <PrismicRichText field={blog.data.content} />
+          </div>
+
+          {blog.data.quote_text && (
+            <div className={styles.quoteBox}>
+              <p>{blog.data.quote_text}</p>
+              <span>- {blog.data.quote_author}</span>
+            </div>
+          )}
+
+          {blog.data.second_image?.url && (
+            <img
+              src={blog.data.second_image.url}
+              alt=""
+              className={styles.secondImage}
+            />
+          )}
+          {blog.data.description && (
+              <PrismicRichText field={blog.data.description} />
         )}
       </div>
 
