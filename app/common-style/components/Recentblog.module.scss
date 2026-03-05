@@ -25,7 +25,6 @@
 }
 
 .viewAllBtn {
-  padding: 10px 28px;
   border-radius: 6px;
   white-space: nowrap; 
 }
@@ -41,6 +40,11 @@
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .sectionTitle{
+    font-size: 34.47px;
+    line-height: 35.9px;
+  }
+
 }
 
 @media (max-width: 767px) {
@@ -52,9 +56,14 @@
 
   .sectionTitle {
     font-size: 20px;
+    line-height: 35.9px;
   }
 
   .grid {
     grid-template-columns: 1fr;
   }
+  .viewAllBtn{
+    padding: 11.49px 34.47px;
+  }
+
 }

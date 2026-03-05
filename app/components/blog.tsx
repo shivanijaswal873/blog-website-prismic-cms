@@ -43,10 +43,10 @@ const BlogItem = ({
 
       <div className={styles?.content}>
         <div className={styles?.meta}>
-          {isFilled.keyText(category) && <span>{category}</span>}
+          {isFilled.keyText(category) && <span className={styles.category}>{category}</span>}
 
           {date && (
-            <span>
+            <span className={styles.date}>
               {new Date(date).toLocaleDateString("en-GB", {
                 day: "numeric",
                 month: "long",

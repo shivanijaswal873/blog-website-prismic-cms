@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -48,10 +49,10 @@
   font-size: 22px;
   cursor: pointer;
   transition: 0.2s ease;
+}
 
-  &:hover {
-    transform: rotate(90deg);
-  }
+.closeIcon:hover {
+  transform: rotate(90deg);
 }
 
 .searchBox {
@@ -61,19 +62,19 @@
 }
 
 .searchInput {
-  width: 90%;
+  width: 100%;
   height: $h3-size;
   padding: 0 16px 0 45px;
   border-radius: 12px;
   border: 1px solid #ddd;
   font-size: 15px;
   transition: all 0.2s ease;
+}
 
-  &:focus {
-    outline: none;
-    border-color: #6c5ce7;
-    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.12);
-  }
+.searchInput:focus {
+  outline: none;
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.12);
 }
 
 .searchIcon {
@@ -103,10 +104,10 @@
   text-decoration: none;
   color: #333;
   transition: 0.2s ease;
+}
 
-  &:hover {
-    background: #f3f4f6;
-  }
+.resultItem:hover {
+  background: #f3f4f6;
 }
 
 .emptyState {
@@ -140,5 +141,75 @@
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    max-width: 500px;
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .searchInput {
+    height: 44px;
+    font-size: 14px;
+  }
+
+  .results {
+    max-height: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 16px;
+    align-items: flex-start;
+  }
+
+  .modal {
+    max-width: 100%;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 40px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .searchInput {
+    height: 40px;
+    font-size: 14px;
+    padding: 0 14px 0 40px;
+  }
+
+  .searchIcon {
+    left: 12px;
+    font-size: 16px;
+  }
+
+  .results {
+    max-height: 200px;
+  }
+
+  .resultItem {
+    padding: 10px 12px;
+    font-size: 14px;
   }
 }
