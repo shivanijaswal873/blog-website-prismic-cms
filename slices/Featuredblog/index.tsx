@@ -55,7 +55,7 @@ const BlogSection = async () => {
             <Button
               label="Read More"
               href={`/blog/${hero?.uid}`}
-              className="Read-mORE"
+              className={styles.read}
             />
           </div>
         </div>
