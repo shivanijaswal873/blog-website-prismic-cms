@@ -1,10 +1,17 @@
 .singleBlog {
-  padding: 80px 0 0;
+  padding: 80px 20px 0;
 }
 
 .container {
-  max-width: 820px;   
+  max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+}
+
+.container > *:not(.popularWrapper) {
+  grid-column: 1 / 2;
 }
 
 .meta {
@@ -15,6 +22,7 @@
   margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  flex-wrap: wrap;
 }
 
 .title {
@@ -24,7 +32,8 @@
   margin-bottom: 40px;
 }
 
-.mainImage {
+.mainImage,
+.secondImage {
   width: 100%;
   border-radius: 20px;
   margin-bottom: 40px;
@@ -59,21 +68,15 @@
   color: #6b7280;
 }
 
-.secondImage {
-  width: 100%;
-
-  border-radius: 20px;
-  margin-bottom: 80px;
-}
-
-
 .popularWrapper {
+  grid-column: 1 / -1;
   background: #f9fafb;
-  padding: 80px 0;
+  padding: 80px 20px;
+  margin-top: 40px;
 }
 
 .popularContainer {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -93,4 +96,61 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .popularGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .singleBlog {
+    padding: 50px 16px 0;
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  .meta {
+    font-size: 12px;
+  }
+
+  .content {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .quoteBox {
+    padding: 20px;
+  }
+
+  .mainImage,
+  .secondImage {
+    border-radius: 14px;
+  }
+
+  .popularWrapper {
+    padding: 60px 16px;
+  }
+
+  .popularHeader h2 {
+    font-size: 22px;
+  }
+
+  .popularGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
