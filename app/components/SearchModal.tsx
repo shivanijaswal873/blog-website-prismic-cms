@@ -43,7 +43,7 @@ export default function SearchModal({
 
   useEffect(() => {
     const timer = setTimeout(async () => {
-      if (!query.trim()) {
+      if (!query?.trim()) {
         setResults([]);
         return;
       }
@@ -52,7 +52,7 @@ export default function SearchModal({
         setLoading(true);
 
         const response = await client.getAllByType("blog", {
-          filters: [prismic.filter.fulltext("my.blog.title", query)],
+          filters: [prismic?.filter?.fulltext("my.blog.title", query)],
         });
 
         setResults(response as Blog[]);
@@ -69,7 +69,7 @@ export default function SearchModal({
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e?.key === "Escape") onClose();
     };
 
     window.addEventListener("keydown", handleEsc);
@@ -91,12 +91,12 @@ export default function SearchModal({
       <div
         className={styles.modal}
         ref={modalRef}
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e) => e?.stopPropagation()}
       >
         <div className={styles.header}>
           <div>
-            <h2 className={styles.title}>{data.title}</h2>
-            <p className={styles.subtitle}>{data.subtitle}</p>
+            <h2 className={styles.title}>{data?.title}</h2>
+            <p className={styles.subtitle}>{data?.subtitle}</p>
           </div>
 
           <FiX className={styles.closeIcon} onClick={onClose} />
@@ -107,9 +107,9 @@ export default function SearchModal({
           <input
             className={styles.searchInput}
             type="text"
-            placeholder={data.placeholder}
+            placeholder={data?.placeholder}
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => setQuery(e?.target?.value)}
             autoFocus
           />
         </div>
@@ -117,27 +117,27 @@ export default function SearchModal({
         <div className={styles.results}>
           {loading && <p>Searching...</p>}
 
-          {!loading && query && results.length > 0 && (
+          {!loading && query && results?.length > 0 && (
             <>
               <p className={styles.resultCount}>
                 {results.length} result
                 {results.length !== 1 } found
               </p>
 
-              {results.map((blog) => (
+              {results?.map((blog) => (
                 <Link
-                  key={blog.id}
+                  key={blog?.id}
                   href={`/blog/${blog?.uid}`}
                   className={styles.resultItem}
                   onClick={onClose}
                 >
-                  {blog.data.title}
+                  {blog?.data?.title}
                 </Link>
               ))}
             </>
           )}
 
-          {!loading && query && results.length === 0 && (
+          {!loading && query && results?.length === 0 && (
             <div className={styles.emptyState}>
               <h4 className={styles.emptyTitle}>{data?.empty_title}</h4>
               <p className={styles.emptyText}>{data?.empty_description}</p>

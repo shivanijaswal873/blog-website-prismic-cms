@@ -70,11 +70,11 @@ export default function Newsletter() {
 
       const data = await res.json();
 
-      if (res.ok && data.success) {
+      if (res?.ok && data?.success) {
         showSnackbar("Subscribed successfully!");
         setEmail("");
       } else {
-        showSnackbar(data.message || "Something went wrong");
+        showSnackbar(data?.message || "Something went wrong");
       }
     } catch {
       showSnackbar("Server error");
@@ -102,7 +102,7 @@ export default function Newsletter() {
           <input
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e?.target?.value)}
             placeholder={placeholder || "Your Email"}
             className={styles.input}
           />

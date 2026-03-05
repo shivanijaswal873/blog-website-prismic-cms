@@ -3,14 +3,14 @@ import { createClient } from "@/prismicio";
 import { asLink } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
 import Image from "next/image";
-import Link from "next/link";
+
 
 export default async function Hero() {
   const client = createClient();
   const page = await client.getSingle("homepage");
 
   const heroSlice = page.data.slices?.find(
-    (slice: any) => slice.slice_type === "hero",
+    (slice: any) => slice?.slice_type === "hero",
   );
 
   if (!heroSlice) return null;
@@ -24,7 +24,7 @@ export default async function Hero() {
     featured_image,
     top_wave_image,
     bottom_wave_image,
-  } = heroSlice.primary as any;
+  } = heroSlice?.primary as any;
 
   return (
     <section className="hero">

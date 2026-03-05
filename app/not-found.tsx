@@ -37,9 +37,9 @@ export default async function NotFound() {
 
         {page?.data?.button_label && page?.data?.button_link && (
           <Button
-            label={page.data.button_label}
-            href={asLink(page.data.button_link) || "/"}
-            variant={page.data.button_link?.variant}
+            label={page?.data?.button_label}
+            href={asLink(page?.data?.button_link) || "/"}
+            variant={page?.data?.button_link?.variant}
             className={styles.button}
           />
         )}

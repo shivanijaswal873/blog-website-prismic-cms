@@ -14,7 +14,7 @@ type FormDataType = {
 };
 
 const ContactFormSlice = ({ slice }: SliceComponentProps<any>) => {
-  const { map_image, form_title } = slice.primary;
+  const { map_image, form_title } = slice?.primary;
 
   const [formData, setFormData] = useState<FormDataType>({
     name: "",

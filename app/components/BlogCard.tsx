@@ -6,7 +6,7 @@ export default function BlogCard({ blog }: any) {
   if (!blog.data) return null;
 
   const formattedDate = blog?.data?.publish_date
-    ? new Date(blog.data.publish_date).toLocaleDateString("en-GB", {
+    ? new Date(blog?.data?.publish_date).toLocaleDateString("en-GB", {
         day: "numeric",
         month: "long",
         year: "numeric",
@@ -41,7 +41,7 @@ export default function BlogCard({ blog }: any) {
             {blog?.uid && (
               <Button
                 label="Read More"
-                href={`/blog/${blog.uid}`}
+                href={`/blog/${blog?.uid}`}
                 variant="text"
               />
             )}

@@ -8,7 +8,7 @@ export type PopularBlogProps = SliceComponentProps<Content.PopularBlogSlice>;
 
 const PopularBlog = ({ slice }: PopularBlogProps) => {
   if (!slice?.primary?.items?.length) return null;
-  const { view_all_label, view_all_link } = slice.primary;
+  const { view_all_label, view_all_link } = slice?.primary;
   const blogs = slice?.primary?.items
     .map((item) => item?.blog)
     .filter((blog) => isFilled.contentRelationship(blog));

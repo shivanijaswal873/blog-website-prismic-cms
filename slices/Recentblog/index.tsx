@@ -9,7 +9,7 @@ export type RecentBlogProps = SliceComponentProps<Content.RecentblogSlice>;
 
 const RecentBlog = async ({ slice }: RecentBlogProps) => {
   const client = createClient();
-  const { view_all_label, view_all_link } = slice.primary;
+  const { view_all_label, view_all_link } = slice?.primary;
   const blogs = await client.getAllByType("blog", {
     orderings: {
       field: "document.first_publication_date",
@@ -21,7 +21,7 @@ const RecentBlog = async ({ slice }: RecentBlogProps) => {
 
   const hero = blogs[0];
 
-  const cards = blogs.slice(1);
+  const cards = blogs?.slice(1);
 
   return (
     <section className={styles.section}>
