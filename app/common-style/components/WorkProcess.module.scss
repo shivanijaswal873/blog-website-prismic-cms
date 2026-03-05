@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as *;
+
 .work {
   padding: 120px 20px;
   background: #f9f9fb;
@@ -20,34 +21,32 @@
   }
 
   &__title {
-    max-width: 500px;
+    max-width: 520px;
     font-size: $h3-size;
-    line-height: 63.98px;
+    line-height: 64px;
     font-weight: 700;
-    letter-spacing: 0;
     color: #1a1a1a;
     margin-bottom: 20px;
   }
 
   &__desc {
-    max-width: 400px;
+    max-width: 380px;
     margin-left: auto;
-    margin-top: -80px;
+    margin-top: -70px;
     font-size: 16px;
     line-height: 150%;
     color: #777;
   }
 
   &__grid {
-    margin-top: 80px;
+    margin-top: 70px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
   }
 
   &__card {
-    position: relative;
-    padding: 50px 35px;
+    padding: 45px 30px;
     border-radius: 16px;
     background: transparent;
     transition: all 0.3s ease;
@@ -63,15 +62,11 @@
     box-shadow: 0 15px 40px rgba(108, 99, 255, 0.3);
 
     .work__number {
-      color: white;
-      font-size: 72px;
-      line-height: 96px;
-      font-family: 700;
+      color: #fff;
     }
 
     .work__cardDesc {
       color: rgba(255, 255, 255, 0.85);
-
     }
 
     .work__btn {
@@ -92,8 +87,7 @@
   &__cardTitle {
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 15px;
-    color: inherit;
+    margin-bottom: 12px;
   }
 
   &__cardDesc {
@@ -104,18 +98,75 @@
 
   &__btn {
     display: inline-block;
-    margin-top: 25px;
+    margin-top: 22px;
     font-size: 14px;
     font-weight: 500;
     color: #6c63ff;
     text-decoration: none;
     border-bottom: 1px solid #6c63ff;
     padding-bottom: 4px;
-    transition: all 0.3s ease;
+  }
+}
 
-    &:hover {
-      opacity: 0.8;
-      transform: translateX(4px);
+@media (max-width: 1024px) {
+  .work {
+
+    &__title {
+      font-size: 34px;
+      line-height: 45px;
+      max-width: 450px;
+    }
+
+    &__desc {
+      max-width: 320px;
+      margin-top: -60px;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    &__card {
+      padding: 40px 25px;
+    }
+
+    &__number {
+      font-size: 60px;
+      line-height: 80px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .work {
+    padding: 80px 20px;
+
+    &__title {
+      font-size: 24px;
+      line-height: 32px;
+      max-width: 100%;
+    }
+
+    &__desc {
+      margin-top: 10px;
+      margin-left: 0;
+      max-width: 100%;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    &__number {
+      font-size: 48px;
+      line-height: 60px;
+    }
+
+    &__card {
+      padding: 35px 25px;
     }
   }
 }
