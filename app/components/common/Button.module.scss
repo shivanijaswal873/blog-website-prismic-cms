@@ -9,15 +9,26 @@
 }
 
 .outline {
-  border: 1px solid #6c3ef4;
-  color: #6c3ef4;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 13px;
+ display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:16px 48px;
+
+  border-radius: 5.74px;
+  border: 0.72px solid $color-primary;
+
   background: transparent;
+  color: $color-primary;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: 0.3s ease;
 
   &:hover {
-    background: #6c3ef4;
+    background: $color-primary;
     color: #fff;
   }
 }
