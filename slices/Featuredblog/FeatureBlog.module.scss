@@ -137,11 +137,11 @@
   gap: 10px;
   width: 125px;
   height: 40px;
-  padding: 16px 48px;
+  padding: 16px $h3-size;
   border-radius: 8px;
-  border: 1px solid #7C4EE4;
+  border: 1px solid $color-primary;
   background-color: transparent;
-  color: #7C4EE4;
+  color: $color-primary;
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
@@ -149,7 +149,7 @@
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #7C4EE4;
+    background-color: $color-primary;
     color: #fff;
   }
 }
