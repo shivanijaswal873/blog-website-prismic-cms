@@ -23,12 +23,13 @@ export default function Navbar({ settings, searchSettings }: any) {
     about_link,
     contact_label,
     contact_link,
-  } = settings?.data;
+  } = settings?.data || {};
 
   return (
     <>
       <header className="header">
         <div className="container header-inner">
+          
           <Link href="/" className="brand">
             {logo?.url && (
               <Image
@@ -51,9 +52,12 @@ export default function Navbar({ settings, searchSettings }: any) {
               {blog_label}
             </Link>
 
-            <Link href={asLink(about_link) || "/"}   className={clsx("nav-item about", {
+            <Link
+              href={asLink(about_link) || "/"}
+              className={clsx("nav-item about", {
                 active: pathname?.startsWith("/about"),
-              })}>
+              })}
+            >
               {about_label}
             </Link>
 
@@ -70,38 +74,61 @@ export default function Navbar({ settings, searchSettings }: any) {
             )}
           </nav>
 
-          <div className="hamburger" onClick={() => setOpenDrawer(true)}>
+          <div
+            className="hamburger"
+            onClick={() => setOpenDrawer(true)}
+          >
             <FiMenu />
           </div>
         </div>
       </header>
 
-      <div className={clsx("drawer-overlay", { show: openDrawer })}>
-        <div className="drawer">
+      <div
+        className={clsx("drawer-overlay", { show: openDrawer })}
+        onClick={() => setOpenDrawer(false)}
+      >
+        <div
+          className="drawer"
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className="drawer-header">
-             <Link href="/" className="brand">
-            {logo?.url && (
-              <Image
-                src={logo?.url}
-                alt="Logo"
-                width={100}
-                height={25}
-                priority
-              />
-            )}
-          </Link>
+            <Link href="/" className="brand">
+              {logo?.url && (
+                <Image
+                  src={logo.url}
+                  alt="Logo"
+                  width={100}
+                  height={25}
+                />
+              )}
+            </Link>
+
             <FiX onClick={() => setOpenDrawer(false)} />
           </div>
 
-          <Link href={asLink(blog_link) || "/"} className="drawer-item">
+          <Link
+            href={asLink(blog_link) || "/"}
+            className="drawer-item"
+            onClick={() => setOpenDrawer(false)}
+          >
             {blog_label}
           </Link>
 
-          <Link href={asLink(about_link) || "/"} className="drawer-item">
+          <Link
+            href={asLink(about_link) || "/"}
+            className="drawer-item"
+            onClick={() => setOpenDrawer(false)}
+          >
             {about_label}
           </Link>
 
-          <div className="drawer-search" onClick={() => setOpenSearch(true)}>
+          <div
+            className="drawer-search"
+            onClick={() => {
+              setOpenSearch(true);
+              setOpenDrawer(false);
+            }}
+          >
             Search
           </div>
 
