@@ -91,7 +91,7 @@
   }
 
   &__cardDesc {
-    font-size: 14px;
+    font-size: $text-sm;
     line-height: 1.7;
     color: #777;
   }
@@ -99,7 +99,7 @@
   &__btn {
     display: inline-block;
     margin-top: 22px;
-    font-size: 14px;
+    font-size: $text-sm;
     font-weight: $font-weight-medium;
     color: $color-gradient-start;
     text-decoration: none;
