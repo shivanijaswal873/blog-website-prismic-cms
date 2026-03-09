@@ -1,4 +1,4 @@
-@use "../abstracts/variables" as *;
+@use "../../app/common-style/abstracts/variables" as *;
 
 .hero {
   width: 100%;
@@ -16,7 +16,7 @@
     #5b2bc5 100%
   );
 
-  &-inner {
+  &__inner {
     max-width: $layout-container-width;
     width: 100%;
     margin: 0 auto;
@@ -30,13 +30,13 @@
     z-index: 2;
   }
 
-  &-content {
+  &__content {
     flex: 1;
     max-width: 580px;
     color: $color-white;
   }
 
-  &-label {
+  &__label {
     font-size: $text-md;
     font-weight: $font-weight-bold;
     letter-spacing: 2px;
@@ -44,7 +44,7 @@
     opacity: 0.8;
   }
 
-  &-title {
+  &__title {
     font-size: $text-5xl;
     font-weight: $font-weight-bold;
     line-height: 1.15;
@@ -55,7 +55,7 @@
     }
   }
 
-  &-desc {
+  &__desc {
     font-size: $text-md;
     line-height: $line-height-md;
     opacity: 0.85;
@@ -67,7 +67,7 @@
     }
   }
 
-  &-btn {
+  &__btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -87,13 +87,13 @@
     }
   }
 
-  &-image {
+  &__image {
     flex: 1;
     display: flex;
     justify-content: center;
   }
 
-  &-img {
+  &__img {
     width: 100%;
     max-width: 608px;
     height: 576px;
@@ -102,23 +102,23 @@
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
   }
 
-  &-wave {
+  &__wave {
     position: absolute;
     z-index: 1;
     pointer-events: none;
     opacity: 0.6;
     height: 150px;
-  }
 
-  &-wave--top {
-    top: 0;
-    left: 0;
-  }
+    &--top {
+      top: 0;
+      left: 0;
+    }
 
-  &-wave--bottom {
-    bottom: 0;
-    right: 0;
-    transform: rotate(180deg);
+    &--bottom {
+      bottom: 0;
+      right: 0;
+      transform: rotate(180deg);
+    }
   }
 }
 
@@ -126,63 +126,63 @@
   .hero {
     min-height: auto;
     padding: $space-2xl 0;
-  }
 
-  .hero-inner {
-    gap: $space-xl;
-  }
+    &__inner {
+      gap: $space-xl;
+    }
 
-  .hero-title {
-    font-size: $text-3xl;
-  }
+    &__title {
+      font-size: $text-3xl;
+    }
 
-  .hero-desc {
-    font-size: $text-sm;
-  }
+    &__desc {
+      font-size: $text-sm;
+    }
 
-  .hero-img {
-    max-width: 436px;
-    height: 413px;
-    border-radius: $radius-md;
+    &__img {
+      max-width: 436px;
+      height: 413px;
+      border-radius: $radius-md;
+    }
   }
 }
 
 @media (max-width: 768px) {
   .hero {
     padding: $space-xl 0;
-  }
 
-  .hero-inner {
-    flex-direction: column;
-    text-align: center;
-    gap: $space-xl;
-  }
+    &__inner {
+      flex-direction: column;
+      text-align: center;
+      gap: $space-xl;
+    }
 
-  .hero-content {
-    max-width: 100%;
-  }
+    &__content {
+      max-width: 100%;
+    }
 
-  .hero-label {
-    font-size: $text-sm;
-  }
+    &__label {
+      font-size: $text-sm;
+    }
 
-  .hero-title {
-    font-size: $text-xl;
-    line-height: 1.2;
-  }
+    &__title {
+      font-size: $text-xl;
+      line-height: 1.2;
+    }
 
-  .hero-desc {
-    font-size: $text-sm;
-    margin-bottom: $space-lg;
-  }
+    &__desc {
+      font-size: $text-sm;
+      margin-bottom: $space-lg;
+    }
 
-  .hero-img {
-    max-width: 327px;
-    height: 330px;
-    border-radius: $radius-md;
-  }
+    &__img {
+      max-width: 327px;
+      height: 330px;
+      border-radius: $radius-md;
+    }
 
-  .hero-wave {
-    display: none;
+    &__wave {
+      display: none;
+    }
   }
 }

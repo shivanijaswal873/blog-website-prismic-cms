@@ -28,12 +28,11 @@ export default function Navbar({ settings, searchSettings }: any) {
   return (
     <>
       <header className="header">
-        <div className="container header-inner">
-          
+        <div className="header__inner">
           <Link href="/" className="brand">
             {logo?.url && (
               <Image
-                src={logo?.url}
+                src={logo.url}
                 alt="Logo"
                 width={156.97}
                 height={43.1}
@@ -45,8 +44,8 @@ export default function Navbar({ settings, searchSettings }: any) {
           <nav className="nav">
             <Link
               href={asLink(blog_link) || "/"}
-              className={clsx("nav-item blog", {
-                active: pathname?.startsWith("/blog"),
+              className={clsx("nav__item", {
+                "nav__item--active": pathname?.startsWith("/blog"),
               })}
             >
               {blog_label}
@@ -54,15 +53,15 @@ export default function Navbar({ settings, searchSettings }: any) {
 
             <Link
               href={asLink(about_link) || "/"}
-              className={clsx("nav-item about", {
-                active: pathname?.startsWith("/about"),
+              className={clsx("nav__item", {
+                "nav__item--active": pathname?.startsWith("/about"),
               })}
             >
               {about_label}
             </Link>
 
             <FiSearch
-              className="nav-search"
+              className="nav__search"
               onClick={() => setOpenSearch(true)}
             />
 
@@ -74,10 +73,7 @@ export default function Navbar({ settings, searchSettings }: any) {
             )}
           </nav>
 
-          <div
-            className="hamburger"
-            onClick={() => setOpenDrawer(true)}
-          >
+          <div className="hamburger" onClick={() => setOpenDrawer(true)}>
             <FiMenu />
           </div>
         </div>
@@ -87,19 +83,11 @@ export default function Navbar({ settings, searchSettings }: any) {
         className={clsx("drawer-overlay", { show: openDrawer })}
         onClick={() => setOpenDrawer(false)}
       >
-        <div
-          className="drawer"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="drawer-header">
+        <div className="drawer" onClick={(e) => e.stopPropagation()}>
+          <div className="drawer__header">
             <Link href="/" className="brand">
               {logo?.url && (
-                <Image
-                  src={logo.url}
-                  alt="Logo"
-                  width={100}
-                  height={25}
-                />
+                <Image src={logo.url} alt="Logo" width={100} height={25} />
               )}
             </Link>
 
@@ -108,7 +96,7 @@ export default function Navbar({ settings, searchSettings }: any) {
 
           <Link
             href={asLink(blog_link) || "/"}
-            className="drawer-item"
+            className="drawer__item"
             onClick={() => setOpenDrawer(false)}
           >
             {blog_label}
@@ -116,14 +104,14 @@ export default function Navbar({ settings, searchSettings }: any) {
 
           <Link
             href={asLink(about_link) || "/"}
-            className="drawer-item"
+            className="drawer__item"
             onClick={() => setOpenDrawer(false)}
           >
             {about_label}
           </Link>
 
           <div
-            className="drawer-search"
+            className="drawer__search"
             onClick={() => {
               setOpenSearch(true);
               setOpenDrawer(false);
@@ -133,10 +121,7 @@ export default function Navbar({ settings, searchSettings }: any) {
           </div>
 
           {contact_label && contact_link && (
-            <Button
-              label={contact_label}
-              href={asLink(contact_link) || "/"}
-            />
+            <Button label={contact_label} href={asLink(contact_link) || "/"} />
           )}
         </div>
       </div>
