@@ -1,8 +1,8 @@
-@use "../abstracts/variables" as *;
+@use "../../app/common-style/abstracts/variables" as *;
 
 .contact {
   &__section {
-    background: #f7f7fb;
+    background: $color-white-light;
     padding: 60px 20px;
   }
 

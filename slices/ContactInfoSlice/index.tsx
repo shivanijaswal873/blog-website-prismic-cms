@@ -1,6 +1,6 @@
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicRichText } from "@prismicio/react";
-import styles from "../../app/common-style/components/ContactInfo.module.scss";
+import styles from "./ContactInfo.module.scss";
 
 const ContactInfoSlice = ({ slice }: SliceComponentProps<any>) => {
   const { section_title, section_description, items } = slice?.primary;
