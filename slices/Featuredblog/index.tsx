@@ -1,7 +1,7 @@
 import { SliceComponentProps } from "@prismicio/react";
 import { Content } from "@prismicio/client";
 import { createClient } from "@/prismicio";
-import { PrismicImage, PrismicRichText } from "@prismicio/react";
+import { PrismicImage } from "@prismicio/react";
 import Button from "@/app/components/common/Button";
 import styles from "./FeatureBlog.module.scss";
 import clsx from "clsx";
