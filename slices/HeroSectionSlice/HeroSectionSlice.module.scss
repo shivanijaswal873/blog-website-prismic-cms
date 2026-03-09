@@ -17,17 +17,17 @@
 
   &__label {
     text-transform: uppercase;
-    color: #8c8c8c;
+    color: $color-text-light;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     line-height: 150%;
   }
 
   &__title {
     font-size: $text-3xl;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     line-height: 1.25;
-    color: #1a1a1a;
+    color: $color-text-dark;
     margin-bottom: 25px;
   }
 

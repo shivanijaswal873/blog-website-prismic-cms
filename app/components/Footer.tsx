@@ -11,14 +11,14 @@ export default async function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.container}>
+      <div className={styles.footer__container}>
         {logo && (
-          <div className={styles.logo}>
+          <div className={styles.footer__logo}>
             <PrismicImage field={logo} />
           </div>
         )}
 
-        <ul className={styles.links}>
+        <ul className={styles.footer__links}>
           {footer_links?.map((item, index) => (
             <li key={index}>
               <Link href="/#">{item?.label}</Link>
@@ -26,7 +26,7 @@ export default async function Footer() {
           ))}
         </ul>
 
-        <div className={styles.social}>
+        <div className={styles.footer__social}>
           {social_links?.map((item, index) => (
             <Link key={index} href="/#">
               <PrismicImage field={item?.icon} />
@@ -34,10 +34,10 @@ export default async function Footer() {
           ))}
         </div>
 
-        <div className={styles.divider}></div>
+        <div className={styles.footer__divider}></div>
 
         {copyright_text && (
-          <div className={styles.copy}>
+          <div className={styles.footer__copy}>
             <PrismicRichText field={copyright_text} />
           </div>
         )}
