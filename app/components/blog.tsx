@@ -4,7 +4,6 @@ import {
   DateField,
   RichTextField,
   isFilled,
-  asLink,
 } from "@prismicio/client";
 import { PrismicImage, PrismicRichText } from "@prismicio/react";
 import styles from "../common-style/components/blog.module.scss";
@@ -30,23 +29,24 @@ const BlogItem = ({
   description,
   button_label,
   button_link,
-
   variant = "card",
 }: BlogItemProps) => {
   return (
-    <div className={clsx(styles.blogItem, variant && styles[variant])}>
+    <div className={clsx(styles.blogItem, styles[variant])}>
       {image && isFilled.image(image) && (
-        <div className={styles?.image}>
+        <div className={styles.blogItem__image}>
           <PrismicImage field={image} />
         </div>
       )}
 
-      <div className={styles?.content}>
-        <div className={styles?.meta}>
-          {isFilled.keyText(category) && <span className={styles.category}>{category}</span>}
+      <div className={styles.blogItem__content}>
+        <div className={styles.blogItem__meta}>
+          {isFilled.keyText(category) && (
+            <span className={styles.blogItem__category}>{category}</span>
+          )}
 
           {date && (
-            <span className={styles.date}>
+            <span className={styles.blogItem__date}>
               {new Date(date).toLocaleDateString("en-GB", {
                 day: "numeric",
                 month: "long",
@@ -58,13 +58,13 @@ const BlogItem = ({
 
         {isFilled.keyText(title) &&
           (variant === "card" ? (
-            <h3 className={styles?.cardTitle}>{title}</h3>
+            <h3 className={styles.blogItem__cardTitle}>{title}</h3>
           ) : (
-            <h2 className={styles?.heroTitle}>{title}</h2>
+            <h2 className={styles.blogItem__heroTitle}>{title}</h2>
           ))}
 
         {description && (
-          <div className={styles?.description}>
+          <div className={styles.blogItem__description}>
             {typeof description === "string" ? (
               description
             ) : (
@@ -74,7 +74,7 @@ const BlogItem = ({
         )}
 
         {button_label && button_link && (
-          <div className={styles.readMoreWrapper}>
+          <div className={styles.blogItem__readMoreWrapper}>
             <Button
               label={button_label}
               href={button_link}

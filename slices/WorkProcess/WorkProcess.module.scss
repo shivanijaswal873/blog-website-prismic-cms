@@ -1,8 +1,8 @@
-@use "../abstracts/variables" as *;
+@use "../../app/common-style/abstracts/variables" as *;
 
 .work {
   padding: 120px 20px;
-  background: #f9f9fb;
+  background: $color-white-soft;
 
   &__container {
     max-width: 1200px;
@@ -13,19 +13,19 @@
     display: block;
     font-size: 16px;
     line-height: 150%;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     letter-spacing: 10%;
     text-transform: uppercase;
-    color: #8c8c8c;
+    color: $color-text-light;
     margin-bottom: 20px;
   }
 
   &__title {
     max-width: 520px;
-    font-size: $h3-size;
+    font-size: $text-3xl;
     line-height: 64px;
-    font-weight: 700;
-    color: #1a1a1a;
+    font-weight: $font-weight-bold;
+    color: $color-text-dark;
     margin-bottom: 20px;
   }
 
@@ -57,12 +57,12 @@
   }
 
   .highlight {
-    background: linear-gradient(135deg, #6c63ff, #8b5cf6);
-    color: #fff;
+    background: linear-gradient(135deg, $color-gradient-start, $color-gradient-end);
+    color: $color-white;
     box-shadow: 0 15px 40px rgba(108, 99, 255, 0.3);
 
     .work__number {
-      color: #fff;
+      color:$color-white;
     }
 
     .work__cardDesc {
@@ -70,14 +70,14 @@
     }
 
     .work__btn {
-      color: #fff;
+      color: $color-white;
       border-color: rgba(255, 255, 255, 0.4);
     }
   }
 
   &__number {
     font-size: 72px;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     line-height: 96px;
     color: $color-light-white;
     display: block;
@@ -86,7 +86,7 @@
 
   &__cardTitle {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: $font-weight-semibold;
     margin-bottom: 12px;
   }
 
@@ -100,10 +100,10 @@
     display: inline-block;
     margin-top: 22px;
     font-size: 14px;
-    font-weight: 500;
-    color: #6c63ff;
+    font-weight: $font-weight-medium;
+    color: $color-gradient-start;
     text-decoration: none;
-    border-bottom: 1px solid #6c63ff;
+    border-bottom: 1px solid $color-gradient-start;
     padding-bottom: 4px;
   }
 }

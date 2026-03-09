@@ -1,14 +1,16 @@
 import { SliceComponentProps } from "@prismicio/react";
 import { asLink, Content, isFilled } from "@prismicio/client";
 import BlogItem from "../../app/components/blog";
-import styles from "../../app/common-style/components/Recentblog.module.scss";
+import styles from "../Recentblog/Recentblog.module.scss";
 import Button from "@/app/components/common/Button";
 
 export type PopularBlogProps = SliceComponentProps<Content.PopularBlogSlice>;
 
 const PopularBlog = ({ slice }: PopularBlogProps) => {
   if (!slice?.primary?.items?.length) return null;
+
   const { view_all_label, view_all_link } = slice?.primary;
+
   const blogs = slice?.primary?.items
     .map((item) => item?.blog)
     .filter((blog) => isFilled.contentRelationship(blog));
@@ -16,10 +18,10 @@ const PopularBlog = ({ slice }: PopularBlogProps) => {
   if (!blogs.length) return null;
 
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <h2 className={styles.sectionTitle}>
+    <section className={styles.recentBlog}>
+      <div className={styles.recentBlog__container}>
+        <div className={styles.recentBlog__header}>
+          <h2 className={styles.recentBlog__title}>
             {slice?.primary?.section_title}
           </h2>
 
@@ -28,12 +30,12 @@ const PopularBlog = ({ slice }: PopularBlogProps) => {
               label={view_all_label}
               href={asLink(view_all_link) || "/"}
               variant={view_all_link?.variant}
-              className={styles.viewAllBtn}
+              className={styles.recentBlog__btn}
             />
           )}
         </div>
 
-        <div className={styles.grid}>
+        <div className={styles.recentBlog__grid}>
           {blogs.map((blog, index) => (
             <BlogItem
               key={`${blog?.id}-${index}`}

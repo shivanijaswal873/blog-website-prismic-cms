@@ -1,146 +1,146 @@
-.singleBlog {
+@use "../abstracts/variables" as *;
+
+.blogDetail {
   padding: 80px 20px 0;
-}
 
-.container {
-  max-width: 800px;
-  margin: auto;
-}
+  &__container {
+    max-width: 800px;
+    margin: auto;
+  }
 
-.meta {
-  display: flex;
-  gap: 16px;
-  font-size: 14px;
-  color: #6b7280;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  flex-wrap: wrap;
-}
+  &__meta {
+    display: flex;
+    gap: $space-md;
+    font-size: $text-sm;
+    color: $color-text-muted;
+    margin-bottom: $space-md;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+  }
 
-.title {
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 40px;
-}
+  &__title {
+    font-size: $space-xl;
+    font-weight: $font-weight-semibold;
+    line-height: 1.2;
+    margin-bottom: $space-xl;
+  }
 
-.mainImage,
-.secondImage {
-  width: 100%;
-  border-radius: 20px;
-  margin-bottom: 40px;
-}
+  &__mainImage,
+  &__secondImage {
+    width: 100%;
+    border-radius: $radius-xl;
+    margin-bottom: $space-xl;
+  }
 
-.content {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #4b5563;
-  margin-bottom: 40px;
-}
+  &__content {
+    font-size: $text-md;
+    line-height: 1.8;
+    color: #4b5563;
+    margin-bottom: $space-xl;
 
-.content p {
-  margin-bottom: 20px;
-}
+    p {
+      margin-bottom: $space-md;
+    }
+  }
 
-.quoteBox {
-  background: #f3f4f6;
-  padding: 30px;
-  border-left: 4px solid #7c4dff;
-  border-radius: 12px;
-  margin-bottom: 40px;
-}
+  &__quote {
+    background: #f3f4f6;
+    padding: $space-xl;
+    border-left: 4px solid $color-primary;
+    border-radius: $radius-lg;
+    margin-bottom: $space-xl;
 
-.quoteBox p {
-  font-style: italic;
-}
+    p {
+      font-style: italic;
+    }
 
-.quoteBox span {
-  font-size: 14px;
-  color: #6b7280;
-}
+    span {
+      font-size: $text-sm;
+      color: $color-text-muted;
+    }
+  }
 
-.popularWrapper {
-  background: #f9fafb;
-  padding: 80px 20px;
-  margin-top: 40px;
-}
+  &__popularWrapper {
+    background: #f9fafb;
+    padding: 80px 20px;
+    margin-top: 40px;
+  }
 
-.popularContainer {
-  max-width: 1200px;
-  margin: auto;
-}
+  &__popularContainer {
+    max-width: $layout-container-width;
+    margin: auto;
+  }
 
-.popularHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
-}
+  &__popularHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $space-xl;
 
-.popularHeader h2 {
-  font-size: 28px;
-  font-weight: 600;
-}
+    h2 {
+      font-size: $text-xl;
+      font-weight: $font-weight-semibold;
+    }
+  }
 
-.popularGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  &__popularGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
 }
 
 @media (max-width: 1024px) {
-  .container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+  .blogDetail {
 
-  .title {
-    font-size: 32px;
-  }
+    &__title {
+      font-size: 32px;
+    }
 
-  .popularGrid {
-    grid-template-columns: repeat(3, 1fr);
+    &__popularGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
 
 @media (max-width: 767px) {
-  .singleBlog {
+  .blogDetail {
     padding: 50px 16px 0;
-  }
 
-  .title {
-    font-size: 24px;
-    margin-bottom: 25px;
-  }
+    &__title {
+      font-size: $text-xl;
+      margin-bottom: 25px;
+    }
 
-  .meta {
-    font-size: 12px;
-  }
+    &__meta {
+      font-size: $text-xs;
+    }
 
-  .content {
-    font-size: 15px;
-    line-height: 1.7;
-  }
+    &__content {
+      font-size: $text-body;
+      line-height: 1.7;
+    }
 
-  .quoteBox {
-    padding: 20px;
-  }
+    &__quote {
+      padding: $space-lg;
+    }
 
-  .mainImage,
-  .secondImage {
-    border-radius: 14px;
-  }
+    &__mainImage,
+    &__secondImage {
+      border-radius: $radius-md;
+    }
 
-  .popularWrapper {
-    padding: 60px 16px;
-  }
+    &__popularWrapper {
+      padding: 60px 16px;
+    }
 
-  .popularHeader h2 {
-    font-size: 22px;
-  }
+    &__popularHeader h2 {
+      font-size: $text-heading-sm;
+    }
 
-  .popularGrid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    &__popularGrid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
   }
 }

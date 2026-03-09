@@ -1,0 +1,131 @@
+@use "../../app/common-style/abstracts/variables" as *;
+
+.contact {
+  &__section {
+    background: $color-white-light;
+    padding: 60px 20px;
+  }
+
+  &__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__header {
+    margin-bottom: 60px;
+  }
+
+  &__title {
+    font-size: 33.52px;
+    line-height: 44.68px;
+    font-weight: $font-weight-bold;
+    margin-bottom: 16px;
+    color: $color-text-dark;
+  }
+
+  &__subtitle {
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: $text-md;
+    line-height: 1.7;
+    color: $color-text-light;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  &__card {
+    background: $color-white;
+    padding: 40px 25px;
+    border-radius: $radius-xl;
+    transition: $transition-default;
+    box-shadow: $shadow-sm;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: $shadow-primary;
+    }
+  }
+
+  &__icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto;
+    border-radius: $radius-round;
+    background: linear-gradient(
+      135deg,
+      $color-gradient-start,
+      $color-gradient-end
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__iconImg {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+  }
+
+  &__heading {
+    margin-top: 20px;
+    font-size: $text-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-gradient-start;
+  }
+
+  &__description {
+    margin-top: 8px;
+    font-size: $text-sm;
+    color: $color-text-muted;
+    line-height: 1.6;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .contact {
+
+    &__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__card {
+      padding: 30px 20px;
+    }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .contact {
+
+    &__section {
+      padding: 40px 15px;
+    }
+
+    &__title {
+      font-size: 26px;
+      line-height: 36px;
+    }
+
+    &__subtitle {
+      font-size: $text-sm;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    &__card {
+      padding: 25px 20px;
+    }
+  }
+}

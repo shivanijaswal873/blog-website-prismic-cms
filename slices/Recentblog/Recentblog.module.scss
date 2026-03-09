@@ -1,0 +1,73 @@
+@use "../../app/common-style/abstracts/variables" as *;
+
+.recentBlog {
+  width: 100%;
+  padding: 60px 0;
+  background: #f5f5f5;
+
+  &__container {
+    max-width: $layout-container-width;
+    margin: 0 auto;
+    padding: 0 $space-lg;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  &__title {
+    font-size: $text-3xl;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__btn {
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  &__grid {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .recentBlog {
+    &__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__title {
+      font-size: 34.47px;
+      line-height: 35.9px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .recentBlog {
+    &__header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__title {
+      font-size: 20px;
+      line-height: 35.9px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__btn {
+      padding: 11.49px 34.47px;
+    }
+  }
+}

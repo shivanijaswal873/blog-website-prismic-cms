@@ -89,33 +89,33 @@ export default function Newsletter() {
         <img
           src={top_wave_image.url}
           alt="top wave"
-          className={styles.waveTop}
+          className={styles.newsletter__waveTop}
         />
       )}
 
-      <div className={styles.content}>
-        <div className={styles.heading}>
+      <div className={styles.newsletter__content}>
+        <div className={styles.newsletter__heading}>
           <PrismicRichText field={title} />
         </div>
 
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={styles.newsletter__form} onSubmit={handleSubmit}>
           <input
             type="email"
             value={email}
-            onChange={(e) => setEmail(e?.target?.value)}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder={placeholder || "Your Email"}
-            className={styles.input}
+            className={styles.newsletter__input}
           />
 
           <Button
             label={loading ? "Sending..." : button_label || "Get started"}
             variant="primary"
-            className={styles.button}
+            className={styles.newsletter__button}
             type="submit"
           />
         </form>
 
-        <div className={styles.description}>
+        <div className={styles.newsletter__description}>
           <PrismicRichText field={description} />
         </div>
       </div>
@@ -124,11 +124,13 @@ export default function Newsletter() {
         <img
           src={bottom_wave_imag.url}
           alt="bottom wave"
-          className={styles.waveBottom}
+          className={styles.newsletter__waveBottom}
         />
       )}
 
-      {snackbar && <div className={styles.snackbar}>{snackbar}</div>}
+      {snackbar && (
+        <div className={styles.newsletter__snackbar}>{snackbar}</div>
+      )}
     </section>
   );
 }

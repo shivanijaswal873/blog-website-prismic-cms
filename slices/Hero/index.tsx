@@ -3,7 +3,7 @@ import { createClient } from "@/prismicio";
 import { asLink } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
 import Image from "next/image";
-
+import styles from "./Hero.module.scss";
 
 export default async function Hero() {
   const client = createClient();
@@ -27,14 +27,15 @@ export default async function Hero() {
   } = heroSlice?.primary as any;
 
   return (
-    <section className="hero">
+    <section className={styles.hero}>
+      
       {top_wave_image?.url && (
         <Image
           src={top_wave_image.url}
           alt={top_wave_image.alt || "wave"}
           width={top_wave_image.dimensions.width}
           height={top_wave_image.dimensions.height}
-          className="hero-wave hero-wave--top"
+          className={`${styles.hero__wave} ${styles["hero__wave--top"]}`}
         />
       )}
 
@@ -44,19 +45,19 @@ export default async function Hero() {
           alt={bottom_wave_image.alt || "wave"}
           width={bottom_wave_image.dimensions.width}
           height={bottom_wave_image.dimensions.height}
-          className="hero-wave hero-wave--bottom"
+          className={`${styles.hero__wave} ${styles["hero__wave--bottom"]}`}
         />
       )}
 
-      <div className="hero-inner">
-        <div className="hero-content">
-          <span className="hero-label">{featured_label}</span>
+      <div className={styles.hero__inner}>
+        <div className={styles.hero__content}>
+          <span className={styles.hero__label}>{featured_label}</span>
 
-          <div className="hero-title">
+          <div className={styles.hero__title}>
             <PrismicRichText field={featured_title} />
           </div>
 
-          <div className="hero-desc">
+          <div className={styles.hero__desc}>
             <PrismicRichText field={featured_description} />
           </div>
 
@@ -65,24 +66,25 @@ export default async function Hero() {
               label={featured_button_text}
               href={asLink(featured_button_link) || "/"}
               variant={featured_button_link?.variant}
-              className="hero-btn-extra"
+              className={styles.hero__btn}
             />
           )}
         </div>
 
-        <div className="hero-image">
+        <div className={styles.hero__image}>
           {featured_image?.url && (
             <Image
               src={featured_image.url}
               alt={featured_image.alt || "Featured"}
               width={608}
               height={576}
-              className="hero-img"
+              className={styles.hero__img}
               priority
             />
           )}
         </div>
       </div>
+
     </section>
   );
 }

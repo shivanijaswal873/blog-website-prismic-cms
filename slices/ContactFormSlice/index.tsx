@@ -1,8 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { SliceComponentProps, PrismicImage, PrismicRichText } from "@prismicio/react";
-import styles from "../../app/common-style/components/ContentForm.module.scss";
+import {
+  SliceComponentProps,
+  PrismicImage,
+  PrismicRichText,
+} from "@prismicio/react";
+import styles from "./ContentForm.module.scss";
 import Input from "../../app/components/common/Input";
 
 type FormDataType = {
@@ -110,23 +114,26 @@ const ContactFormSlice = ({ slice }: SliceComponentProps<any>) => {
   };
 
   return (
-    <section className={styles.contactFormWrapper}>
-      <div className={styles.mapWrapper}>
+    <section className={styles.contactForm__wrapper}>
+      <div className={styles.contactForm__mapWrapper}>
         {map_image?.url && (
-          <PrismicImage field={map_image} className={styles.mapImage} />
+          <PrismicImage
+            field={map_image}
+            className={styles.contactForm__mapImage}
+          />
         )}
       </div>
 
-      <div className={styles.formCard}>
-        <div className={styles.formTitle}>
+      <div className={styles.contactForm__card}>
+        <div className={styles.contactForm__title}>
           <PrismicRichText field={form_title} />
         </div>
 
-        <form className={styles.formGrid} onSubmit={handleSubmit}>
+        <form className={styles.contactForm__grid} onSubmit={handleSubmit}>
           {fields.map((field) => (
             <div
               key={field.name}
-              className={field.textarea ? styles.fullWidth : ""}
+              className={field.textarea ? styles.contactForm__fullWidth : ""}
             >
               <Input
                 {...field}
@@ -136,9 +143,9 @@ const ContactFormSlice = ({ slice }: SliceComponentProps<any>) => {
             </div>
           ))}
 
-          <div className={styles.buttonWrapper}>
+          <div className={styles.contactForm__buttonWrapper}>
             <button
-              className={styles.submitButton}
+              className={styles.contactForm__submitButton}
               type="submit"
               disabled={loading}
             >
@@ -149,7 +156,7 @@ const ContactFormSlice = ({ slice }: SliceComponentProps<any>) => {
       </div>
 
       {snackbar && (
-        <div className={styles.snackbar}>
+        <div className={styles.contactForm__snackbar}>
           {snackbar}
         </div>
       )}

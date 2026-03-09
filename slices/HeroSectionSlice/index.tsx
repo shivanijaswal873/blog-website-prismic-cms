@@ -1,7 +1,7 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicRichText, PrismicImage } from "@prismicio/react";
-import styles from "../../app/common-style/components/HeroSectionSlice.module.scss";
+import styles from "./HeroSectionSlice.module.scss";
 export type HeroSectionSliceProps =
   SliceComponentProps<Content.HeroSectionSliceSlice>;
 

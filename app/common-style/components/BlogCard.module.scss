@@ -1,60 +1,62 @@
+@use "../abstracts/variables" as *;
+
+.blogCard {
+  width: 100%;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &__image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $radius-lg;
+      display: block;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+    padding: $space-md;
+  }
+
+  &__meta {
+    display: flex;
+    gap: $space-xs;
+    font-size: $text-xs;
+    color: $color-text-light;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: $text-md;
+    font-weight: $font-weight-semibold;
+    line-height: 1.4;
+    color: $color-text-dark;
+  }
+
+  &__description {
+    font-size: $text-sm;
+    line-height: 1.5;
+    color: $color-gray;
+  }
+
+  &__readMore {
+    margin-top: auto;
+    font-size: $text-sm;
+    color: $color-primary;
+    font-weight: $font-weight-medium;
+  }
+}
+
 .cardSection {
   padding-top: 50px;
-}
-
-.card {
-  width: 100%;
-  border-radius: 18px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.image {
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-}
-
-.image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-  display: block;
-}
-
-.cardBody {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 16px;
-}
-
-.meta {
-  display: flex;
-  gap: 8px;
-  font-size: 11px;
-  color: #8c8c8c;
-  text-transform: uppercase;
-}
-
-.title {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.4;
-  color: #111;
-}
-
-.description {
-  font-size: 13px;
-  line-height: 1.5;
-  color: #666;
-}
-
-.readMore {
-  margin-top: auto;
-  font-size: 13px;
-  color: #6c63ff;
-  font-weight: 500;
 }
