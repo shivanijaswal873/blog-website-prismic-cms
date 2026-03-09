@@ -470,11 +470,11 @@ type HomepageDocumentDataSlicesSlice =
   | HeroSlice;
 
 /**
- * Content for homePage documents
+ * Content for HomePage documents
  */
 interface HomepageDocumentData {
   /**
-   * Slice Zone field in *homePage*
+   * Slice Zone field in *HomePage*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -483,7 +483,7 @@ interface HomepageDocumentData {
    * - **Documentation**: https://prismic.io/docs/slices
    */
   slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice>; /**
-   * Meta Title field in *homePage*
+   * Meta Title field in *HomePage*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
@@ -494,7 +494,7 @@ interface HomepageDocumentData {
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *homePage*
+   * Meta Description field in *HomePage*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
@@ -505,7 +505,7 @@ interface HomepageDocumentData {
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *homePage*
+   * Meta Image field in *HomePage*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -517,7 +517,7 @@ interface HomepageDocumentData {
 }
 
 /**
- * homePage document from Prismic
+ * HomePage document from Prismic
  *
  * - **API ID**: `homepage`
  * - **Repeatable**: `false`
