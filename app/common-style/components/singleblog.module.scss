@@ -2,16 +2,9 @@
   padding: 80px 20px 0;
 }
 
-
 .container {
   max-width: 800px;
-  margin: 0 auto;
-  display: block;
-
-}
-
-.container > *:not(.popularWrapper) {
-  grid-column: 1 / 2;
+  margin: auto;
 }
 
 .meta {
@@ -21,7 +14,6 @@
   color: #6b7280;
   margin-bottom: 16px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
   flex-wrap: wrap;
 }
 
@@ -41,9 +33,9 @@
 
 .content {
   font-size: 16px;
-  line-height: 1.9;
+  line-height: 1.8;
   color: #4b5563;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .content p {
@@ -55,12 +47,11 @@
   padding: 30px;
   border-left: 4px solid #7c4dff;
   border-radius: 12px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .quoteBox p {
   font-style: italic;
-  margin-bottom: 10px;
 }
 
 .quoteBox span {
@@ -69,7 +60,6 @@
 }
 
 .popularWrapper {
-  grid-column: 1 / -1;
   background: #f9fafb;
   padding: 80px 20px;
   margin-top: 40px;
@@ -77,7 +67,7 @@
 
 .popularContainer {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .popularHeader {

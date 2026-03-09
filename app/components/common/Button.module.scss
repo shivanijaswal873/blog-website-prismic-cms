@@ -9,11 +9,11 @@
 }
 
 .outline {
- display: inline-flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  padding:16px 48px;
+  padding: 16px 48px;
 
   border-radius: 5.74px;
   border: 0.72px solid $color-primary;
@@ -98,5 +98,3 @@
     transform: translateY(-1px);
   }
 }
-
-
