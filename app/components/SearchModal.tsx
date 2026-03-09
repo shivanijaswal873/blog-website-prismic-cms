@@ -87,25 +87,26 @@ export default function SearchModal({
   const { data } = searchSettings;
 
   return (
-    <div className={styles.overlay} onClick={handleOutsideClick}>
+    <div className={styles.searchModal__overlay} onClick={handleOutsideClick}>
       <div
-        className={styles.modal}
+        className={styles.searchModal__modal}
         ref={modalRef}
         onClick={(e) => e?.stopPropagation()}
       >
-        <div className={styles.header}>
-          <div>
-            <h2 className={styles.title}>{data?.title}</h2>
-            <p className={styles.subtitle}>{data?.subtitle}</p>
+        <div className={styles.searchModal__header}>
+          <div className={styles.searchModal__headerContent}>
+            <h2 className={styles.searchModal__title}>{data?.title}</h2>
+            <p className={styles.searchModal__subtitle}>{data?.subtitle}</p>
           </div>
 
-          <FiX className={styles.closeIcon} onClick={onClose} />
+          <FiX className={styles.searchModal__closeIcon} onClick={onClose} />
         </div>
 
-        <div className={styles.searchBox}>
-          <FiSearch className={styles.searchIcon} />
+        <div className={styles.searchModal__searchBox}>
+          <FiSearch className={styles.searchModal__searchIcon} />
+
           <input
-            className={styles.searchInput}
+            className={styles.searchModal__searchInput}
             type="text"
             placeholder={data?.placeholder}
             value={query}
@@ -114,21 +115,21 @@ export default function SearchModal({
           />
         </div>
 
-        <div className={styles.results}>
+        <div className={styles.searchModal__results}>
           {loading && <p>Searching...</p>}
 
           {!loading && query && results?.length > 0 && (
             <>
-              <p className={styles.resultCount}>
+              <p className={styles.searchModal__resultCount}>
                 {results.length} result
-                {results.length !== 1 } found
+                {results.length !== 1} found
               </p>
 
               {results?.map((blog) => (
                 <Link
                   key={blog?.id}
                   href={`/blog/${blog?.uid}`}
-                  className={styles.resultItem}
+                  className={styles.searchModal__resultItem}
                   onClick={onClose}
                 >
                   {blog?.data?.title}
@@ -138,9 +139,13 @@ export default function SearchModal({
           )}
 
           {!loading && query && results?.length === 0 && (
-            <div className={styles.emptyState}>
-              <h4 className={styles.emptyTitle}>{data?.empty_title}</h4>
-              <p className={styles.emptyText}>{data?.empty_description}</p>
+            <div className={styles.searchModal__emptyState}>
+              <h4 className={styles.searchModal__emptyTitle}>
+                {data?.empty_title}
+              </h4>
+              <p className={styles.searchModal__emptyText}>
+                {data?.empty_description}
+              </p>
             </div>
           )}
         </div>
