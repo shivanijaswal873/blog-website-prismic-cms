@@ -1,3 +1,4 @@
+@use "../abstracts/variables" as *;
 .cardSection {
   padding-top: 50px;
 }
@@ -55,6 +56,6 @@
 .readMore {
   margin-top: auto;
   font-size: 13px;
-  color: #6c63ff;
+  color: $color-gradient-start;
   font-weight: 500;
 }

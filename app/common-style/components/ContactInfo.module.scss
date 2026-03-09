@@ -55,7 +55,7 @@
   height: 65px;
   margin: 0 auto;
   border-radius: 50%;
-  background: linear-gradient(135deg, #6c63ff, #8b5cf6);
+  background: linear-gradient(135deg, $color-gradient-start, $color-gradient-end);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,7 +71,7 @@
   margin-top: 20px;
   font-size: 18px;
   font-weight: 600;
-  color: #6c63ff;
+  color:$color-gradient-start;
 }
 
 .cardDescription {

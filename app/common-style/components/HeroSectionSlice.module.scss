@@ -1,7 +1,7 @@
 @use "../abstracts/variables" as *;
 
 .hero {
-  padding: $h6-size 20px 100px;
+  padding: $text-xl 20px 100px;
   background: #f7f7f9;
 
   &__container {
@@ -24,7 +24,7 @@
   }
 
   &__title {
-    font-size: $h3-size;
+    font-size: $text-3xl;
     font-weight: 700;
     line-height: 1.25;
     color: #1a1a1a;

@@ -16,7 +16,7 @@
   max-width: 600px;
   background: #fff;
   border-radius: 20px;
-  padding: $h4-size;
+  padding: $text-2xl;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
   animation: fadeIn 0.25s ease-in-out;
 }
@@ -34,7 +34,7 @@
 }
 
 .title {
-  font-size: $h6-size;
+  font-size: $text-xl;
   font-weight: 600;
   margin: 0;
 }
@@ -58,12 +58,12 @@
 .searchBox {
   position: relative;
   width: 100%;
-  margin-bottom: $h6-size;
+  margin-bottom: $text-xl;
 }
 
 .searchInput {
   width: 100%;
-  height: $h3-size;
+  height: $text-3xl;
   padding: 0 16px 0 45px;
   border-radius: 12px;
   border: 1px solid #ddd;
