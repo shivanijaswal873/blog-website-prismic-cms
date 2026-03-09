@@ -1,7 +1,7 @@
 {
   "format": "custom",
   "id": "search_settings",
-  "label": "search_settings",
+  "label": "Search_Settings",
   "repeatable": false,
   "status": true,
   "json": {

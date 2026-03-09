@@ -1,7 +1,7 @@
 {
   "format": "custom",
   "id": "newsletter_settings",
-  "label": "newsletter_settings",
+  "label": "Newsletter_Settings",
   "repeatable": false,
   "status": true,
   "json": {

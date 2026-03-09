@@ -70,11 +70,11 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 /**
- * Content for blog documents
+ * Content for Single_Blog documents
  */
 interface BlogDocumentData {
   /**
-   * Title field in *blog*
+   * Title field in *Single_Blog*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -85,7 +85,7 @@ interface BlogDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * featured_image field in *blog*
+   * featured_image field in *Single_Blog*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -96,7 +96,7 @@ interface BlogDocumentData {
   featured_image: prismic.ImageField<never>;
 
   /**
-   * Short Description field in *blog*
+   * Short Description field in *Single_Blog*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -107,7 +107,7 @@ interface BlogDocumentData {
   short_description: prismic.KeyTextField;
 
   /**
-   * content field in *blog*
+   * content field in *Single_Blog*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -118,7 +118,7 @@ interface BlogDocumentData {
   content: prismic.RichTextField;
 
   /**
-   * Is Popular field in *blog*
+   * Is Popular field in *Single_Blog*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
@@ -130,7 +130,7 @@ interface BlogDocumentData {
   is_popular: prismic.BooleanField;
 
   /**
-   * Category field in *blog*
+   * Category field in *Single_Blog*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -141,7 +141,7 @@ interface BlogDocumentData {
   category: prismic.KeyTextField;
 
   /**
-   * Publish Date field in *blog*
+   * Publish Date field in *Single_Blog*
    *
    * - **Field Type**: Date
    * - **Placeholder**: *None*
@@ -152,7 +152,7 @@ interface BlogDocumentData {
   publish_date: prismic.DateField;
 
   /**
-   * Quote Text field in *blog*
+   * Quote Text field in *Single_Blog*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -163,7 +163,7 @@ interface BlogDocumentData {
   quote_text: prismic.KeyTextField;
 
   /**
-   * Quote Author field in *blog*
+   * Quote Author field in *Single_Blog*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -174,7 +174,7 @@ interface BlogDocumentData {
   quote_author: prismic.KeyTextField;
 
   /**
-   * second_Image field in *blog*
+   * second_Image field in *Single_Blog*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -185,7 +185,7 @@ interface BlogDocumentData {
   second_image: prismic.ImageField<never>;
 
   /**
-   * description field in *blog*
+   * description field in *Single_Blog*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -197,7 +197,7 @@ interface BlogDocumentData {
 }
 
 /**
- * blog document from Prismic
+ * Single_Blog document from Prismic
  *
  * - **API ID**: `blog`
  * - **Repeatable**: `true`
@@ -263,11 +263,11 @@ export type BlogPagesDocument<Lang extends string = string> =
   >;
 
 /**
- * Content for error_page documents
+ * Content for Error_Page documents
  */
 interface ErrorPageDocumentData {
   /**
-   * title field in *error_page*
+   * title field in *Error_Page*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -278,7 +278,7 @@ interface ErrorPageDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * description field in *error_page*
+   * description field in *Error_Page*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -289,7 +289,7 @@ interface ErrorPageDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * button_label field in *error_page*
+   * button_label field in *Error_Page*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -300,7 +300,7 @@ interface ErrorPageDocumentData {
   button_label: prismic.KeyTextField;
 
   /**
-   * button_link field in *error_page*
+   * button_link field in *Error_Page*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -317,7 +317,7 @@ interface ErrorPageDocumentData {
   >;
 
   /**
-   * background_image field in *error_page*
+   * background_image field in *Error_Page*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -329,7 +329,7 @@ interface ErrorPageDocumentData {
 }
 
 /**
- * error_page document from Prismic
+ * Error_Page document from Prismic
  *
  * - **API ID**: `error_page`
  * - **Repeatable**: `true`
@@ -345,11 +345,11 @@ export type ErrorPageDocument<Lang extends string = string> =
   >;
 
 /**
- * Item in *footer_settings → footer_links*
+ * Item in *Footer_Settings → footer_links*
  */
 export interface FooterSettingsDocumentDataFooterLinksItem {
   /**
-   * label field in *footer_settings → footer_links*
+   * label field in *Footer_Settings → footer_links*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -359,7 +359,7 @@ export interface FooterSettingsDocumentDataFooterLinksItem {
   label: prismic.KeyTextField;
 
   /**
-   * link field in *footer_settings → footer_links*
+   * link field in *Footer_Settings → footer_links*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -370,11 +370,11 @@ export interface FooterSettingsDocumentDataFooterLinksItem {
 }
 
 /**
- * Item in *footer_settings → social_links*
+ * Item in *Footer_Settings → social_links*
  */
 export interface FooterSettingsDocumentDataSocialLinksItem {
   /**
-   * icon field in *footer_settings → social_links*
+   * icon field in *Footer_Settings → social_links*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -384,7 +384,7 @@ export interface FooterSettingsDocumentDataSocialLinksItem {
   icon: prismic.ImageField<never>;
 
   /**
-   * link field in *footer_settings → social_links*
+   * link field in *Footer_Settings → social_links*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -395,11 +395,11 @@ export interface FooterSettingsDocumentDataSocialLinksItem {
 }
 
 /**
- * Content for footer_settings documents
+ * Content for Footer_Settings documents
  */
 interface FooterSettingsDocumentData {
   /**
-   * logo field in *footer_settings*
+   * logo field in *Footer_Settings*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -410,7 +410,7 @@ interface FooterSettingsDocumentData {
   logo: prismic.ImageField<never>;
 
   /**
-   * footer_links field in *footer_settings*
+   * footer_links field in *Footer_Settings*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -423,7 +423,7 @@ interface FooterSettingsDocumentData {
   >;
 
   /**
-   * social_links field in *footer_settings*
+   * social_links field in *Footer_Settings*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -436,7 +436,7 @@ interface FooterSettingsDocumentData {
   >;
 
   /**
-   * copyright_text field in *footer_settings*
+   * copyright_text field in *Footer_Settings*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -448,7 +448,7 @@ interface FooterSettingsDocumentData {
 }
 
 /**
- * footer_settings document from Prismic
+ * Footer_Settings document from Prismic
  *
  * - **API ID**: `footer_settings`
  * - **Repeatable**: `false`
@@ -533,11 +533,11 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 /**
- * Content for newsletter_settings documents
+ * Content for Newsletter_Settings documents
  */
 interface NewsletterSettingsDocumentData {
   /**
-   * title field in *newsletter_settings*
+   * title field in *Newsletter_Settings*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -548,7 +548,7 @@ interface NewsletterSettingsDocumentData {
   title: prismic.RichTextField;
 
   /**
-   * placeholder field in *newsletter_settings*
+   * placeholder field in *Newsletter_Settings*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -559,7 +559,7 @@ interface NewsletterSettingsDocumentData {
   placeholder: prismic.KeyTextField;
 
   /**
-   * button_label field in *newsletter_settings*
+   * button_label field in *Newsletter_Settings*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -570,7 +570,7 @@ interface NewsletterSettingsDocumentData {
   button_label: prismic.KeyTextField;
 
   /**
-   * description field in *newsletter_settings*
+   * description field in *Newsletter_Settings*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -581,7 +581,7 @@ interface NewsletterSettingsDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * Top Wave Image field in *newsletter_settings*
+   * Top Wave Image field in *Newsletter_Settings*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -592,7 +592,7 @@ interface NewsletterSettingsDocumentData {
   top_wave_image: prismic.ImageField<never>;
 
   /**
-   * bottom Wave Imag field in *newsletter_settings*
+   * bottom Wave Imag field in *Newsletter_Settings*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -604,7 +604,7 @@ interface NewsletterSettingsDocumentData {
 }
 
 /**
- * newsletter_settings document from Prismic
+ * Newsletter_Settings document from Prismic
  *
  * - **API ID**: `newsletter_settings`
  * - **Repeatable**: `false`
@@ -665,11 +665,11 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 /**
- * Content for search_settings documents
+ * Content for Search_Settings documents
  */
 interface SearchSettingsDocumentData {
   /**
-   * title field in *search_settings*
+   * title field in *Search_Settings*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -680,7 +680,7 @@ interface SearchSettingsDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * subtitle field in *search_settings*
+   * subtitle field in *Search_Settings*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -691,7 +691,7 @@ interface SearchSettingsDocumentData {
   subtitle: prismic.KeyTextField;
 
   /**
-   * placeholder field in *search_settings*
+   * placeholder field in *Search_Settings*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -702,7 +702,7 @@ interface SearchSettingsDocumentData {
   placeholder: prismic.KeyTextField;
 
   /**
-   * empty_title field in *search_settings*
+   * empty_title field in *Search_Settings*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -713,7 +713,7 @@ interface SearchSettingsDocumentData {
   empty_title: prismic.KeyTextField;
 
   /**
-   * empty_description field in *search_settings*
+   * empty_description field in *Search_Settings*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -725,7 +725,7 @@ interface SearchSettingsDocumentData {
 }
 
 /**
- * search_settings document from Prismic
+ * Search_Settings document from Prismic
  *
  * - **API ID**: `search_settings`
  * - **Repeatable**: `false`

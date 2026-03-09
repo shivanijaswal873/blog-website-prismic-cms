@@ -65,7 +65,7 @@ export default async function BlogDetail(props) {
           </div>
         )}
 
-        {blog.data.second_image?.url && (
+        {blog?.data?.second_image?.url && (
           <img
             src={blog.data.second_image.url}
             alt=""
