@@ -1,7 +1,7 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicRichText } from "@prismicio/react";
-import styles from "../../app/common-style/components/WorkProcess.module.scss";
+import styles from "./WorkProcess.module.scss";
 
 export type WorkProcessProps = SliceComponentProps<Content.WorkProcessSlice>;
 

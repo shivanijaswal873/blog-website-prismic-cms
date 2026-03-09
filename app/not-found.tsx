@@ -1,5 +1,5 @@
 import { createClient } from "@/prismicio";
-import { PrismicRichText, PrismicLink, PrismicImage } from "@prismicio/react";
+import { PrismicRichText, PrismicImage } from "@prismicio/react";
 import styles from "./common-style/components/NotFound.module.scss";
 import Button from "./components/common/Button";
 import { asLink } from "@prismicio/client";
@@ -16,22 +16,22 @@ export default async function NotFound() {
   }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.card}>
+    <div className={styles.notFound__container}>
+      <div className={styles.notFound__card}>
         {page?.data?.background_image && (
-          <div className={styles.waveWrapper}>
+          <div className={styles.notFound__waveWrapper}>
             <PrismicImage
               field={page?.data?.background_image}
-              className={styles.waveImage}
+              className={styles.notFound__waveImage}
             />
           </div>
         )}
 
-        <h1 className="error">404</h1>
+        <h1 className={styles.notFound__code}>404</h1>
 
-        <h2>{page?.data?.title}</h2>
+        <h2 className={styles.notFound__title}>{page?.data?.title}</h2>
 
-        <div className={styles.description}>
+        <div className={styles.notFound__description}>
           <PrismicRichText field={page?.data?.description} />
         </div>
 
@@ -40,7 +40,7 @@ export default async function NotFound() {
             label={page?.data?.button_label}
             href={asLink(page?.data?.button_link) || "/"}
             variant={page?.data?.button_link?.variant}
-            className={styles.button}
+            className={styles.notFound__button}
           />
         )}
       </div>
