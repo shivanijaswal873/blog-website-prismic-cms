@@ -30,59 +30,72 @@ export default async function BlogDetail(props) {
     : "";
 
   return (
-    <section className={styles.singleBlog}>
-      <div className={styles.container}>
-          <div className={styles.meta}>
-          <span className={styles.category}>{blog.data.category}</span>
-          <span className={styles.date}>{formattedDate}</span>
-          </div>
+    <section className={styles.blogDetail}>
+      <div className={styles.blogDetail__container}>
 
-          <h1 className={styles.title}>{blog.data.title}</h1>
+        <div className={styles.blogDetail__meta}>
+          <span className={styles.blogDetail__category}>
+            {blog.data.category}
+          </span>
+          <span className={styles.blogDetail__date}>
+            {formattedDate}
+          </span>
+        </div>
 
-          {blog.data.featured_image?.url && (
-            <img
-              src={blog.data.featured_image.url}
-              alt={blog.data.featured_image.alt || ""}
-              className={styles.mainImage}
-            />
-          )}
+        <h1 className={styles.blogDetail__title}>
+          {blog.data.title}
+        </h1>
 
-          <div className={styles.content}>
-            <PrismicRichText field={blog.data.content} />
-          </div>
-
-          {blog.data.quote_text && (
-            <div className={styles.quoteBox}>
-              <p>{blog.data.quote_text}</p>
-              <span>- {blog.data.quote_author}</span>
-            </div>
-          )}
-
-          {blog.data.second_image?.url && (
-            <img
-              src={blog.data.second_image.url}
-              alt=""
-              className={styles.secondImage}
-            />
-          )}
-          {blog.data.description && (
-              <PrismicRichText field={blog.data.description} />
+        {blog.data.featured_image?.url && (
+          <img
+            src={blog.data.featured_image.url}
+            alt={blog.data.featured_image.alt || ""}
+            className={styles.blogDetail__mainImage}
+          />
         )}
+
+        <div className={styles.blogDetail__content}>
+          <PrismicRichText field={blog.data.content} />
+        </div>
+
+        {blog.data.quote_text && (
+          <div className={styles.blogDetail__quote}>
+            <p>{blog.data.quote_text}</p>
+            <span>- {blog.data.quote_author}</span>
+          </div>
+        )}
+
+        {blog.data.second_image?.url && (
+          <img
+            src={blog.data.second_image.url}
+            alt=""
+            className={styles.blogDetail__secondImage}
+          />
+        )}
+
+        {blog.data.description && (
+          <div className={styles.blogDetail__description}>
+            <PrismicRichText field={blog.data.description} />
+          </div>
+        )}
+
       </div>
 
       {popularBlogs.length > 0 && (
-        <div className={styles.popularWrapper}>
-          <div className={styles.popularContainer}>
-            <div className={styles.popularHeader}>
+        <div className={styles.blogDetail__popularWrapper}>
+          <div className={styles.blogDetail__popularContainer}>
+
+            <div className={styles.blogDetail__popularHeader}>
               <h2>Popular Post</h2>
               <Button label="View All" href="/blog" variant="primary" />
             </div>
 
-            <div className={styles.popularGrid}>
+            <div className={styles.blogDetail__popularGrid}>
               {popularBlogs.map((item) => (
                 <BlogCard key={item.id} blog={item} />
               ))}
             </div>
+
           </div>
         </div>
       )}

@@ -2,7 +2,7 @@ import { SliceComponentProps } from "@prismicio/react";
 import { asLink, Content } from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import BlogItem from "@/app/components/blog";
-import styles from "../../app/common-style/components/Recentblog.module.scss";
+import styles from "./Recentblog.module.scss";
 import Button from "@/app/components/common/Button";
 
 export type RecentBlogProps = SliceComponentProps<Content.RecentblogSlice>;
@@ -10,6 +10,7 @@ export type RecentBlogProps = SliceComponentProps<Content.RecentblogSlice>;
 const RecentBlog = async ({ slice }: RecentBlogProps) => {
   const client = createClient();
   const { view_all_label, view_all_link } = slice?.primary;
+
   const blogs = await client.getAllByType("blog", {
     orderings: {
       field: "document.first_publication_date",
@@ -20,23 +21,27 @@ const RecentBlog = async ({ slice }: RecentBlogProps) => {
   if (!blogs || blogs.length === 0) return null;
 
   const hero = blogs[0];
-
-  const cards = blogs?.slice(1);
+  const cards = blogs.slice(1);
 
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <h2 className={styles.sectionTitle}>{slice.primary.section_title}</h2>
+    <section className={styles.recentBlog}>
+      <div className={styles.recentBlog__container}>
+        
+        <div className={styles.recentBlog__header}>
+          <h2 className={styles.recentBlog__title}>
+            {slice.primary.section_title}
+          </h2>
+
           {view_all_label && view_all_link && (
             <Button
               label={view_all_label}
               href={asLink(view_all_link) || "/"}
               variant={view_all_link?.variant}
-              className={styles.viewAllBtn}
+              className={styles.recentBlog__btn}
             />
           )}
         </div>
+
         {hero && (
           <BlogItem
             image={hero?.data?.featured_image}
@@ -49,7 +54,8 @@ const RecentBlog = async ({ slice }: RecentBlogProps) => {
             variant="recentHero"
           />
         )}
-        <div className={styles.grid}>
+
+        <div className={styles.recentBlog__grid}>
           {cards.map((item) => (
             <BlogItem
               key={item?.id}
@@ -64,6 +70,7 @@ const RecentBlog = async ({ slice }: RecentBlogProps) => {
             />
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 import { SliceComponentProps } from "@prismicio/react";
 import { asLink, Content, isFilled } from "@prismicio/client";
 import BlogItem from "../../app/components/blog";
-import styles from "../../app/common-style/components/Recentblog.module.scss";
+import styles from "../Recentblog/Recentblog.module.scss";
 import Button from "@/app/components/common/Button";
 
 export type PopularBlogProps = SliceComponentProps<Content.PopularBlogSlice>;
