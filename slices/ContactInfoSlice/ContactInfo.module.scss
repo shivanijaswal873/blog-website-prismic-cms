@@ -85,13 +85,20 @@
     font-size: $text-sm;
     color: $color-text-muted;
     line-height: 1.6;
+    text-decoration: none;
+    a {
+      text-decoration: none;
+      color: $color-text-muted;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 }
 
-
 @media (max-width: 1024px) {
   .contact {
-
     &__grid {
       grid-template-columns: repeat(3, 1fr);
     }
@@ -102,10 +109,8 @@
   }
 }
 
-
 @media (max-width: 600px) {
   .contact {
-
     &__section {
       padding: 40px 15px;
     }
