@@ -1,25 +1,26 @@
+@use "../../common-style/abstracts/variables" as *;
 .inputGroup {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 
   label {
-    font-size: 14px;
+    font-size: $text-sm;
     margin-bottom: 6px;
-    color: #555;
+    color: $color-text-light;
   }
 
   input,
   textarea {
     padding: 12px 14px;
     border-radius: 8px;
-    border: 1px solid #ddd;
-    font-size: 14px;
+    border: 1px solid $color-white-light;
+    font-size: $text-sm;
     outline: none;
     transition: all 0.3s ease;
 
     &:focus {
-      border-color: #7c4dff;
+      border-color: $color-primary;
       box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.1);
     }
   }

@@ -59,7 +59,7 @@
   .highlight {
     background: linear-gradient(135deg, $color-gradient-start, $color-gradient-end);
     color: $color-white;
-    box-shadow: 0 15px 40px rgba(108, 99, 255, 0.3);
+    box-shadow:$shadow-sm;
 
     .work__number {
       color:$color-white;

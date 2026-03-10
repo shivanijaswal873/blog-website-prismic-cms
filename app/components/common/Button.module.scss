@@ -21,7 +21,7 @@
   background: transparent;
   color: $color-primary;
 
-  font-size: 14px;
+  font-size: $text-sm;
   font-weight: $font-weight-medium;
 
   cursor: pointer;
@@ -29,7 +29,7 @@
 
   &:hover {
     background: $color-primary;
-    color: #fff;
+    color: $color-white;
   }
 }
 
@@ -41,7 +41,7 @@
   background: none;
   font-size: 18px;
   line-height: 150%;
-  color: #6c3ef4;
+  color:$color-primary-hover;
   text-decoration: underline;
 
   &:hover {
@@ -58,14 +58,14 @@
   padding: 0 $text-2xl;
   border-radius: 8px;
   background: $color-white;
-  color: #111827;
-  font-size: 14px;
+  color:$color-dark-gray;
+  font-size: $text-sm;
   font-weight: $font-weight-medium;
   text-decoration: none;
   transition: all 0.3s ease;
 
   &:hover {
-    background: #f3f4f6;
+    background:$color-light-white;
     transform: translateY(-2px);
   }
 }
@@ -85,7 +85,7 @@
   );
   color: $color-white;
 
-  font-size: 14px;
+  font-size: $text-sm;
   font-weight: $font-weight-medium;
   line-height: 1;
   text-decoration: none;
@@ -94,7 +94,7 @@
   transition: all 0.3s ease;
 
   &:hover {
-    box-shadow: 0 6px 18px rgba(124, 78, 228, 0.3);
+    box-shadow: $shadow-d;
     transform: translateY(-1px);
   }
 }
