@@ -153,23 +153,26 @@ const ContactFormSlice = ({ slice }: SliceComponentProps<any>) => {
       </div>
 
       <div className={styles.contactForm__card}>
-        <div className={styles.contactForm__title}>
-          <PrismicRichText field={form_title} />
-        </div>
+        {form_title && form_title?.length > 0 && (
+          <div className={styles.contactForm__title}>
+            <PrismicRichText field={form_title} />
+          </div>
+        )}
 
         <form className={styles.contactForm__grid} onSubmit={handleSubmit}>
-          {fields.map((field) => (
-            <div
-              key={field.name}
-              className={field.textarea ? styles.contactForm__fullWidth : ""}
-            >
-              <Input
-                {...field}
-                value={formData[field.name]}
-                onChange={handleChange}
-              />
-            </div>
-          ))}
+          {fields?.length > 0 &&
+            fields.map((field) => (
+              <div
+                key={field.name}
+                className={field.textarea ? styles.contactForm__fullWidth : ""}
+              >
+                <Input
+                  {...field}
+                  value={formData[field.name]}
+                  onChange={handleChange}
+                />
+              </div>
+            ))}
 
           <div className={styles.contactForm__buttonWrapper}>
             <button

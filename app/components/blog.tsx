@@ -33,6 +33,7 @@ const BlogItem = ({
 }: BlogItemProps) => {
   return (
     <div className={clsx(styles.blogItem, styles[variant])}>
+      
       {image && isFilled.image(image) && (
         <div className={styles.blogItem__image}>
           <PrismicImage field={image} />
@@ -41,7 +42,8 @@ const BlogItem = ({
 
       <div className={styles.blogItem__content}>
         <div className={styles.blogItem__meta}>
-          {isFilled.keyText(category) && (
+          
+          {category && isFilled.keyText(category) && (
             <span className={styles.blogItem__category}>{category}</span>
           )}
 
@@ -54,24 +56,28 @@ const BlogItem = ({
               })}
             </span>
           )}
+
         </div>
 
-        {isFilled.keyText(title) &&
+        {title &&
+          isFilled.keyText(title) &&
           (variant === "card" ? (
             <h3 className={styles.blogItem__cardTitle}>{title}</h3>
           ) : (
             <h2 className={styles.blogItem__heroTitle}>{title}</h2>
           ))}
 
-        {description && (
-          <div className={styles.blogItem__description}>
-            {typeof description === "string" ? (
-              description
-            ) : (
-              <PrismicRichText field={description} />
-            )}
-          </div>
-        )}
+        {description &&
+          (typeof description === "string" ||
+            (Array.isArray(description) && description.length > 0)) && (
+            <div className={styles.blogItem__description}>
+              {typeof description === "string" ? (
+                description
+              ) : (
+                <PrismicRichText field={description} />
+              )}
+            </div>
+          )}
 
         {button_label && button_link && (
           <div className={styles.blogItem__readMoreWrapper}>

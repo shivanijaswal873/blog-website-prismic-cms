@@ -12,18 +12,21 @@ const PopularBlog = ({ slice }: PopularBlogProps) => {
   const { view_all_label, view_all_link } = slice?.primary;
 
   const blogs = slice?.primary?.items
-    .map((item) => item?.blog)
-    .filter((blog) => isFilled.contentRelationship(blog));
+    ?.map((item) => item?.blog)
+    ?.filter((blog) => isFilled.contentRelationship(blog));
 
-  if (!blogs.length) return null;
+  if (!blogs?.length) return null;
 
   return (
     <section className={styles.recentBlog}>
       <div className={styles.recentBlog__container}>
         <div className={styles.recentBlog__header}>
-          <h2 className={styles.recentBlog__title}>
-            {slice?.primary?.section_title}
-          </h2>
+          
+          {slice?.primary?.section_title && (
+            <h2 className={styles.recentBlog__title}>
+              {slice?.primary?.section_title}
+            </h2>
+          )}
 
           {view_all_label && view_all_link && (
             <Button
@@ -33,23 +36,27 @@ const PopularBlog = ({ slice }: PopularBlogProps) => {
               className={styles.recentBlog__btn}
             />
           )}
+
         </div>
 
-        <div className={styles.recentBlog__grid}>
-          {blogs.map((blog, index) => (
-            <BlogItem
-              key={`${blog?.id}-${index}`}
-              image={blog?.data?.featured_image}
-              category={blog?.data?.category}
-              date={blog?.data?.publish_date}
-              title={blog?.data?.title}
-              description={blog?.data?.short_description}
-              button_label="Read More"
-              button_link={`/blog/${blog?.uid}`}
-              variant="card"
-            />
-          ))}
-        </div>
+        {blogs?.length > 0 && (
+          <div className={styles.recentBlog__grid}>
+            {blogs.map((blog, index) => (
+              <BlogItem
+                key={`${blog?.id}-${index}`}
+                image={blog?.data?.featured_image}
+                category={blog?.data?.category}
+                date={blog?.data?.publish_date}
+                title={blog?.data?.title}
+                description={blog?.data?.short_description}
+                button_label="Read More"
+                button_link={`/blog/${blog?.uid}`}
+                variant="card"
+              />
+            ))}
+          </div>
+        )}
+
       </div>
     </section>
   );
