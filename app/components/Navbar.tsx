@@ -42,23 +42,27 @@ export default function Navbar({ settings, searchSettings }: any) {
           </Link>
 
           <nav className="nav">
-            <Link
-              href={asLink(blog_link) || "/"}
-              className={clsx("nav__item", {
-                "nav__item--active": pathname?.startsWith("/blog"),
-              })}
-            >
-              {blog_label}
-            </Link>
+            {blog_label && blog_link && (
+              <Link
+                href={asLink(blog_link) || "/"}
+                className={clsx("nav__item", {
+                  "nav__item--active": pathname?.startsWith("/blog"),
+                })}
+              >
+                {blog_label}
+              </Link>
+            )}
 
-            <Link
-              href={asLink(about_link) || "/"}
-              className={clsx("nav__item", {
-                "nav__item--active": pathname?.startsWith("/about"),
-              })}
-            >
-              {about_label}
-            </Link>
+            {about_label && about_link && (
+              <Link
+                href={asLink(about_link) || "/"}
+                className={clsx("nav__item", {
+                  "nav__item--active": pathname?.startsWith("/about"),
+                })}
+              >
+                {about_label}
+              </Link>
+            )}
 
             <FiSearch
               className="nav__search"
@@ -94,21 +98,25 @@ export default function Navbar({ settings, searchSettings }: any) {
             <FiX onClick={() => setOpenDrawer(false)} />
           </div>
 
-          <Link
-            href={asLink(blog_link) || "/"}
-            className="drawer__item"
-            onClick={() => setOpenDrawer(false)}
-          >
-            {blog_label}
-          </Link>
+          {blog_link && blog_label && (
+            <Link
+              href={asLink(blog_link) || "/"}
+              className="drawer__item"
+              onClick={() => setOpenDrawer(false)}
+            >
+              {blog_label}
+            </Link>
+          )}
 
-          <Link
-            href={asLink(about_link) || "/"}
-            className="drawer__item"
-            onClick={() => setOpenDrawer(false)}
-          >
-            {about_label}
-          </Link>
+          {about_label && about_link && (
+            <Link
+              href={asLink(about_link) || "/"}
+              className="drawer__item"
+              onClick={() => setOpenDrawer(false)}
+            >
+              {about_label}
+            </Link>
+          )}
 
           <div
             className="drawer__search"

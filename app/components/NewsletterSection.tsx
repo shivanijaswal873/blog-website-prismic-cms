@@ -85,6 +85,7 @@ export default function Newsletter() {
 
   return (
     <section className={styles.newsletter}>
+
       {top_wave_image?.url && (
         <img
           src={top_wave_image.url}
@@ -94,9 +95,12 @@ export default function Newsletter() {
       )}
 
       <div className={styles.newsletter__content}>
-        <div className={styles.newsletter__heading}>
-          <PrismicRichText field={title} />
-        </div>
+
+        {title && title?.length > 0 && (
+          <div className={styles.newsletter__heading}>
+            <PrismicRichText field={title} />
+          </div>
+        )}
 
         <form className={styles.newsletter__form} onSubmit={handleSubmit}>
           <input
@@ -115,9 +119,12 @@ export default function Newsletter() {
           />
         </form>
 
-        <div className={styles.newsletter__description}>
-          <PrismicRichText field={description} />
-        </div>
+        {description && description?.length > 0 && (
+          <div className={styles.newsletter__description}>
+            <PrismicRichText field={description} />
+          </div>
+        )}
+
       </div>
 
       {bottom_wave_imag?.url && (
@@ -131,6 +138,7 @@ export default function Newsletter() {
       {snackbar && (
         <div className={styles.newsletter__snackbar}>{snackbar}</div>
       )}
+
     </section>
   );
 }
