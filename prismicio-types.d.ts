@@ -263,6 +263,101 @@ export type BlogPagesDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for blogs documents
+ */
+interface BlogsDocumentData {
+  /**
+   * title field in *blogs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * featured_image field in *blogs*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  featured_image: prismic.ImageField<never>;
+
+  /**
+   * short_description field in *blogs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.short_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  short_description: prismic.KeyTextField;
+
+  /**
+   * content field in *blogs*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Category field in *blogs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category: prismic.KeyTextField;
+
+  /**
+   * Publish Date field in *blogs*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blogs.publish_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  publish_date: prismic.DateField;
+
+  /**
+   * Is Popular field in *blogs*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: blogs.is_popular
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  is_popular: prismic.BooleanField;
+}
+
+/**
+ * blogs document from Prismic
+ *
+ * - **API ID**: `blogs`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<BlogsDocumentData>, "blogs", Lang>;
+
+/**
  * Content for Error_Page documents
  */
 interface ErrorPageDocumentData {
@@ -859,6 +954,7 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | BlogDocument
   | BlogPagesDocument
+  | BlogsDocument
   | ErrorPageDocument
   | FooterSettingsDocument
   | HomepageDocument
@@ -890,6 +986,16 @@ export interface ContactFormSliceSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   form_title: prismic.KeyTextField;
+
+  /**
+   * map field in *ContactFormSlice → Default → Primary*
+   *
+   * - **Field Type**: GeoPoint
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form_slice.default.primary.map
+   * - **Documentation**: https://prismic.io/docs/fields/geopoint
+   */
+  map: prismic.GeoPointField;
 }
 
 /**
@@ -1823,6 +1929,8 @@ declare module "@prismicio/client" {
       BlogDocumentData,
       BlogPagesDocument,
       BlogPagesDocumentData,
+      BlogsDocument,
+      BlogsDocumentData,
       ErrorPageDocument,
       ErrorPageDocumentData,
       FooterSettingsDocument,

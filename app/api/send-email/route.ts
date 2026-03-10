@@ -103,7 +103,6 @@ Message: ${message}
       { status: 400 }
     );
   } catch (error) {
-    console.error("EMAIL ERROR:", error);
     return NextResponse.json(
       { success: false, message: "Server error" },
       { status: 500 }

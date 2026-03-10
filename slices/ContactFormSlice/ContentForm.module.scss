@@ -8,16 +8,19 @@
     padding-bottom: 100px;
   }
 
+
   &__mapWrapper {
     width: 100%;
-    height: 350px;
+    height: 450px; 
     overflow: hidden;
+    margin-bottom: 40px;
   }
 
-  &__mapImage {
+  &__map {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    border: none;
+    display: block;
   }
 
   &__card {

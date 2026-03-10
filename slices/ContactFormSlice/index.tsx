@@ -18,7 +18,7 @@ type FormDataType = {
 };
 
 const ContactFormSlice = ({ slice }: SliceComponentProps<any>) => {
-  const { map_image, form_title } = slice?.primary;
+  const { map_image, form_title, map } = slice?.primary;
 
   const [formData, setFormData] = useState<FormDataType>({
     name: "",
@@ -38,15 +38,40 @@ const ContactFormSlice = ({ slice }: SliceComponentProps<any>) => {
     placeholder: string;
     textarea?: boolean;
   }[] = [
-    { label: "Name", name: "name", type: "text", placeholder: "Enter your name" },
-    { label: "Email", name: "email", type: "email", placeholder: "Enter your email" },
-    { label: "Phone", name: "phone", type: "text", placeholder: "Enter phone number" },
-    { label: "Subject", name: "subject", type: "text", placeholder: "Enter subject" },
-    { label: "Message", name: "message", textarea: true, placeholder: "Write your message" },
+    {
+      label: "Name",
+      name: "name",
+      type: "text",
+      placeholder: "Enter your name",
+    },
+    {
+      label: "Email",
+      name: "email",
+      type: "email",
+      placeholder: "Enter your email",
+    },
+    {
+      label: "Phone",
+      name: "phone",
+      type: "text",
+      placeholder: "Enter phone number",
+    },
+    {
+      label: "Subject",
+      name: "subject",
+      type: "text",
+      placeholder: "Enter subject",
+    },
+    {
+      label: "Message",
+      name: "message",
+      textarea: true,
+      placeholder: "Write your message",
+    },
   ];
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -116,32 +141,38 @@ const ContactFormSlice = ({ slice }: SliceComponentProps<any>) => {
   return (
     <section className={styles.contactForm__wrapper}>
       <div className={styles.contactForm__mapWrapper}>
-        {map_image?.url && (
-          <PrismicImage
-            field={map_image}
-            className={styles.contactForm__mapImage}
+        {map && (
+          <iframe
+            className={styles.contactForm__map}
+            title="Google Map"
+            loading="lazy"
+            allowFullScreen
+            src={`https://www.google.com/maps?q=${map.latitude},${map.longitude}&z=14&output=embed`}
           />
         )}
       </div>
 
       <div className={styles.contactForm__card}>
-        <div className={styles.contactForm__title}>
-          <PrismicRichText field={form_title} />
-        </div>
+        {form_title && form_title?.length > 0 && (
+          <div className={styles.contactForm__title}>
+            <PrismicRichText field={form_title} />
+          </div>
+        )}
 
         <form className={styles.contactForm__grid} onSubmit={handleSubmit}>
-          {fields.map((field) => (
-            <div
-              key={field.name}
-              className={field.textarea ? styles.contactForm__fullWidth : ""}
-            >
-              <Input
-                {...field}
-                value={formData[field.name]}
-                onChange={handleChange}
-              />
-            </div>
-          ))}
+          {fields?.length > 0 &&
+            fields.map((field) => (
+              <div
+                key={field.name}
+                className={field.textarea ? styles.contactForm__fullWidth : ""}
+              >
+                <Input
+                  {...field}
+                  value={formData[field.name]}
+                  onChange={handleChange}
+                />
+              </div>
+            ))}
 
           <div className={styles.contactForm__buttonWrapper}>
             <button
@@ -156,9 +187,7 @@ const ContactFormSlice = ({ slice }: SliceComponentProps<any>) => {
       </div>
 
       {snackbar && (
-        <div className={styles.contactForm__snackbar}>
-          {snackbar}
-        </div>
+        <div className={styles.contactForm__snackbar}>{snackbar}</div>
       )}
     </section>
   );

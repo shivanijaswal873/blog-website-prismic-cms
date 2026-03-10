@@ -28,30 +28,42 @@ const WorkProcess = ({ slice }: WorkProcessProps) => {
           </div>
         )}
 
-        <div className={styles.work__grid}>
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className={`${styles.work__card} ${
-                item.highlight_card ? styles.highlight : ""
-              }`}
-            >
-              <span className={styles.work__number}>{item?.step_number}</span>
+        {items?.length > 0 && (
+          <div className={styles.work__grid}>
+            {items.map((item, index) => (
+              <div
+                key={index}
+                className={`${styles.work__card} ${
+                  item?.highlight_card ? styles.highlight : ""
+                }`}
+              >
+                {item?.step_number && (
+                  <span className={styles.work__number}>
+                    {item.step_number}
+                  </span>
+                )}
 
-              <h3 className={styles.work__cardTitle}>{item?.step_title}</h3>
+                {item?.step_title && (
+                  <h3 className={styles.work__cardTitle}>
+                    {item.step_title}
+                  </h3>
+                )}
 
-              <div className={styles.work__cardDesc}>
-                <PrismicRichText field={item?.step_description} />
+                {item?.step_description && (
+                  <div className={styles.work__cardDesc}>
+                    <PrismicRichText field={item.step_description} />
+                  </div>
+                )}
+
+                {item?.highlight_card && item?.button && (
+                  <a href="#" className={styles.work__btn}>
+                    Learn More
+                  </a>
+                )}
               </div>
-
-              {item?.highlight_card && item?.button && (
-                <a href="#" className={styles.work__btn}>
-                  Learn More
-                </a>
-              )}
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

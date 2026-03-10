@@ -86,7 +86,7 @@ body {
   transition: $transition-default;
 
   &:hover {
-    box-shadow: 0 6px 18px rgba(124, 78, 228, 0.3);
+    box-shadow: $shadow-d;
     transform: translateY(-1px);
   }
 }

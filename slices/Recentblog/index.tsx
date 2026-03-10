@@ -9,7 +9,7 @@ export type RecentBlogProps = SliceComponentProps<Content.RecentblogSlice>;
 
 const RecentBlog = async ({ slice }: RecentBlogProps) => {
   const client = createClient();
-  const { view_all_label, view_all_link } = slice?.primary;
+  const { view_all_label, view_all_link, section_title } = slice?.primary;
 
   const blogs = await client.getAllByType("blog", {
     orderings: {
@@ -28,9 +28,11 @@ const RecentBlog = async ({ slice }: RecentBlogProps) => {
       <div className={styles.recentBlog__container}>
         
         <div className={styles.recentBlog__header}>
-          <h2 className={styles.recentBlog__title}>
-            {slice.primary.section_title}
-          </h2>
+          {section_title && (
+            <h2 className={styles.recentBlog__title}>
+              {section_title}
+            </h2>
+          )}
 
           {view_all_label && view_all_link && (
             <Button
@@ -42,7 +44,7 @@ const RecentBlog = async ({ slice }: RecentBlogProps) => {
           )}
         </div>
 
-        {hero && (
+        {hero && hero?.data && (
           <BlogItem
             image={hero?.data?.featured_image}
             category={hero?.data?.category}
@@ -55,21 +57,23 @@ const RecentBlog = async ({ slice }: RecentBlogProps) => {
           />
         )}
 
-        <div className={styles.recentBlog__grid}>
-          {cards.map((item) => (
-            <BlogItem
-              key={item?.id}
-              image={item?.data?.featured_image}
-              category={item?.data?.category}
-              date={item?.data?.publish_date}
-              title={item?.data?.title}
-              description={item?.data?.short_description}
-              button_label="Read More"
-              button_link={`/blog/${item?.uid}`}
-              variant="card"
-            />
-          ))}
-        </div>
+        {cards?.length > 0 && (
+          <div className={styles.recentBlog__grid}>
+            {cards.map((item) => (
+              <BlogItem
+                key={item?.id}
+                image={item?.data?.featured_image}
+                category={item?.data?.category}
+                date={item?.data?.publish_date}
+                title={item?.data?.title}
+                description={item?.data?.short_description}
+                button_label="Read More"
+                button_link={`/blog/${item?.uid}`}
+                variant="card"
+              />
+            ))}
+          </div>
+        )}
 
       </div>
     </section>

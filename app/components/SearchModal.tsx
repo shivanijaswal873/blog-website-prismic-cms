@@ -56,8 +56,7 @@ export default function SearchModal({
         });
 
         setResults(response as Blog[]);
-      } catch (error) {
-        console.error("Search error:", error);
+      } catch {
         setResults([]);
       } finally {
         setLoading(false);
@@ -94,10 +93,17 @@ export default function SearchModal({
         onClick={(e) => e?.stopPropagation()}
       >
         <div className={styles.searchModal__header}>
-          <div className={styles.searchModal__headerContent}>
-            <h2 className={styles.searchModal__title}>{data?.title}</h2>
-            <p className={styles.searchModal__subtitle}>{data?.subtitle}</p>
-          </div>
+          {(data?.title || data?.subtitle) && (
+            <div className={styles.searchModal__headerContent}>
+              {data?.title && (
+                <h2 className={styles.searchModal__title}>{data?.title}</h2>
+              )}
+
+              {data?.subtitle && (
+                <p className={styles.searchModal__subtitle}>{data?.subtitle}</p>
+              )}
+            </div>
+          )}
 
           <FiX className={styles.searchModal__closeIcon} onClick={onClose} />
         </div>
@@ -108,7 +114,7 @@ export default function SearchModal({
           <input
             className={styles.searchModal__searchInput}
             type="text"
-            placeholder={data?.placeholder}
+            placeholder={data?.placeholder || "Search..."}
             value={query}
             onChange={(e) => setQuery(e?.target?.value)}
             autoFocus
@@ -121,31 +127,38 @@ export default function SearchModal({
           {!loading && query && results?.length > 0 && (
             <>
               <p className={styles.searchModal__resultCount}>
-                {results.length} result
-                {results.length !== 1} found
+                {results.length} result{results.length !== 1 && "s"} found
               </p>
 
-              {results?.map((blog) => (
-                <Link
-                  key={blog?.id}
-                  href={`/blog/${blog?.uid}`}
-                  className={styles.searchModal__resultItem}
-                  onClick={onClose}
-                >
-                  {blog?.data?.title}
-                </Link>
-              ))}
+              {results?.map(
+                (blog) =>
+                  blog?.data?.title && (
+                    <Link
+                      key={blog?.id}
+                      href={`/blog/${blog?.uid}`}
+                      className={styles.searchModal__resultItem}
+                      onClick={onClose}
+                    >
+                      {blog?.data?.title}
+                    </Link>
+                  ),
+              )}
             </>
           )}
 
           {!loading && query && results?.length === 0 && (
             <div className={styles.searchModal__emptyState}>
-              <h4 className={styles.searchModal__emptyTitle}>
-                {data?.empty_title}
-              </h4>
-              <p className={styles.searchModal__emptyText}>
-                {data?.empty_description}
-              </p>
+              {data?.empty_title && (
+                <h4 className={styles.searchModal__emptyTitle}>
+                  {data?.empty_title}
+                </h4>
+              )}
+
+              {data?.empty_description && (
+                <p className={styles.searchModal__emptyText}>
+                  {data?.empty_description}
+                </p>
+              )}
             </div>
           )}
         </div>

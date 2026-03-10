@@ -12,7 +12,6 @@ export default async function BlogPage() {
   return (
     <section className={styles.blogPage}>
       <div className={styles.blogPage__container}>
-        
         {blogPage?.data?.subheading && (
           <p className={styles.blogPage__subHeading}>
             {blogPage.data.subheading}
@@ -20,9 +19,7 @@ export default async function BlogPage() {
         )}
 
         {blogPage?.data?.heading && (
-          <h1 className={styles.blogPage__heading}>
-            {blogPage.data.heading}
-          </h1>
+          <h1 className={styles.blogPage__heading}>{blogPage.data.heading}</h1>
         )}
 
         {blogPage?.data?.description?.length > 0 && (

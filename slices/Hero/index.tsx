@@ -51,15 +51,22 @@ export default async function Hero() {
 
       <div className={styles.hero__inner}>
         <div className={styles.hero__content}>
-          <span className={styles.hero__label}>{featured_label}</span>
 
-          <div className={styles.hero__title}>
-            <PrismicRichText field={featured_title} />
-          </div>
+          {featured_label && (
+            <span className={styles.hero__label}>{featured_label}</span>
+          )}
 
-          <div className={styles.hero__desc}>
-            <PrismicRichText field={featured_description} />
-          </div>
+          {featured_title && featured_title?.length > 0 && (
+            <div className={styles.hero__title}>
+              <PrismicRichText field={featured_title} />
+            </div>
+          )}
+
+          {featured_description && featured_description?.length > 0 && (
+            <div className={styles.hero__desc}>
+              <PrismicRichText field={featured_description} />
+            </div>
+          )}
 
           {featured_button_text && featured_button_link && (
             <Button
