@@ -14,8 +14,7 @@ export default async function Page({
 
   try {
     const page = await client.getByUID("page", uid);
-    console.log("UID:", uid);
-    console.log("SLICES:", page.data.slices);
+ 
 
     return (
       <>

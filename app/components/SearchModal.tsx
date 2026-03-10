@@ -57,7 +57,6 @@ export default function SearchModal({
 
         setResults(response as Blog[]);
       } catch (error) {
-        console.error("Search error:", error);
         setResults([]);
       } finally {
         setLoading(false);

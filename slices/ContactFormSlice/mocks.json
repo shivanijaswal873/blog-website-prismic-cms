@@ -30,6 +30,13 @@
 				"__TYPE__": "FieldContent",
 				"value": "mouse",
 				"type": "Text"
+			},
+			"map": {
+				"__TYPE__": "GeoPointContent",
+				"position": {
+					"lat": 48.8841267,
+					"lng": 2.3300579
+				}
 			}
 		},
 		"items": []

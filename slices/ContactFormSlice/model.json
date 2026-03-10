@@ -26,6 +26,12 @@
             "label": "form_title",
             "placeholder": ""
           }
+        },
+        "map": {
+          "type": "GeoPoint",
+          "config": {
+            "label": "map"
+          }
         }
       },
       "items": {}

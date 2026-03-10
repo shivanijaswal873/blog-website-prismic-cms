@@ -32,36 +32,40 @@ export default async function BlogDetail(props) {
   return (
     <section className={styles.blogDetail}>
       <div className={styles.blogDetail__container}>
-
         <div className={styles.blogDetail__meta}>
-          <span className={styles.blogDetail__category}>
-            {blog.data.category}
-          </span>
-          <span className={styles.blogDetail__date}>
-            {formattedDate}
-          </span>
+          {blog?.data?.category && (
+            <span className={styles.blogDetail__category}>
+              {blog?.data?.category}
+            </span>
+          )}
+
+          {formattedDate && (
+            <span className={styles.blogDetail__date}>{formattedDate}</span>
+          )}
         </div>
 
-        <h1 className={styles.blogDetail__title}>
-          {blog.data.title}
-        </h1>
+        {blog?.data?.title && (
+          <h1 className={styles.blogDetail__title}>{blog?.data?.title}</h1>
+        )}
 
-        {blog.data.featured_image?.url && (
+        {blog?.data?.featured_image?.url && (
           <img
-            src={blog.data.featured_image.url}
-            alt={blog.data.featured_image.alt || ""}
+            src={blog?.data?.featured_image.url}
+            alt={blog?.data?.featured_image.alt || "image"}
             className={styles.blogDetail__mainImage}
           />
         )}
 
-        <div className={styles.blogDetail__content}>
-          <PrismicRichText field={blog.data.content} />
-        </div>
+        {blog?.data?.content && (
+          <div className={styles.blogDetail__content}>
+            <PrismicRichText field={blog?.data?.content} />
+          </div>
+        )}
 
-        {blog.data.quote_text && (
+        {blog?.data?.quote_text && (
           <div className={styles.blogDetail__quote}>
-            <p>{blog.data.quote_text}</p>
-            <span>- {blog.data.quote_author}</span>
+            <p>{blog?.data?.quote_text}</p>
+            <span> {blog?.data?.quote_author}</span>
           </div>
         )}
 
@@ -73,18 +77,16 @@ export default async function BlogDetail(props) {
           />
         )}
 
-        {blog.data.description && (
+        {blog?.data?.description && (
           <div className={styles.blogDetail__description}>
-            <PrismicRichText field={blog.data.description} />
+            <PrismicRichText field={blog?.data?.description} />
           </div>
         )}
-
       </div>
 
       {popularBlogs.length > 0 && (
         <div className={styles.blogDetail__popularWrapper}>
           <div className={styles.blogDetail__popularContainer}>
-
             <div className={styles.blogDetail__popularHeader}>
               <h2>Popular Post</h2>
               <Button label="View All" href="/blog" variant="primary" />
@@ -92,10 +94,9 @@ export default async function BlogDetail(props) {
 
             <div className={styles.blogDetail__popularGrid}>
               {popularBlogs.map((item) => (
-                <BlogCard key={item.id} blog={item} />
+                <BlogCard key={item?.id} blog={item} />
               ))}
             </div>
-
           </div>
         </div>
       )}
